@@ -1,0 +1,60 @@
+{
+  "coaches": [
+    {
+      "name": "saba",
+      "lastname": "jokhadze",
+      "email": "saba2@gmail.com",
+      "salary": 1500,
+      "age": "12312",
+      "phoneNumber": "+995123123123",
+      "password": "123123123",
+      "id": 1,
+      "status": "coach",
+      "plans": []
+    }
+  ],
+  "users": [
+    {
+      "name": "saba",
+      "lastname": "joxadze",
+      "email": "saba@gmail.com",
+      "phoneNumber": "123123123",
+      "password": "123123123",
+      "likedPlans": [
+        {
+          "name": "gg",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            }
+          ]
+        }
+      ],
+      "age": "12312",
+      "id": 1,
+      "plans": [
+        {
+          "name": "gg",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            }
+          ]
+        }
+      ],
+      "status": "user"
+    }
+  ]
+}

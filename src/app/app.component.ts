@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'finalProject';
+  exercise = {
+    "bodyPart": "upper arms",
+    "equipment": "band",
+    "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_43.gif",
+    "id": 43,
+    "name": "band alternating biceps curl",
+    "target": "biceps"
+  };
 }

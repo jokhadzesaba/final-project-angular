@@ -1,0 +1,23 @@
+<div *ngIf="userPlans | async as user">
+    <div *ngIf="user">
+      <h2>{{ user.name }} {{ user.lastname }}</h2>
+      <p>Email: {{ user.email }}</p>
+      <p>Phone Number: {{ user.phoneNumber }}</p>
+    </div>w
+    <div *ngFor="let plan of user.plans">
+      <div style="display: flex; align-items: center;">
+        <button (click)="showPlan(plan)">{{ plan.name }}</button>
+        <button (click)="deletePlan(plan)" style="margin-left: 10px;">Delete Plan</button>
+      </div>
+      <div *ngIf="selectedPlan && selectedPlan.name === plan.name">
+        <div *ngFor="let exercise of selectedPlan.exercises">
+          <div style="display: flex; align-items: center;">
+            <p>{{ exercise.bodyPart }}</p>
+            <button (click)="deleteExercise(selectedPlan, exercise)" style="margin-left: 10px;">Delete Exercise</button>
+          </div>
+          <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+        </div>
+      </div>
+    </div>
+  </div>
+  

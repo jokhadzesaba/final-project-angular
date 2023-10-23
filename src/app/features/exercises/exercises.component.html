@@ -1,0 +1,30 @@
+<button *ngIf="status === 'user' || 'coach'" (click)="startCreatingPlan()">Create your plan</button>
+<input type="text" placeholder="Enter plan name" [(ngModel)]="planName" *ngIf="creatingPlan" />
+<!-- <button routerLink="/user-info" *ngIf="logService.logged | async">My Info</button> -->
+<button (click)="showExercises()">Show</button>
+<button (click)="createPlan()" *ngIf="createPlan">confirm</button>
+<button (click)="startCreatingPlan()" *ngIf="creatingPlan">cancel</button>
+<!-- In your ExercisesComponent template -->
+<button *ngIf="service.selectedPlan" (click)="confirm()">Add Exercise to Existing Plan</button>
+<!-- Dropdown for selecting the body part for sorting -->
+<select [(ngModel)]="sortBodyPart">
+  <option value="">Sort by</option>
+  <option *ngFor="let part of bodyParts" [value]="part">{{ part }}</option>
+</select>
+
+<!-- Button to trigger sortExercises method -->
+
+
+
+<div class="container" *ngFor="let bodyPart of bodyParts">
+  <h2>{{ bodyPart }}</h2>
+  <div>
+    <div class="gg" *ngFor="let exercise of exercises[bodyPart] | slice : 0 : 20">
+      <input type="checkbox" [(ngModel)]="exercise.selected" *ngIf="creatingPlan" /> 
+      <p>{{  exercise.name }}</p>
+      <p>Target: {{ exercise.target }}</p>
+      <p>Equipment: {{ exercise.equipment }}</p>
+      <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div *ngIf="status$ | async as status" >
+  <p>Status: {{status}}</p>
+  <div *ngIf="status !== 'guest' ">
+    <button *ngIf="status === 'user'"  routerLink="/user-info">Profile</button>
+    <button *ngIf="status === 'coach'"  routerLink="/coach-info">Profile</button>
+  </div>
+</div>
+<p>idk</p>
+<button routerLink="/exercises">see Exercises</button>
+
+<div *ngFor="let plans of coaches$ | async">
+  <p>{{ plans.name }}</p>
+  <p>{{ plans.email }}</p>
+  <div *ngFor="let plan of plans.plans; let i = index">
+    <p>plan {{ plan.name }}</p>
+    <p>likes {{plan.likes}}</p>
+    <button (click)="likePlan(plan)" >like</button>
+    <button (click)="unlikePlan(plan)" >unlike</button>
+    <div *ngFor="let exercises of plan.exercises">
+      <p>{{ exercises.id }}</p>
+    </div>
+  </div>
+</div>

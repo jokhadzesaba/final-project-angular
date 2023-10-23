@@ -1,0 +1,8 @@
+<div *ngFor="let coach of allCoach">
+    <div>
+        <p>Name: {{coach.name}}</p>
+        <p>Email: {{coach.email}}</p>
+        <p>phoneNumber: {{coach.phoneNumber}}</p>
+        <button (click)="navigateToCoach(coach.id!)">View Details</button>
+    </div>
+</div>

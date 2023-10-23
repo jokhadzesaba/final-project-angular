@@ -1,0 +1,37 @@
+<div *ngIf="userPlans | async as user">
+  <div *ngIf="user">
+    <h2>{{ user.name }} {{ user.lastname }}</h2>
+    <p>Email: {{ user.email }}</p>
+    <p>Phone Number: {{ user.phoneNumber }}</p>
+  </div>
+
+  <div *ngIf="user.likedPlans && user.likedPlans.length">
+    <h3>Liked Plans:</h3>
+    <div *ngFor="let likedPlan of user.likedPlans">
+      <button (click)="showPlan(likedPlan)">{{ likedPlan.name }}</button>
+    </div>
+  </div>
+
+  <div>
+    <h3>Your Plans:</h3>
+    <div *ngFor="let plan of user.plans">
+      <div style="display: flex; align-items: center;">
+        <button (click)="showPlan(plan)">{{ plan.name }}</button>
+        <button (click)="deletePlan(plan)" style="margin-left: 10px;">Delete Plan</button>
+        <button (click)="addExercise(plan)" style="margin-left: 10px;">Add Exercise</button>
+      </div>
+      <div *ngIf="selectedPlan && selectedPlan.name === plan.name">
+        <h4>Exercises for {{ plan.name }}:</h4>
+        <div *ngFor="let exercise of plan.exercises; let i = index">
+          <div style="display: flex; align-items: center;">
+            <p>{{ exercise.bodyPart }}</p>
+            <button (click)="deleteExercise(plan, exercise)" style="margin-left: 10px;">Delete Exercise</button>
+            <button *ngIf="i > 0" (click)="moveExercise(plan, exercise, -1)" style="margin-left: 10px;">Move Up</button>
+            <button *ngIf="i < plan.exercises.length - 1" (click)="moveExercise(plan, exercise, 1)" style="margin-left: 10px;">Move Down</button>
+          </div>
+          <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

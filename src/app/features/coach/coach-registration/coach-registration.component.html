@@ -1,0 +1,22 @@
+
+<form [formGroup]="form">
+    <label>name:<input formControlName="name" /></label>
+    <app-registration-error-handling [control]="name"></app-registration-error-handling>
+    <label>last Name:<input formControlName="lastname" /></label>
+    <app-registration-error-handling [control]="lastname"></app-registration-error-handling>
+    <label>email:<input formControlName="email" /></label>
+    <app-registration-error-handling [control]="email"></app-registration-error-handling>
+    <label>age:<input formControlName="age" /></label>
+    <app-registration-error-handling [control]="salary"></app-registration-error-handling>
+    <label>salary:<input formControlName="salary" /></label>
+    <app-registration-error-handling [control]="age"></app-registration-error-handling>
+    <label>phone Number:<input formControlName="phoneNumber" /></label>
+    <app-registration-error-handling [control]="phoneNumber"></app-registration-error-handling>
+    <label>password:<input formControlName="password" /></label>
+    <app-registration-error-handling [control]="password"></app-registration-error-handling>
+    <label>Confirm password:<input formControlName="confirmPassword" /></label>
+    <!-- <app-registration-error-handling [control]="confirmPassword"></app-registration-error-handling> -->
+    <button [disabled]="form.invalid" (click)="submit()">registration</button>
+  </form>
+
+  

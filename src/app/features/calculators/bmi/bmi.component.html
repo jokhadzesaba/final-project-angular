@@ -1,0 +1,19 @@
+<div>
+  <h2>BMI Calculator</h2>
+  <form [formGroup]="bmiForm">
+    <div>
+      <label for="height">Height (in cm):</label>
+      <input type="number" formControlName="height" id="height" required>
+      <span class="error" *ngIf="bmiForm.get('height')!.invalid && (bmiForm.get('height')!.dirty || bmiForm.get('height')!.touched)">Please enter a valid height.</span>
+    </div>
+    <div>
+      <label for="weight">Weight (in kg):</label>
+      <input type="number" formControlName="weight" id="weight" required>
+      <span class="error" *ngIf="bmiForm.get('weight')!.invalid && (bmiForm.get('weight')!.dirty || bmiForm.get('weight')!.touched)">Please enter a valid weight.</span>
+    </div>
+    <button (click)="calculateBMI()" [disabled]="!bmiForm.valid">Calculate BMI</button>
+  </form>
+  <div *ngIf="bmiResult !== null">
+    <p>Your BMI is: {{ bmiResult | number: '1.1-1' }}</p>
+  </div>
+</div>

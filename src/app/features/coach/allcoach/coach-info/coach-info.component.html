@@ -1,0 +1,16 @@
+<div *ngIf="coach">
+    <p>{{coach.name}}</p>
+    <p>{{coach.email}}</p>
+    <p>plans</p>
+    <div *ngFor="let plan of coach.plans">
+        <button (click)="showPlanDetails(plan)">{{plan.name}}</button>
+        <div *ngIf="selectedPlan && selectedPlan.name === plan.name">
+          <h2>Plan Details</h2>
+          <p>Name: {{selectedPlan.name}}</p>
+          <div *ngFor="let exercise of plan.exercises">
+            <p>{{exercise.target}}</p>
+            <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+          </div>
+        </div>
+    </div>
+</div>

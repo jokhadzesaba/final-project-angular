@@ -1,0 +1,16 @@
+.container{
+    // display: flex;
+    background-color: red;
+    >div{
+        >div{
+            >p:first-child{
+                font-weight: bold;
+            }
+        }
+    }
+    
+}
+img{
+    width: 200px;
+    height: 200px;
+}
