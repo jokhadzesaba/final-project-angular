@@ -2,7 +2,7 @@
   <p>Status: {{status}}</p>
   <div *ngIf="status !== 'guest' ">
     <button *ngIf="status === 'user'"  routerLink="/user-info">Profile</button>
-    <button *ngIf="status === 'coach'"  routerLink="/coach-info">Profile</button>
+    <button *ngIf="status === 'coach'"  routerLink="/single-coach-info">Profile</button>
   </div>
 </div>
 <p>idk</p>
@@ -13,7 +13,6 @@
   <p>{{ plans.email }}</p>
   <div *ngFor="let plan of plans.plans; let i = index">
     <p>plan {{ plan.name }}</p>
-    <p>likes {{plan.likes}}</p>
     <button (click)="likePlan(plan)" >like</button>
     <button (click)="unlikePlan(plan)" >unlike</button>
     <div *ngFor="let exercises of plan.exercises">

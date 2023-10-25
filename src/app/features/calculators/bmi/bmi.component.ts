@@ -5,10 +5,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   selector: 'app-bmi',
   templateUrl: './bmi.component.html',
   styleUrls: ['./bmi.component.scss'],
-  // changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class BMIComponent {
-  bmiForm!: FormGroup; // Add non-null assertion operator
+  bmiForm!: FormGroup;
   bmiResult: number | null = null;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -21,8 +21,8 @@ export class BMIComponent {
   }
 
   calculateBMI(): void {
-    const height = this.bmiForm.get('height')!.value; // Add non-null assertion operator
-    const weight = this.bmiForm.get('weight')!.value; // Add non-null assertion operator
+    const height = this.bmiForm.get('height')!.value;
+    const weight = this.bmiForm.get('weight')!.value; 
 
     if (height && weight) {
       const heightInMeters = height / 100;

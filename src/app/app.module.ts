@@ -13,6 +13,8 @@ import { CalculatorModule } from './features/calculators/calculate.module';
 import { CoachModule } from './features/coach/coach.module';
 import { UserModule } from './features/user/user.module';
 import { MainModule } from './features/main-page/main.module';
+import { ErrorPageComponent } from './sharedComponent/error-page/error-page.component';
+import { SharedService } from './features/sharedServices/shared.service';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { MainModule } from './features/main-page/main.module';
     AppComponent,
     ExercisesComponent,
     TopBarComponent,
+    ErrorPageComponent,
     
   ],
   imports: [
@@ -35,7 +38,7 @@ import { MainModule } from './features/main-page/main.module';
     UserModule,
     MainModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

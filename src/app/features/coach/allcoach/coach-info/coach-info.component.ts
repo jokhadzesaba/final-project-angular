@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
@@ -8,7 +8,8 @@ import { Plan } from 'src/app/shared/interfaces/plan';
 @Component({
   selector: 'app-coach-info',
   templateUrl: './coach-info.component.html',
-  styleUrls: ['./coach-info.component.scss']
+  styleUrls: ['./coach-info.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class CoachInfoComponent implements OnInit {
   public coach!: Coach;

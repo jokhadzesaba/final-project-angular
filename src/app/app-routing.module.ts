@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExercisesComponent } from './features/exercises/exercises.component';
 import { MainPageComponent } from './features/main-page/main-page.component';
+import { ErrorPageComponent } from './sharedComponent/error-page/error-page.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'coach-feeature',
+    path: 'coach-feature',
     loadChildren: () =>
       import('./features/coach/coach.module').then((m) => m.CoachModule),
   },
@@ -42,6 +43,11 @@ const routes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full',
   },
+  {
+    path: 'error',
+    component:ErrorPageComponent
+  },
+
 ];
 
 @NgModule({

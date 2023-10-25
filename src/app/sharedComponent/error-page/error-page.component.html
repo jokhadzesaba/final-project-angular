@@ -1,0 +1,9 @@
+
+<div>
+    <h2>Error Page</h2>
+    <h3 *ngIf="errorMessage !== 'Everything Is Okay For Now'">something went wrong</h3>
+    <h3 *ngIf="errorMessage !== 'Everything Is Okay For Now'">please try again</h3>
+    <p *ngIf="errorMessage !== 'Everything Is Okay For Now'"> Error:</p>
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+  

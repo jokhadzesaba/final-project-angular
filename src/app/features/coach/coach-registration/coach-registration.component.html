@@ -1,22 +1,31 @@
-
-<form [formGroup]="form">
-    <label>name:<input formControlName="name" /></label>
-    <app-registration-error-handling [control]="name"></app-registration-error-handling>
-    <label>last Name:<input formControlName="lastname" /></label>
-    <app-registration-error-handling [control]="lastname"></app-registration-error-handling>
-    <label>email:<input formControlName="email" /></label>
-    <app-registration-error-handling [control]="email"></app-registration-error-handling>
-    <label>age:<input formControlName="age" /></label>
-    <app-registration-error-handling [control]="salary"></app-registration-error-handling>
-    <label>salary:<input formControlName="salary" /></label>
-    <app-registration-error-handling [control]="age"></app-registration-error-handling>
-    <label>phone Number:<input formControlName="phoneNumber" /></label>
-    <app-registration-error-handling [control]="phoneNumber"></app-registration-error-handling>
-    <label>password:<input formControlName="password" /></label>
-    <app-registration-error-handling [control]="password"></app-registration-error-handling>
-    <label>Confirm password:<input formControlName="confirmPassword" /></label>
-    <!-- <app-registration-error-handling [control]="confirmPassword"></app-registration-error-handling> -->
-    <button [disabled]="form.invalid" (click)="submit()">registration</button>
-  </form>
-
+  <div class="container">
+    <div class="registration form">
+      <header>Signup</header>
+      <form [formGroup]="form">
+        <input formControlName="name" placeholder="Enter your name(required)" />
+        <input formControlName="lastname" placeholder="Enter your lastname(required)" />
+        <input formControlName="email" placeholder="Enter your email(required) " />
+        <input formControlName="phoneNumber" placeholder="Enter your phoneNumber(required) " />
+        <input formControlName="nickName" placeholder="Enter your nickName(required) " />
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password(required)"
+        />
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Enter your confirmPassword(required)"
+        />
+        <input formControlName="age" placeholder="Enter your age(required)" />
+        <button [disabled]="form.invalid" (click)="submit" routerLink="/login">Registrate As Coach</button>
+      </form>
+      <div class="signup">
+        <span class="signup"
+          >Already have an account?
+          <label routerLink="/login" for="check">Login</label>
+        </span>
+      </div>
+    </div>
+  </div>
   

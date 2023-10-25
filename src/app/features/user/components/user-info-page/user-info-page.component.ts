@@ -11,7 +11,7 @@ import { Plan } from 'src/app/shared/interfaces/plan';
 import { User } from 'src/app/shared/interfaces/user';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { RequestedPlan } from 'src/app/shared/interfaces/requestedPlan';
 
 @Component({
   selector: 'app-user-info-page',
@@ -24,6 +24,7 @@ export class UserInfoPageComponent implements OnInit {
   public userPlans!: Observable<User>;
   user!: User;
   public selectedPlan!: Plan | null;
+
   addExercise(plan: Plan) {
     this.service.selectedPlan = plan;
     this.router.navigate(['/exercises']);
@@ -37,6 +38,16 @@ export class UserInfoPageComponent implements OnInit {
       this.selectedPlan = null;
     } else {
       this.selectedPlan = plan;
+    }
+  }
+  showRequestedPlan(requestedPlan: RequestedPlan) {
+    if (this.selectedPlan && this.selectedPlan.name === requestedPlan.planName) {
+      this.selectedPlan = null;
+    } else {
+      this.selectedPlan = {
+        name: requestedPlan.planName,
+        exercises: requestedPlan.exercises,
+      };
     }
   }
 
@@ -118,5 +129,13 @@ export class UserInfoPageComponent implements OnInit {
         }
       }
     }
+  }
+  deleteRequestedPlan(plan:RequestedPlan){
+      this.service.deleteRequestedPlan(plan, this.id!)
+      this.service.getUserOrCoach(this.id!, 'users').subscribe((user) => {
+        this.user = user;
+        this.getExercises();
+        this.cd.detectChanges();
+      });
   }
 }

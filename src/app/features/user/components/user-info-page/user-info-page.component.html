@@ -5,10 +5,35 @@
     <p>Phone Number: {{ user.phoneNumber }}</p>
   </div>
 
+
+<div *ngIf="user.requestedPlans && user.requestedPlans.length">
+  <h3>Requested Plans:</h3>
+  <div *ngFor="let requestedPlan of user.requestedPlans">
+    <div style="display: flex; align-items: center;">
+      <button (click)="showRequestedPlan(requestedPlan)">{{ requestedPlan.planName }}</button>
+      <button (click)="deleteRequestedPlan(requestedPlan)">Delete</button>
+    </div>
+    <div *ngIf="selectedPlan && selectedPlan.name === requestedPlan.planName">
+      <h4>Exercises for {{ requestedPlan.planName }}:</h4>
+      <div *ngFor="let exercise of requestedPlan.exercises; let i = index">
+        <div style="display: flex; align-items: center;">
+          <p>{{ exercise.bodyPart }}</p>
+        </div>
+        <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
   <div *ngIf="user.likedPlans && user.likedPlans.length">
     <h3>Liked Plans:</h3>
     <div *ngFor="let likedPlan of user.likedPlans">
       <button (click)="showPlan(likedPlan)">{{ likedPlan.name }}</button>
+      <button (click)="deletePlan(likedPlan)" style="margin-left: 10px;">Delete Plan</button>
+      <button (click)="addExercise(likedPlan)" style="margin-left: 10px;">Add Exercise</button>
     </div>
   </div>
 

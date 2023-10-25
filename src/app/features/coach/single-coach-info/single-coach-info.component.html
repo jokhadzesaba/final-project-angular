@@ -1,10 +1,17 @@
-<div *ngIf="userPlans | async as user">
-    <div *ngIf="user">
-      <h2>{{ user.name }} {{ user.lastname }}</h2>
-      <p>Email: {{ user.email }}</p>
-      <p>Phone Number: {{ user.phoneNumber }}</p>
-    </div>w
-    <div *ngFor="let plan of user.plans">
+<div *ngIf="coachPlans | async as coach">
+    <div *ngIf="coach">
+      <h2>{{ coach.name }} {{ coach.lastname }}</h2>
+      <p>Email: {{ coach.email }}</p>
+      <p>Phone Number: {{ coach.phoneNumber }}</p>
+    </div>
+    <h1>Requests</h1>
+    <div *ngFor="let request of coach.requests; let i = index">
+        <p>description: {{request.description}}</p>
+        <p>User Id: {{request.userId}}</p>
+        <button (click)="makePlan(request.userId)">Make Plan For This User</button>
+        <button (click)="deleteRequest(request.id)">Delete Request</button>
+    </div>
+    <div *ngFor="let plan of coach.plans">
       <div style="display: flex; align-items: center;">
         <button (click)="showPlan(plan)">{{ plan.name }}</button>
         <button (click)="deletePlan(plan)" style="margin-left: 10px;">Delete Plan</button>

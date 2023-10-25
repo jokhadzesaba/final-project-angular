@@ -3,6 +3,7 @@
     {
       "name": "saba",
       "lastname": "jokhadze",
+      "nickName": "bk-201",
       "email": "saba2@gmail.com",
       "salary": 1500,
       "age": "12312",
@@ -10,17 +11,7 @@
       "password": "123123123",
       "id": 1,
       "status": "coach",
-      "plans": []
-    }
-  ],
-  "users": [
-    {
-      "name": "saba",
-      "lastname": "joxadze",
-      "email": "saba@gmail.com",
-      "phoneNumber": "123123123",
-      "password": "123123123",
-      "likedPlans": [
+      "plans": [
         {
           "name": "gg",
           "exercises": [
@@ -36,6 +27,19 @@
           ]
         }
       ],
+      "requests": []
+    }
+  ],
+  "users": [
+    {
+      "name": "saba",
+      "lastname": "joxadze",
+      "email": "saba@gmail.com",
+      "nickName": "whiteBeard",
+      "phoneNumber": "123123123",
+      "password": "123123123",
+      "likedPlans": [],
+      "requestedPlans": [],
       "age": "12312",
       "id": 1,
       "plans": [
@@ -54,7 +58,13 @@
           ]
         }
       ],
-      "status": "user"
+      "status": "user",
+      "requests": [
+        {
+          "userId": 1,
+          "description": "ss"
+        }
+      ]
     }
   ]
 }

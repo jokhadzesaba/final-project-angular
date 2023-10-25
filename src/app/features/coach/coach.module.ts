@@ -7,13 +7,14 @@ import { SingleCoachInfoComponent } from './single-coach-info/single-coach-info.
 import { CoachInfoComponent } from './allcoach/coach-info/coach-info.component';
 import { CoachRegistrationComponent } from './coach-registration/coach-registration.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CoachPageGuard } from './coach-page.guard';
 
 
 
 @NgModule({
   declarations: [AllcoachComponent,SingleCoachInfoComponent,CoachInfoComponent,CoachRegistrationComponent],
   imports: [ReactiveFormsModule, CommonModule, CoachRoutingModule,SharedModule],
-  providers: [],
+  providers: [CoachPageGuard],
   exports: [],
 })
 export class CoachModule {}

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, Validators, FormControl, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
 import { User } from 'src/app/shared/interfaces/user';
@@ -16,7 +16,8 @@ export const matchPassword: ValidatorFn = (
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
-  styleUrls: ['./user-registration.component.scss']
+  styleUrls: ['./user-registration.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class UserRegistrationComponent {
   constructor(private fb: FormBuilder, private http: HttpClient, private service:RegistrationUpdateDeleteEditService) {}
@@ -29,6 +30,7 @@ export class UserRegistrationComponent {
     password: ['', [Validators.required,Validators.pattern(/^[a-zA-Z0-9]+$/), Validators.minLength(8),]],
     confirmPassword: ['', [Validators.required]],
     age: ['', [Validators.required,]],
+    nickName:['',[Validators.required,Validators.minLength(4),]]
     },
   {validators:matchPassword}
   );
@@ -38,18 +40,22 @@ export class UserRegistrationComponent {
   phoneNumber = this.form.get('phoneNumber') as FormControl;
   password = this.form.get('password') as FormControl;
   email = this.form.get('email') as FormControl;
+  nickName = this.form.get('nickName') as FormControl
 
   public submit() {
     const employee: User = {
       name: this.form.getRawValue().name!,
       lastname: this.form.getRawValue().lastname!,
+      nickName:this.form.getRawValue().nickName!,
       email: this.form.getRawValue().email!,
       phoneNumber: this.form.getRawValue().phoneNumber!,
       password: this.form.getRawValue().password!,
       age: this.form.getRawValue().age!,
       plans:[],
       likedPlans:[],
-      status:"user"
+      status:"user",
+      requestedPlans:[],
+
     };
     this.service.addUserOrCoaches(employee, "users").subscribe(()=>{
       this.form.reset()

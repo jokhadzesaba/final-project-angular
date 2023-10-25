@@ -8,7 +8,8 @@ import { DisplayExercisesService } from './exercisesService/display-exercises.se
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { RegistrationUpdateDeleteEditService } from '../sharedServices/registration-update-delete-edit.service';
 import { Exercise } from 'src/app/shared/interfaces/exercise';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from '../sharedServices/shared.service';
 
 @Component({
   selector: 'app-exercises',
@@ -33,7 +34,6 @@ export class ExercisesComponent implements OnInit {
   id = 0;
   planName: string = '';
   creatingPlan: boolean = false;
-  updatingPlan: boolean = false;
   sortBodyPart: string = '';
 
   public exercises: { [key: string]: Exercise[] } = {};
@@ -42,19 +42,24 @@ export class ExercisesComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private cd: ChangeDetectorRef,
     private router: Router,
-    public service: RegistrationUpdateDeleteEditService
+    public service: RegistrationUpdateDeleteEditService,
+    public sharedService: SharedService,
+    private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
     this.service.loggedUser.subscribe((res) => {
       this.status = res.status!;
       this.id = res.id!;
     });
+    this.sharedService.creatingPlan$.subscribe((value) => {
+      this.creatingPlan = value;
+    });
   }
   showExercises() {
     this.bodyParts.forEach((bodyPart) => {
       this.exerciseService.getExercises(bodyPart).subscribe((data: any) => {
         this.exercises = { ...this.exercises, [bodyPart]: data };
-        this.sortExercises(); 
+        this.sortExercises();
         this.cd.detectChanges();
       });
     });
@@ -112,5 +117,19 @@ export class ExercisesComponent implements OnInit {
     const selectedExercises: Exercise[] = this.getSelectedExercises();
     this.service.addExercisesToPlan(selectedExercises, 'users', this.id);
     this.router.navigate(['/user-info']);
+  }
+  creatingPlanForCertainUSer() {
+    const selectedExercises:Exercise[] = this.getSelectedExercises()
+    this.route.queryParams.subscribe((params) => {
+      const userId = params['userId'];
+      const coachName = params['coachName'];
+      const coachLastname = params['coachLastName'];
+      const coachId = params['coachID'];
+      const nickName = params['nickName'];
+      this.service.sendPlanToUser(userId,coachId,coachName,coachLastname,nickName,this.planName,selectedExercises);
+      
+      this.router.navigate(["/single-coach-info"])
+
+    });
   }
 }

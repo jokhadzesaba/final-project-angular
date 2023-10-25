@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { RegistrationUpdateDeleteEditService } from '../sharedServices/registration-update-delete-edit.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
-import { Exercise } from 'src/app/shared/interfaces/exercise';
 import { Observable, Subscription } from 'rxjs';
 import { Plan } from 'src/app/shared/interfaces/plan';
 import { User } from 'src/app/shared/interfaces/user';
@@ -53,24 +52,10 @@ export class MainPageComponent implements OnInit {
     }
   }
   likePlan(plan: Plan) {
-    let alreadyLiked: Plan | undefined = undefined;
-    this.service.loggedUser.subscribe((res: User) => {
-      if (res.likedPlans) {
-        alreadyLiked = res.likedPlans.find((pl) => pl.name === plan.name);
-      }
-      if (alreadyLiked === undefined) {
-        this.service.likePlan(plan, this.id!);
-        this.coaches$ = this.service.loadCoaches();
-        this.cd.detectChanges()
-      }
-    });
+    this.service.likePlan(plan, this.id!).subscribe()
   }
   
   unlikePlan(plan: Plan) {
-    let alreadyUnliked: Plan | undefined = undefined;
-    this.service.unlikePlan(plan, this.id!);
-    this.coaches$ = this.service.loadCoaches();
-    this.cd.detectChanges()
+    this.service.unlikePlan(plan, this.id!).subscribe()
   }
 }
-//like unlike need correction

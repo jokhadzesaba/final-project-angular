@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
-
 
 @Component({
   selector: 'app-log-in',
@@ -21,6 +20,8 @@ export class LogInComponent {
       ],
     ],
   });
+  email = this.form.get('email') as FormControl;
+  password = this.form.get('password') as FormControl;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -34,7 +35,7 @@ export class LogInComponent {
       if (isUserFound) {
         this.authService.status.subscribe((status) => {
           if (status === 'user' || 'coach') {
-            this.router.navigate(['/mainpage']);
+            this.router.navigate(['/home']);
           }
         });
       } else {

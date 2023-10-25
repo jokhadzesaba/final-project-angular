@@ -1,13 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject, Observable, tap, switchMap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  tap,
+  switchMap,
+  catchError,
+  throwError,
+  take,
+  pipe,
+  of,
+} from 'rxjs';
 import { Coach } from 'src/app/shared/interfaces/coach';
 import { User } from 'src/app/shared/interfaces/user';
 import { Exercise } from 'src/app/shared/interfaces/exercise';
 import { map } from 'rxjs';
 import { forkJoin } from 'rxjs';
 import { Plan } from 'src/app/shared/interfaces/plan';
-import { mergeMap } from 'rxjs';
+import { Router } from '@angular/router';
+import { ErrorService } from 'src/app/sharedComponent/error-page/service/error.service';
+import { RequestedPlan } from 'src/app/shared/interfaces/requestedPlan';
 
 @Injectable({
   providedIn: 'root',
@@ -20,9 +32,10 @@ export class RegistrationUpdateDeleteEditService {
   public coaches: Coach[] = [];
   public status: BehaviorSubject<string> = new BehaviorSubject('guest');
   public logged: BehaviorSubject<boolean> = new BehaviorSubject(true);
-  public selectedPlan:Plan | null = null
-  public loggedUser: BehaviorSubject<User> = new BehaviorSubject<User|Coach>({
+  public selectedPlan: Plan | null = null;
+  public loggedUser: BehaviorSubject<User> = new BehaviorSubject<User | Coach>({
     name: '',
+    nickName: '',
     lastname: '',
     email: '',
     phoneNumber: '',
@@ -32,28 +45,43 @@ export class RegistrationUpdateDeleteEditService {
     plans: [],
     status: '',
   });
-  
 
-  constructor(private http: HttpClient) {}
-  addExercisesToPlan(exercises: Exercise[], toWho:'coaches'|'users', Id:number) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private errorService: ErrorService
+  ) {}
+  addExercisesToPlan(
+    exercises: Exercise[],
+    toWho: 'coaches' | 'users',
+    Id: number
+  ) {
     if (this.selectedPlan) {
       this.http.get<User>(`http://localhost:3000/${toWho}/${Id}`).subscribe({
-        next: (userOrCoach: User|Coach) => {
-          const planToUpdate = userOrCoach.plans!.find(plan => plan.name === this.selectedPlan!.name);
+        next: (userOrCoach: User | Coach) => {
+          const planToUpdate = userOrCoach.plans!.find(
+            (plan) => plan.name === this.selectedPlan!.name
+          );
           if (planToUpdate) {
             planToUpdate.exercises = [...planToUpdate.exercises!, ...exercises];
-            this.http.patch(`http://localhost:3000/${toWho}/${Id}`, { plans: userOrCoach.plans! }).subscribe();
+            this.http
+              .patch(`http://localhost:3000/${toWho}/${Id}`, {
+                plans: userOrCoach.plans!,
+              })
+              .subscribe();
           } else {
             console.log(`Plan with name ${this.selectedPlan!.name} not found.`);
           }
         },
         error: (error) => {
-          console.log(error);     
+          console.log(error);
+          this.errorService.changeMessage(error.message);
+          this.router.navigate(['/error']);
         },
       });
     }
   }
-  
+
   loadUsers(): Observable<User[]> {
     return this.http.get<User[]>(`http://localhost:3000/users`);
   }
@@ -81,74 +109,138 @@ export class RegistrationUpdateDeleteEditService {
               newUserOrCoach as Coach,
             ]);
           }
+        }),
+        catchError((error) => {
+          console.log(error);
+          this.errorService.changeMessage(error.message);
+          this.router.navigate(['/error']);
+          return throwError(error);
         })
       );
   }
-  addPlan(data: Exercise[], userId: number, planName: string, toWho:"users"|"coaches") {
+
+  addPlan(
+    data: Exercise[],
+    userId: number,
+    planName: string,
+    toWho: 'users' | 'coaches'
+  ) {
     this.http.get<User>(`http://localhost:3000/${toWho}/${userId}`).subscribe({
       next: (user: User) => {
-        const planExists = user.plans!.some(plan => plan.name === planName);
-        if (!planExists){
-        const update = [...user.plans!, { name: planName, plans: data }];
-        this.http
-          .patch(`http://localhost:3000/${toWho}/${userId}`, { plans: update })
-          .subscribe();
-      }else{
-        alert("planName with this name already exists")
-      }
-    },
+        const planExists = user.plans!.some((plan) => plan.name === planName);
+        if (!planExists) {
+          const update = [...user.plans!, { name: planName, plans: data }];
+          this.http
+            .patch(`http://localhost:3000/${toWho}/${userId}`, {
+              plans: update,
+            })
+            .subscribe();
+        } else {
+          alert('planName with this name already exists');
+        }
+      },
       error: (error) => {
         console.log(error);
-        alert("something went wrong")
+        this.errorService.changeMessage(error.message);
+        this.router.navigate(['/error']);
       },
     });
   }
-  getUserOrCoach(userId: number, who:'users'|'coaches'): Observable<User> {
+  getUserOrCoach(userId: number, who: 'users' | 'coaches'): Observable<User> {
     return this.http.get<User>(`http://localhost:3000/${who}/${userId}`);
   }
 
-
-  deletePlan(plan: Plan, userId: number, from: 'users' | 'coaches'): Observable<any> {
-    return this.http.get<User | Coach>(`http://localhost:3000/${from}/${userId}`).pipe(
-      switchMap((userOrCoach: User | Coach) => {
-        const updatedPlans = userOrCoach.plans?.filter((p) => p.name !== plan.name);
-        return this.http.patch(`http://localhost:3000/${from}/${userId}`, { plans: updatedPlans }).pipe(
-          tap(() => {
-            this.userAdded.next(this.userAdded.value.map(user => {
-              if (user.id === userId) {
-                return {...user, plans: updatedPlans};
-              }
-              return user;
-            }));
-          })
-        );
-      })
-    );
+  deletePlan(plan: Plan, userId: number, from: 'users' | 'coaches') {
+    return this.http
+      .get<User | Coach>(`http://localhost:3000/${from}/${userId}`)
+      .pipe(
+        switchMap((userOrCoach: User | Coach) => {
+          const updatedPlans = userOrCoach.plans?.filter(
+            (p) => p.name !== plan.name
+          );
+          return this.http
+            .patch(`http://localhost:3000/${from}/${userId}`, {
+              plans: updatedPlans,
+            })
+            .pipe(
+              tap(() => {
+                this.userAdded.next(
+                  this.userAdded.value.map((user) => {
+                    if (user.id === userId) {
+                      return { ...user, plans: updatedPlans };
+                    }
+                    return user;
+                  })
+                );
+              }),
+              catchError((error) => {
+                return this.handleError(error);
+              })
+            );
+        }),
+        catchError((error) => {
+          return this.handleError(error);
+        })
+      );
   }
-  
-  deleteExercise(plan: Plan, exercise: Exercise, userId: number, from: 'users' | 'coaches'): Observable<Object> {
-    return this.http.get<User | Coach>(`http://localhost:3000/${from}/${userId}`).pipe(
-      switchMap((userOrCoach: User | Coach) => {
-        const updatedPlans = userOrCoach.plans?.map((p) => {
-          if (p.name === plan.name) {
-            const updatedExercises = p.exercises.filter((ex) => ex.id !== exercise.id);
-            return { ...p, plans: updatedExercises };
-          }
-          return p;
-        });
-        return this.http.patch(`http://localhost:3000/${from}/${userId}`, { plans: updatedPlans }).pipe(
-          tap(() => {
-            this.userAdded.next(this.userAdded.value.map(user => {
-              if (user.id === userId) {
-                return {...user, plans: updatedPlans};
-              }
-              return user;
-            }));
-          })
-        );
-      })
-    );
-  }  
+  handleError(error: Error) {
+    console.log(error);
+    this.errorService.changeMessage(error.message);
+    this.router.navigate(['/error']);
+    return throwError(error);
+  }
+
+  deleteExercise(
+    plan: Plan,
+    exercise: Exercise,
+    userId: number,
+    from: 'users' | 'coaches'
+  ): Observable<Object> {
+    return this.http
+      .get<User | Coach>(`http://localhost:3000/${from}/${userId}`)
+      .pipe(
+        switchMap((userOrCoach: User | Coach) => {
+          const updatedPlans = userOrCoach.plans?.map((p) => {
+            if (p.name === plan.name) {
+              const updatedExercises = p.exercises.filter(
+                (ex) => ex.id !== exercise.id
+              );
+              return { ...p, plans: updatedExercises };
+            }
+            return p;
+          });
+          return this.http
+            .patch(`http://localhost:3000/${from}/${userId}`, {
+              plans: updatedPlans,
+            })
+            .pipe(
+              tap(() => {
+                this.userAdded.next(
+                  this.userAdded.value.map((user) => {
+                    if (user.id === userId) {
+                      return { ...user, plans: updatedPlans };
+                    }
+                    return user;
+                  })
+                );
+              })
+            );
+        })
+      );
+  }
+  deleteRequestedPlan(plan: RequestedPlan, userId: number) {
+    this.getUserOrCoach(userId, 'users').subscribe((user: User) => {
+      const updatedPlans = user.requestedPlans?.filter(
+        (p) => p.planName !== plan.planName
+      );
+      this.http
+        .patch(`http://localhost:3000/users/${userId}`, {
+          requestedPlans: updatedPlans,
+        })
+        .subscribe();
+    });
+  }
+
   getInfo(email: string, password: string): Observable<boolean> {
     return forkJoin([this.loadUsers(), this.loadCoaches()]).pipe(
       map(([users, coaches]) => {
@@ -174,62 +266,132 @@ export class RegistrationUpdateDeleteEditService {
           this.status.next('still guest');
           return false;
         }
+      }),
+      catchError((error) => {
+        console.log(error);
+        this.errorService.changeMessage(error.message);
+        this.router.navigate(['/error']);
+        return throwError(error);
       })
     );
   }
-  likePlan(plan: Plan, id: number) {
-    this.getUserOrCoach(id, 'users').subscribe((res: User) => {
-      if (res.likedPlans) {
-        const updated = [...res.likedPlans!, plan];
-        this.http.patch(`http://localhost:3000/users/${id}`, { likedPlans: updated }).subscribe(()=>{
-
-            this.loggedUser.next({...res, likedPlans: updated});
-        this.loadCoaches().subscribe((coaches: Coach[]) => {
-          coaches.forEach(coach => {
-            const foundedPlan = coach.plans?.find(coachPlan => coachPlan.name === plan.name);
-            if (foundedPlan) {
-              const coachId = coach.id!;
-              foundedPlan.likes = (foundedPlan.likes || 0) + 1;
-              this.http.patch(`http://localhost:3000/coaches/${coachId}`, coach).subscribe();
-            }
-          });
-        });
-      });
-    }
-    });
+  deleteUserRequest(coachId: number, id: string): Observable<any> {
+    return this.getUserOrCoach(coachId, 'coaches').pipe(
+      take(1),
+      tap((coach: Coach) => {
+        const updateRequest = coach.requests?.filter((req) => req.id !== id);
+        this.http
+          .patch(`http://localhost:3000/coaches/${coachId}`, {
+            requests: updateRequest,
+          })
+          .subscribe();
+      }),
+      catchError((error) => {
+        return this.handleError(error);
+      })
+    );
   }
-  
+
+  likePlan(plan: Plan, id: number) {
+    return this.getUserOrCoach(id, 'users').pipe(
+      take(1),
+      tap((user: User) => {
+        const ifAlredyLiked = user.likedPlans?.some(e=>e.name = plan.name)
+        if (!ifAlredyLiked) {
+          if (user.likedPlans) {
+            const updated = [...user.likedPlans!, plan];
+            this.http
+              .patch(`http://localhost:3000/users/${id}`, { likedPlans: updated })
+              .subscribe();
+          }  
+        }else{
+          alert("you liked this plan before :)")
+        }
+      }),
+      catchError((error)=>{
+        return this.handleError(error)
+      })
+    );
+  }
+
   unlikePlan(plan: Plan, id: number) {
-    this.getUserOrCoach(id, 'users').subscribe((res: User) => {
-      if (res.likedPlans) {
-        const updated = res.likedPlans.filter(likedPlan => likedPlan.name !== plan.name);
-        this.http.patch(`http://localhost:3000/users/${id}`, { likedPlans: updated }).subscribe(()=>{
-          this.loggedUser.next({...res, likedPlans: updated});
-        })
-        
+    return this.getUserOrCoach(id, 'users').pipe(take(1), tap((user: User) => {
+      const ifAlredyLiked = user.likedPlans?.some(e=>e.name = plan.name)
+      if (ifAlredyLiked) {
+        if (user.likedPlans) {
+          const updated = user.likedPlans.filter(
+            (likedPlan) => likedPlan.name !== plan.name
+          );
+          this.http
+            .patch(`http://localhost:3000/users/${id}`, { likedPlans: updated })
+            .subscribe();
+        }  
+      }else{
+        alert("you do not have liked this page before :)")
       }
-      // .subscribe(() => {
-      //   this.loggedUser.next({...res, likedPlans: updated});
-        // this.loadCoaches().subscribe((coaches: Coach[]) => {
-        //   coaches.forEach(coach => {
-        //     const foundedPlan = coach.plans?.find(coachPlan => coachPlan.name === plan.name);
-        //     if (foundedPlan && foundedPlan.likes! > 0) {
-        //       const coachId = coach.id!;
-        //       foundedPlan.likes -= 1;
-        //       this.http.patch(`http://localhost:3000/coaches/${coachId}`, coach).subscribe();
-        //     }
-        //   });
-        // });
-      // });
-    });
+    }),
+    catchError((error)=>{
+      return this.handleError(error)
+    })
+    );
   }
   updateOrder(user: User): Observable<User> {
     console.log(user.id);
-    
     return this.http.put<User>(`http://localhost:3000/users/${user.id}`, user);
   }
-  
-  
+  sendPlanRequest(
+    userId: number,
+    coachId: number,
+    description: string,
+    id: string
+  ) {
+    this.getUserOrCoach(coachId, 'coaches').subscribe((res: Coach) => {
+      const updatedRequests = [
+        ...res.requests!,
+        { userId: userId, description: description, id: id },
+      ];
+      this.http
+        .patch(`http://localhost:3000/coaches/${coachId}`, {
+          requests: updatedRequests,
+        })
+        .subscribe();
+    });
+  }
+  sendPlanToUser(
+    userId: number,
+    coachId: number,
+    coachName: string,
+    coachLastName: string,
+    nickName: string,
+    planName: string,
+    plan: Exercise[]
+  ) {
+    this.getUserOrCoach(userId, 'users').subscribe((res: User) => {
+      const planExists = res.requestedPlans!.some(
+        (plan) => plan.planName === planName
+      );
+      if (!planExists) {
+        const updatedRequestedPlans = [
+          ...res.requestedPlans!,
+          {
+            coachId: coachId,
+            coachName: coachName,
+            coachLastName: coachLastName,
+            exercises: plan,
+            nickName: nickName,
+            planName: planName,
+          },
+        ];
+        this.http
+          .patch(`http://localhost:3000/users/${userId}`, {
+            requestedPlans: updatedRequestedPlans,
+          })
+          .subscribe();
+      } else {
+        alert(
+          'this user already have plan with this name. please enter another name'
+        );
+      }
+    });
+  }
 }
-
-

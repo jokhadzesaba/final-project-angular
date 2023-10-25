@@ -1,7 +1,16 @@
-<form [formGroup]="form">
-    <label>Email: <input formControlName="email"></label>
-    <br>
-    <label>Password: <input formControlName="password"></label>
-</form>
-<button (click)="onSubmit()">Log In</button>
-<a>If you do not have account Register Here</a>
+<div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form [formGroup]="form">
+        <input formControlName="email" placeholder="Enter your email">
+        <input type="password" formControlName="password" placeholder="Enter your password">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <label routerLink="/user-registration" >Sign up</label>
+        </span>
+    </div>
+    <button (click)="onSubmit()">Log In</button>
+    </div>
+  </div>

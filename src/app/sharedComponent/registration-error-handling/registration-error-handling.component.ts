@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-error-handling',
   templateUrl: './registration-error-handling.component.html',
-  styleUrls: ['./registration-error-handling.component.scss']
+  styleUrls: ['./registration-error-handling.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class RegistrationErrorHandlingComponent {
   @Input() control!: FormControl | FormGroup;

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { User } from 'src/app/shared/interfaces/user';
 import { RegistrationUpdateDeleteEditService } from '../../sharedServices/registration-update-delete-edit.service';
@@ -10,7 +10,8 @@ import { Coach } from 'src/app/shared/interfaces/coach';
 @Component({
   selector: 'app-coach-registration',
   templateUrl: './coach-registration.component.html',
-  styleUrls: ['./coach-registration.component.scss']
+  styleUrls: ['./coach-registration.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class CoachRegistrationComponent {
   constructor(private fb: FormBuilder, private http: HttpClient, private service:RegistrationUpdateDeleteEditService) {}
@@ -24,6 +25,8 @@ export class CoachRegistrationComponent {
     confirmPassword: ['', [Validators.required]],
     age: ['', [Validators.required,]],
     salary: ['', [Validators.required,]],
+    nickName:['', [Validators.required]]
+    
 
     },
   {validators:matchPassword}
@@ -35,11 +38,13 @@ export class CoachRegistrationComponent {
   password = this.form.get('password') as FormControl;
   email = this.form.get('email') as FormControl;
   salary = this.form.get("salary") as FormControl
+  nickName = this.form.get('nickName') as FormControl
 
   public submit() {
     const coach: Coach = {
       name: this.form.getRawValue().name!,
       lastname: this.form.getRawValue().lastname!,
+      nickName: this.form.getRawValue().nickName!,
       email: this.form.getRawValue().email!,
       phoneNumber: this.form.getRawValue().phoneNumber!,
       password: this.form.getRawValue().password!,
@@ -47,11 +52,11 @@ export class CoachRegistrationComponent {
       salary:this.form.getRawValue().salary!,
       status:"coach",
       plans: [],
+      requests:[],
     };
     this.service.addUserOrCoaches(coach, "coaches").subscribe(()=>{
       this.form.reset()
     })
-    // this.service.checkIfEmailExists("user")
   }
   
 }

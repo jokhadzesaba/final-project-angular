@@ -1,8 +1,16 @@
-<div *ngFor="let coach of allCoach">
+
+<div *ngFor="let coach of allCoach | async">
     <div>
         <p>Name: {{coach.name}}</p>
         <p>Email: {{coach.email}}</p>
         <p>phoneNumber: {{coach.phoneNumber}}</p>
+        <p>id: {{coach.id}}</p>
         <button (click)="navigateToCoach(coach.id!)">View Details</button>
+        <button (click)="openPlanRequestForm()">request Plan</button>
+        <div *ngIf="showPlanRequestForm">
+            <h2>Request Plan</h2>
+            <textarea #planDescription placeholder="Write your plan description here"></textarea>
+            <button (click)="requestPlan(coach.id!, planDescription.value)">Confirm</button>
+          </div>
     </div>
 </div>

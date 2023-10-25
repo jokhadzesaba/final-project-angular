@@ -1,20 +1,22 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { Exercise } from 'src/app/shared/interfaces/exercise';
 import { Plan } from 'src/app/shared/interfaces/plan';
-import { User } from 'src/app/shared/interfaces/user';
 import { RegistrationUpdateDeleteEditService } from '../../sharedServices/registration-update-delete-edit.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
+import { NavigationExtras, Router } from '@angular/router';
+import { SharedService } from '../../sharedServices/shared.service';
 
 @Component({
   selector: 'app-single-coach-info',
   templateUrl: './single-coach-info.component.html',
   styleUrls: ['./single-coach-info.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class SingleCoachInfoComponent {
   public id = 0;
-  public userPlans!: Observable<User>;
+  public coachPlans!: Observable<Coach>;
   coach!: Coach;
   public selectedPlan!: Plan | null;
 
@@ -29,7 +31,9 @@ export class SingleCoachInfoComponent {
   constructor(
     private service: RegistrationUpdateDeleteEditService,
     private sanitizer: DomSanitizer,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private router:Router,
+    private sharedService:SharedService
   ) {}
   ngOnInit(): void {
     this.service.loggedUser.subscribe((coach) => {
@@ -40,7 +44,7 @@ export class SingleCoachInfoComponent {
   }
   getExercises() {
     if (this.coach) {
-      this.userPlans = this.service.getUserOrCoach(this.coach.id!, 'coaches');
+      this.coachPlans = this.service.getUserOrCoach(this.coach.id!, 'coaches');
     }
   }
   sanitizeUrl(url: string): SafeUrl {
@@ -57,7 +61,7 @@ export class SingleCoachInfoComponent {
       .deleteExercise(plan, exercise, this.id, 'coaches')
       .subscribe(() => {
         this.getExercises();
-        this.userPlans.subscribe((res) => {
+        this.coachPlans.subscribe((res) => {
           this.selectedPlan =
             res.plans?.find((p) => (plan.name = p.name)) || null;
         });
@@ -65,5 +69,24 @@ export class SingleCoachInfoComponent {
 
         this.cd.detectChanges();
       });
+  }
+  makePlan(userId:number){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        userId: userId,
+        coachId:this.coach.id,
+        coachName:this.coach.name,
+        coachlastName:this.coach.lastname,
+        nickName:this.coach.nickName
+      }
+    };
+    this.sharedService.setCreatingPlan(true);
+    this.router.navigate(['/exercises'], navigationExtras);
+  }
+  deleteRequest(id:string){
+    this.service.deleteUserRequest(this.id,id).subscribe(()=>{
+      this.getExercises();
+      this.cd.detectChanges();
+    })    
   }
 }
