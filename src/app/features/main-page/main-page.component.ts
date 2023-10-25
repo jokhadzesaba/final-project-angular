@@ -10,6 +10,7 @@ import { Coach } from 'src/app/shared/interfaces/coach';
 import { Observable, Subscription } from 'rxjs';
 import { Plan } from 'src/app/shared/interfaces/plan';
 import { User } from 'src/app/shared/interfaces/user';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -22,10 +23,12 @@ export class MainPageComponent implements OnInit {
   public status$!: Observable<string>;
   private loggedUserSubscription: Subscription | undefined;
   private coachesSubscription: Subscription | undefined;
+  public likedPlans: string[] = [];
   public id?: number;
   constructor(
     private service: RegistrationUpdateDeleteEditService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private router:Router,
   ) {}
 
   ngOnInit() {
@@ -34,7 +37,14 @@ export class MainPageComponent implements OnInit {
         this.id = res.id;
       }
     );
-    this.status$ = this.service.status
+    this.status$ = this.service.status;
+    this.service.getUserOrCoach(this.id!, 'users').subscribe((user: User) => {
+      if (user.likedPlans) {
+        for (const plan of user.likedPlans) {
+          this.likedPlans.push(plan.planId);
+        }
+      }
+    });
 
     this.coachesSubscription = this.service
       .loadCoaches()
@@ -51,11 +61,30 @@ export class MainPageComponent implements OnInit {
       this.coachesSubscription.unsubscribe();
     }
   }
-  likePlan(plan: Plan) {
-    this.service.likePlan(plan, this.id!).subscribe()
+  isPlanLiked(plan: Plan) {
+    return this.likedPlans.some((e) => e === plan.planId);
   }
-  
+
+  likePlan(plan: Plan) {
+    this.service.likePlan(plan, this.id!).subscribe(() => {
+      this.likedPlans.push(plan.planId);
+      this.cd.detectChanges()
+    });
+  }
+
   unlikePlan(plan: Plan) {
-    this.service.unlikePlan(plan, this.id!).subscribe()
+    this.service.unlikePlan(plan, this.id!).subscribe(() => {
+      this.likedPlans = this.likedPlans.filter((e) => e !== plan.planId);
+      this.cd.detectChanges()
+    });
+  }
+  navigate(plan:Plan, coach:Coach){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        coach:coach.id,
+        plan:plan.planId
+      }
+    }
+    this.router.navigate([`/plan/${plan.planId}`], navigationExtras)
   }
 }

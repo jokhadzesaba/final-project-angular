@@ -39,6 +39,11 @@ const routes: Routes = [
       import('./features/exercises/exercises.module').then((m) => m.ExercisesModule),
   },
   {
+    path:'plan/:id',
+    loadChildren:()=>import('./features/single-plan-page/single-plan.module').then((m)=>m.SinglePageModule)
+
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full',

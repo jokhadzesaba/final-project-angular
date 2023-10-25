@@ -18,13 +18,13 @@ export class CoachRegistrationComponent {
   public form = this.fb.group(
     {
     name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9-]+$/)]],
-    lastname: ['', [Validators.required]],
+    lastname: ['',],
     email: ['', [Validators.required, Validators.email]],
     phoneNumber: ['', [Validators.required,Validators.pattern(/^\+995\d{9}$/)]],
     password: ['', [Validators.required,Validators.pattern(/^[a-zA-Z0-9]+$/), Validators.minLength(8),]],
     confirmPassword: ['', [Validators.required]],
-    age: ['', [Validators.required,]],
-    salary: ['', [Validators.required,]],
+    age: ['',],
+    salary: ['',],
     nickName:['', [Validators.required]]
     
 

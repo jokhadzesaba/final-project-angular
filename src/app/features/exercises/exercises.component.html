@@ -1,5 +1,6 @@
 <button *ngIf="status === 'user' || 'coach'" (click)="startCreatingPlan()">Create your plan</button>
 <input type="text" placeholder="Enter plan name" [(ngModel)]="planName" *ngIf="creatingPlan" />
+<textarea type="text" placeholder="Enter plan description" [(ngModel)]="planDescription" *ngIf="creatingPlan"></textarea>
 <button (click)="showExercises()">Show</button>
 <button (click)="createPlan()" *ngIf="createPlan">confirm</button>
 <button (click)="startCreatingPlan()" *ngIf="creatingPlan">cancel</button>

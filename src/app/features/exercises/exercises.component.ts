@@ -33,6 +33,7 @@ export class ExercisesComponent implements OnInit {
   status = '';
   id = 0;
   planName: string = '';
+  planDescription: string = '';
   creatingPlan: boolean = false;
   sortBodyPart: string = '';
 
@@ -97,13 +98,16 @@ export class ExercisesComponent implements OnInit {
   }
   createPlan() {
     const selectedExercises = this.getSelectedExercises();
+    const planId = this.service.generateUniqueId()
     if (this.status === 'user') {
-      this.service.addPlan(selectedExercises, this.id, this.planName, 'users');
+      this.service.addPlan(selectedExercises, this.id, this.planName,this.planDescription, planId,'users');
     } else if (this.status === 'coach') {
       this.service.addPlan(
         selectedExercises,
         this.id,
         this.planName,
+        this.planDescription,
+        planId,
         'coaches'
       );
     }
@@ -126,8 +130,8 @@ export class ExercisesComponent implements OnInit {
       const coachLastname = params['coachLastName'];
       const coachId = params['coachID'];
       const nickName = params['nickName'];
-      this.service.sendPlanToUser(userId,coachId,coachName,coachLastname,nickName,this.planName,selectedExercises);
-      
+      const planId = params['planId'];
+      this.service.sendPlanToUser(userId,coachId,coachName,coachLastname,nickName,this.planName,planId,selectedExercises);
       this.router.navigate(["/single-coach-info"])
 
     });

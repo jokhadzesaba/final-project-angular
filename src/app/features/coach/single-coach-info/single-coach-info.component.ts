@@ -70,14 +70,15 @@ export class SingleCoachInfoComponent {
         this.cd.detectChanges();
       });
   }
-  makePlan(userId:number){
+  makePlan(userId:number, planId:string){
     let navigationExtras: NavigationExtras = {
       queryParams: {
         userId: userId,
         coachId:this.coach.id,
         coachName:this.coach.name,
         coachlastName:this.coach.lastname,
-        nickName:this.coach.nickName
+        nickName:this.coach.nickName,
+        planId:planId
       }
     };
     this.sharedService.setCreatingPlan(true);

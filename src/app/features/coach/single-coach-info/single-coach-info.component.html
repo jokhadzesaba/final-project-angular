@@ -8,7 +8,7 @@
     <div *ngFor="let request of coach.requests; let i = index">
         <p>description: {{request.description}}</p>
         <p>User Id: {{request.userId}}</p>
-        <button (click)="makePlan(request.userId)">Make Plan For This User</button>
+        <button (click)="makePlan(request.userId, request.id)">Make Plan For This User</button>
         <button (click)="deleteRequest(request.id)">Delete Request</button>
     </div>
     <div *ngFor="let plan of coach.plans">

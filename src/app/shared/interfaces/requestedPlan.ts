@@ -7,5 +7,7 @@ export interface RequestedPlan{
     coachLastName:string,
     nickName:string,
     planName:string,
+    description:string
+    planId:string,
     exercises:Exercise[]
 }

@@ -32,17 +32,9 @@ export class AllcoachComponent implements OnInit {
     this.showPlanRequestForm = true;
   }
   requestPlan(coachId: number, description: string) {
-    const requestId = this.generateUniqueId(); 
+    const requestId = this.service.generateUniqueId(); 
     this.service.sendPlanRequest(this.userId!, coachId, description, requestId);
     this.showPlanRequestForm = false;
-  }
-  generateUniqueId(): string {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < 8; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return result;
   }
   
 }

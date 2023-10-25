@@ -1,0 +1,19 @@
+<div class="container">
+    <div *ngIf="coach$ | async as coach" class="card">
+      <h4>Plan by: {{ coach.nickName }}</h4>
+      <p>Coach Email: {{ coach.email }}</p>
+      <p>Coach phoneNumber: {{ coach.phoneNumber }}</p>
+    </div>
+  
+    <div *ngIf="plan$ | async as plan" class="card">
+      <h4>Plan Name: {{ plan.name }}</h4>
+      <h4 class="description">Description:{{ plan.description }}</h4>
+      <h4>Exercises:</h4>
+      <div *ngFor="let exercise of plan.exercises" class="exercise">
+        <p>Name: {{ exercise.name }}</p>
+        <p>Target: {{ exercise.target }}</p>
+        <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+      </div>
+    </div>
+  </div>
+  

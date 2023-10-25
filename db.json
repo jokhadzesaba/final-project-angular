@@ -2,18 +2,61 @@
   "coaches": [
     {
       "name": "saba",
-      "lastname": "jokhadze",
       "nickName": "bk-201",
       "email": "saba2@gmail.com",
-      "salary": 1500,
-      "age": "12312",
       "phoneNumber": "+995123123123",
       "password": "123123123",
       "id": 1,
       "status": "coach",
       "plans": [
         {
-          "name": "gg",
+          "exercises": "whydude",
+          "description": "naaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaah",
+          "plans": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "target": "abs",
+              "selected": false
+            }
+          ],
+          "planId": "pY7RQSS4"
+        }
+      ],
+      "requests": [
+        {
+          "userId": 1,
+          "description": "tesli bicepsi",
+          "id": "erti"
+        }
+      ]
+    },
+    {
+      "name": "saba",
+      "lastname": "",
+      "nickName": "idkmate",
+      "email": "saba3@gmail.com",
+      "phoneNumber": "+995123123123",
+      "password": "123123123",
+      "age": "",
+      "salary": "",
+      "status": "coach",
+      "plans": [
+        {
+          "name": "whydude",
+          "description": "naaah",
           "exercises": [
             {
               "bodyPart": "waist",
@@ -23,11 +66,47 @@
               "name": "3/4 sit-up",
               "target": "abs",
               "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "target": "abs",
+              "selected": false
             }
-          ]
+          ],
+          "planId": "ori"
+        },
+        {
+          "name": "whydude",
+          "description": "naaah",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "target": "abs",
+              "selected": false
+            }
+          ],
+          "planId": "sami"
         }
       ],
-      "requests": []
+      "requests": [],
+      "id": 2
     }
   ],
   "users": [
@@ -38,13 +117,35 @@
       "nickName": "whiteBeard",
       "phoneNumber": "123123123",
       "password": "123123123",
-      "likedPlans": [],
-      "requestedPlans": [],
-      "age": "12312",
-      "id": 1,
-      "plans": [
+      "likedPlans": [
         {
-          "name": "gg",
+          "exercises": "whydude",
+          "description": "naaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaah",
+          "plans": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "target": "abs",
+              "selected": false
+            }
+          ],
+          "planId": "pY7RQSS4"
+        },
+        {
+          "name": "whydude",
+          "description": "naaah",
           "exercises": [
             {
               "bodyPart": "waist",
@@ -54,17 +155,77 @@
               "name": "3/4 sit-up",
               "target": "abs",
               "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "target": "abs",
+              "selected": false
             }
-          ]
+          ],
+          "planId": "ori"
+        },
+        {
+          "name": "whydude",
+          "description": "naaah",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "target": "abs",
+              "selected": false
+            }
+          ],
+          "planId": "sami"
         }
       ],
-      "status": "user",
-      "requests": [
+      "requestedPlans": [
         {
-          "userId": 1,
-          "description": "ss"
+          "coachName": "saba",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "target": "abs",
+              "selected": false
+            }
+          ],
+          "nickName": "bk-201",
+          "planName": "ahaa brat",
+          "planId": "K4UnHnZM"
         }
-      ]
+      ],
+      "age": "12312",
+      "id": 1,
+      "plans": [],
+      "status": "user"
     }
   ]
 }

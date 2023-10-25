@@ -46,7 +46,9 @@ export class UserInfoPageComponent implements OnInit {
     } else {
       this.selectedPlan = {
         name: requestedPlan.planName,
+        description:requestedPlan.description,
         exercises: requestedPlan.exercises,
+        planId:requestedPlan.planId
       };
     }
   }
@@ -131,7 +133,7 @@ export class UserInfoPageComponent implements OnInit {
     }
   }
   deleteRequestedPlan(plan:RequestedPlan){
-      this.service.deleteRequestedPlan(plan, this.id!)
+      this.service.deleteRequestedPlan(plan, this.id!, plan.coachId)
       this.service.getUserOrCoach(this.id!, 'users').subscribe((user) => {
         this.user = user;
         this.getExercises();

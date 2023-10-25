@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExercisesComponent } from './features/exercises/exercises.component';
 import { TopBarComponent } from './core/components/top-bar/top-bar.component';
-import { MainPageComponent } from './features/main-page/main-page.component';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/components/core.module';
 import { CalculatorModule } from './features/calculators/calculate.module';
@@ -15,6 +14,7 @@ import { UserModule } from './features/user/user.module';
 import { MainModule } from './features/main-page/main.module';
 import { ErrorPageComponent } from './sharedComponent/error-page/error-page.component';
 import { SharedService } from './features/sharedServices/shared.service';
+import { SinglePageModule } from './features/single-plan-page/single-plan.module';
 
 
 @NgModule({
@@ -36,7 +36,8 @@ import { SharedService } from './features/sharedServices/shared.service';
     CalculatorModule,
     CoachModule,
     UserModule,
-    MainModule
+    MainModule,
+    SinglePageModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

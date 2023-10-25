@@ -60,7 +60,7 @@ export class RegistrationUpdateDeleteEditService {
       this.http.get<User>(`http://localhost:3000/${toWho}/${Id}`).subscribe({
         next: (userOrCoach: User | Coach) => {
           const planToUpdate = userOrCoach.plans!.find(
-            (plan) => plan.name === this.selectedPlan!.name
+            (plan) => plan.planId === this.selectedPlan!.planId
           );
           if (planToUpdate) {
             planToUpdate.exercises = [...planToUpdate.exercises!, ...exercises];
@@ -70,7 +70,7 @@ export class RegistrationUpdateDeleteEditService {
               })
               .subscribe();
           } else {
-            console.log(`Plan with name ${this.selectedPlan!.name} not found.`);
+            console.log(`Plan with id ${this.selectedPlan!.planId} not found.`);
           }
         },
         error: (error) => {
@@ -123,21 +123,26 @@ export class RegistrationUpdateDeleteEditService {
     data: Exercise[],
     userId: number,
     planName: string,
+    planDescription: string,
+    planId: string,
     toWho: 'users' | 'coaches'
   ) {
     this.http.get<User>(`http://localhost:3000/${toWho}/${userId}`).subscribe({
       next: (user: User) => {
-        const planExists = user.plans!.some((plan) => plan.name === planName);
-        if (!planExists) {
-          const update = [...user.plans!, { name: planName, plans: data }];
-          this.http
-            .patch(`http://localhost:3000/${toWho}/${userId}`, {
-              plans: update,
-            })
-            .subscribe();
-        } else {
-          alert('planName with this name already exists');
-        }
+        const update = [
+          ...user.plans!,
+          {
+            name: planName,
+            description: planDescription,
+            exercises: data,
+            planId: planId,
+          },
+        ];
+        this.http
+          .patch(`http://localhost:3000/${toWho}/${userId}`, {
+            plans: update,
+          })
+          .subscribe();
       },
       error: (error) => {
         console.log(error);
@@ -156,7 +161,7 @@ export class RegistrationUpdateDeleteEditService {
       .pipe(
         switchMap((userOrCoach: User | Coach) => {
           const updatedPlans = userOrCoach.plans?.filter(
-            (p) => p.name !== plan.name
+            (p) => p.planId !== plan.planId
           );
           return this.http
             .patch(`http://localhost:3000/${from}/${userId}`, {
@@ -201,7 +206,7 @@ export class RegistrationUpdateDeleteEditService {
       .pipe(
         switchMap((userOrCoach: User | Coach) => {
           const updatedPlans = userOrCoach.plans?.map((p) => {
-            if (p.name === plan.name) {
+            if (p.planId === plan.planId) {
               const updatedExercises = p.exercises.filter(
                 (ex) => ex.id !== exercise.id
               );
@@ -228,10 +233,10 @@ export class RegistrationUpdateDeleteEditService {
         })
       );
   }
-  deleteRequestedPlan(plan: RequestedPlan, userId: number) {
+  deleteRequestedPlan(plan: RequestedPlan, userId: number, coachId: number) {
     this.getUserOrCoach(userId, 'users').subscribe((user: User) => {
       const updatedPlans = user.requestedPlans?.filter(
-        (p) => p.planName !== plan.planName
+        (p) => p.planId !== plan.planId
       );
       this.http
         .patch(`http://localhost:3000/users/${userId}`, {
@@ -239,6 +244,7 @@ export class RegistrationUpdateDeleteEditService {
         })
         .subscribe();
     });
+    this.getUserOrCoach(coachId, 'coaches').subscribe((caoch: Coach) => {});
   }
 
   getInfo(email: string, password: string): Observable<boolean> {
@@ -296,43 +302,49 @@ export class RegistrationUpdateDeleteEditService {
     return this.getUserOrCoach(id, 'users').pipe(
       take(1),
       tap((user: User) => {
-        const ifAlredyLiked = user.likedPlans?.some(e=>e.name = plan.name)
+        const ifAlredyLiked = user.likedPlans?.some((e) => (e.planId === plan.planId));
         if (!ifAlredyLiked) {
           if (user.likedPlans) {
             const updated = [...user.likedPlans!, plan];
             this.http
-              .patch(`http://localhost:3000/users/${id}`, { likedPlans: updated })
+              .patch(`http://localhost:3000/users/${id}`, {
+                likedPlans: updated,
+              })
               .subscribe();
-          }  
-        }else{
-          alert("you liked this plan before :)")
+          }
+        } else {
+          alert('you liked this plan before :)');
         }
       }),
-      catchError((error)=>{
-        return this.handleError(error)
+      catchError((error) => {
+        return this.handleError(error);
       })
     );
   }
 
   unlikePlan(plan: Plan, id: number) {
-    return this.getUserOrCoach(id, 'users').pipe(take(1), tap((user: User) => {
-      const ifAlredyLiked = user.likedPlans?.some(e=>e.name = plan.name)
-      if (ifAlredyLiked) {
-        if (user.likedPlans) {
-          const updated = user.likedPlans.filter(
-            (likedPlan) => likedPlan.name !== plan.name
-          );
-          this.http
-            .patch(`http://localhost:3000/users/${id}`, { likedPlans: updated })
-            .subscribe();
-        }  
-      }else{
-        alert("you do not have liked this page before :)")
-      }
-    }),
-    catchError((error)=>{
-      return this.handleError(error)
-    })
+    return this.getUserOrCoach(id, 'users').pipe(
+      take(1),
+      tap((user: User) => {
+        const ifAlredyLiked = user.likedPlans?.some((e) => (e.planId === plan.planId));
+        if (ifAlredyLiked) {
+          if (user.likedPlans) {
+            const updated = user.likedPlans.filter(
+              (likedPlan) => likedPlan.planId !== plan.planId
+            );
+            this.http
+              .patch(`http://localhost:3000/users/${id}`, {
+                likedPlans: updated,
+              })
+              .subscribe();
+          }
+        } else {
+          alert('you do not have liked this plan before :)');
+        }
+      }),
+      catchError((error) => {
+        return this.handleError(error);
+      })
     );
   }
   updateOrder(user: User): Observable<User> {
@@ -364,34 +376,47 @@ export class RegistrationUpdateDeleteEditService {
     coachLastName: string,
     nickName: string,
     planName: string,
-    plan: Exercise[]
+    planId: string,
+    exercises: Exercise[]
   ) {
     this.getUserOrCoach(userId, 'users').subscribe((res: User) => {
-      const planExists = res.requestedPlans!.some(
-        (plan) => plan.planName === planName
-      );
-      if (!planExists) {
-        const updatedRequestedPlans = [
-          ...res.requestedPlans!,
-          {
-            coachId: coachId,
-            coachName: coachName,
-            coachLastName: coachLastName,
-            exercises: plan,
-            nickName: nickName,
-            planName: planName,
-          },
-        ];
-        this.http
-          .patch(`http://localhost:3000/users/${userId}`, {
-            requestedPlans: updatedRequestedPlans,
-          })
-          .subscribe();
-      } else {
-        alert(
-          'this user already have plan with this name. please enter another name'
-        );
-      }
+      const updatedRequestedPlans = [
+        ...res.requestedPlans!,
+        {
+          coachId: coachId,
+          coachName: coachName,
+          coachLastName: coachLastName,
+          exercises: exercises,
+          nickName: nickName,
+          planName: planName,
+          planId: planId,
+        },
+      ];
+      this.http
+        .patch(`http://localhost:3000/users/${userId}`, {
+          requestedPlans: updatedRequestedPlans,
+        })
+        .subscribe();
     });
+  }
+  searchLikedPlan(plan: Plan, userId: number) {
+    return this.getUserOrCoach(userId, 'users').pipe(
+      map((user: User) => {
+        const ifLiked = user.likedPlans?.find(e => e.planId === plan.planId);
+        if (ifLiked) {
+          return true;
+        }
+        return false;
+      })
+    );
+  }
+  generateUniqueId(): string {
+    const chars =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < 8; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
   }
 }
