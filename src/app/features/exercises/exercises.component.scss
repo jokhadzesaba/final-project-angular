@@ -1,16 +1,92 @@
-.container{
-    // display: flex;
-    background-color: red;
-    >div{
-        >div{
-            >p:first-child{
-                font-weight: bold;
-            }
-        }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .btn {
+        margin-right: 10px;
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 5px;
+      }
     }
-    
-}
-img{
-    width: 200px;
-    height: 200px;
-}
+  
+    .input-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .form-control {
+        width: 350px;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    }
+  
+    .select-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .form-select {
+        width: 350px;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    }
+  
+    .body-part-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .body-part {
+        width: 100%;
+        max-width: 800px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 40px;
+  
+        h2 {
+          text-align: center;
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+  
+        .exercise-row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+  
+          .exercise {
+            flex-basis: calc(33.33% - 40px);
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+  
+            img {
+              max-width: 150px;
+              max-height: 150px;
+              margin-top: 20px;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  

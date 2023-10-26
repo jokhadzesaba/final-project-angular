@@ -12,7 +12,7 @@ import { CalculatorModule } from './features/calculators/calculate.module';
 import { CoachModule } from './features/coach/coach.module';
 import { UserModule } from './features/user/user.module';
 import { MainModule } from './features/main-page/main.module';
-import { ErrorPageComponent } from './sharedComponent/error-page/error-page.component';
+import { ErrorPageComponent } from './shared/sharedComponent/error-page/error-page.component';
 import { SharedService } from './features/sharedServices/shared.service';
 import { SinglePageModule } from './features/single-plan-page/single-plan.module';
 

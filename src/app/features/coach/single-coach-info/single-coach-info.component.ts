@@ -15,13 +15,13 @@ import { SharedService } from '../../sharedServices/shared.service';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class SingleCoachInfoComponent {
-  public id = 0;
+  public id?:number;
   public coachPlans!: Observable<Coach>;
   coach!: Coach;
   public selectedPlan!: Plan | null;
 
   showPlan(plan: Plan) {
-    if (this.selectedPlan && this.selectedPlan.name === plan.name) {
+    if (this.selectedPlan && this.selectedPlan.planId === plan.planId) {
       this.selectedPlan = null;
     } else {
       this.selectedPlan = plan;
@@ -40,37 +40,25 @@ export class SingleCoachInfoComponent {
       this.coach = coach;
       this.id = coach.id!;
     });
+    
     this.getExercises();
   }
   getExercises() {
     if (this.coach) {
       this.coachPlans = this.service.getUserOrCoach(this.coach.id!, 'coaches');
     }
+    return this.coachPlans
   }
   sanitizeUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
   deletePlan(plan: Plan) {
-    this.service.deletePlan(plan, this.id, 'coaches').subscribe(() => {
+    this.service.deletePlan(plan, this.id!, 'coaches').subscribe(() => {
       this.getExercises();
       this.cd.detectChanges();
     });
   }
-  deleteExercise(plan: Plan, exercise: Exercise) {
-    this.service
-      .deleteExercise(plan, exercise, this.id, 'coaches')
-      .subscribe(() => {
-        this.getExercises();
-        this.coachPlans.subscribe((res) => {
-          this.selectedPlan =
-            res.plans?.find((p) => (plan.name = p.name)) || null;
-        });
-        console.log(this.selectedPlan?.exercises);
-
-        this.cd.detectChanges();
-      });
-  }
-  makePlan(userId:number, planId:string){
+  makePlan(userId:number, requestId:string){
     let navigationExtras: NavigationExtras = {
       queryParams: {
         userId: userId,
@@ -78,16 +66,19 @@ export class SingleCoachInfoComponent {
         coachName:this.coach.name,
         coachlastName:this.coach.lastname,
         nickName:this.coach.nickName,
-        planId:planId
+        requestId:requestId
       }
     };
     this.sharedService.setCreatingPlan(true);
+    this.sharedService.makingplanForUser(true)
     this.router.navigate(['/exercises'], navigationExtras);
   }
   deleteRequest(id:string){
-    this.service.deleteUserRequest(this.id,id).subscribe(()=>{
-      this.getExercises();
-      this.cd.detectChanges();
+    this.service.deleteUserRequest(this.id!,id).subscribe(()=>{
+      this.getExercises().subscribe(()=>{
+        this.cd.markForCheck()
+
+      });
     })    
   }
 }

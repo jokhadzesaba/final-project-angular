@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExercisesComponent } from './features/exercises/exercises.component';
-import { MainPageComponent } from './features/main-page/main-page.component';
-import { ErrorPageComponent } from './sharedComponent/error-page/error-page.component';
+import { ErrorPageComponent } from './shared/sharedComponent/error-page/error-page.component';
 
 const routes: Routes = [
   {

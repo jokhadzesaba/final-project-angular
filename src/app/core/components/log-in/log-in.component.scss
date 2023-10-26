@@ -4,6 +4,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     max-width: 430px;
+    text-align: center;
     width: 100%;
     background: #fff;
     border-radius: 7px;
@@ -82,7 +83,7 @@
         font-size: 16px;
         color: #009579;
         text-decoration: none;
-  
+        margin-top: 10px;
         &:hover {
           text-decoration: underline;
         }
@@ -100,8 +101,19 @@
             text-decoration: underline;
           }
         }
-      }
-      
+      }    
   }
+  .guest-link {
+    font-size: 16px;
+    color: #009579;
+    text-decoration: none;
+    margin-top: 30px;
+    display: inline-block;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
 }
   

@@ -10,8 +10,9 @@ import { Exercise } from 'src/app/shared/interfaces/exercise';
 import { Plan } from 'src/app/shared/interfaces/plan';
 import { User } from 'src/app/shared/interfaces/user';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { RequestedPlan } from 'src/app/shared/interfaces/requestedPlan';
+import { SharedService } from 'src/app/features/sharedServices/shared.service';
 
 @Component({
   selector: 'app-user-info-page',
@@ -22,26 +23,33 @@ import { RequestedPlan } from 'src/app/shared/interfaces/requestedPlan';
 export class UserInfoPageComponent implements OnInit {
   public id?: number;
   public userPlans!: Observable<User>;
-  user!: User;
+  public user!: User;
   public selectedPlan!: Plan | null;
+  constructor(
+    private service: RegistrationUpdateDeleteEditService,
+    private sanitizer: DomSanitizer,
+    private cd: ChangeDetectorRef,
+    private router: Router,
+    private sharedService:SharedService
+  ) {}
 
   addExercise(plan: Plan) {
     this.service.selectedPlan = plan;
+    this.sharedService.addexercise(true)
+    this.sharedService.ifchanged(false)
     this.router.navigate(['/exercises']);
     this.getExercises();
   }
-  hasLikedPlans(): boolean {
-    return !!this.user?.likedPlans?.length;
-  }
+
   showPlan(plan: Plan) {
-    if (this.selectedPlan && this.selectedPlan.name === plan.name) {
+    if (this.selectedPlan && this.selectedPlan.planId === plan.planId) {
       this.selectedPlan = null;
     } else {
       this.selectedPlan = plan;
     }
   }
   showRequestedPlan(requestedPlan: RequestedPlan) {
-    if (this.selectedPlan && this.selectedPlan.name === requestedPlan.planName) {
+    if (this.selectedPlan && this.selectedPlan.planId === requestedPlan.planId) {
       this.selectedPlan = null;
     } else {
       this.selectedPlan = {
@@ -52,18 +60,17 @@ export class UserInfoPageComponent implements OnInit {
       };
     }
   }
-
-  constructor(
-    private service: RegistrationUpdateDeleteEditService,
-    private sanitizer: DomSanitizer,
-    private cd: ChangeDetectorRef,
-    private router: Router
-  ) {}
   ngOnInit(): void {
     this.service.loggedUser.subscribe((user) => {
       this.user = user;
       this.id = user.id!;
     });
+    this.sharedService.wasChanged$.subscribe(value=>{
+      if (value===true) {
+        this.getExercises();
+        this.cd.markForCheck()
+      }
+    })
     this.getExercises();
   }
   getExercises() {
@@ -81,17 +88,14 @@ export class UserInfoPageComponent implements OnInit {
     });
   }
   deleteExercise(plan: Plan, exercise: Exercise) {
-    this.service
-      .deleteExercise(plan, exercise, this.id!, 'users')
-      .subscribe(() => {
-        this.getExercises();
-        this.userPlans.subscribe((res) => {
-          this.selectedPlan =
-            res.plans?.find((p) => (plan.name = p.name)) || null;
-        });
-        console.log(this.selectedPlan?.exercises);
-        this.cd.detectChanges();
-      });
+    this.service.deleteExercise(plan, exercise, this.id!, 'users').subscribe(()=>{
+      this.getExercises();
+      this.cd.detectChanges()
+    }
+
+    )
+    
+      
   }
 
   moveExercise(plan: Plan, exercise: Exercise, offset: number) {
@@ -139,5 +143,15 @@ export class UserInfoPageComponent implements OnInit {
         this.getExercises();
         this.cd.detectChanges();
       });
+  }
+  navigate(plan:Plan){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        coach:plan.creatorId,
+        plan:plan.planId,
+      }
+    }
+    this.router.navigate([`/plan/${plan.planId}`], navigationExtras)
+
   }
 }

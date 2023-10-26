@@ -1,27 +1,58 @@
-<button *ngIf="status === 'user' || 'coach'" (click)="startCreatingPlan()">Create your plan</button>
-<input type="text" placeholder="Enter plan name" [(ngModel)]="planName" *ngIf="creatingPlan" />
-<textarea type="text" placeholder="Enter plan description" [(ngModel)]="planDescription" *ngIf="creatingPlan"></textarea>
-<button (click)="showExercises()">Show</button>
-<button (click)="createPlan()" *ngIf="createPlan">confirm</button>
-<button (click)="startCreatingPlan()" *ngIf="creatingPlan">cancel</button>
-<button *ngIf="service.selectedPlan" (click)="confirm()">Add Exercise to Existing Plan</button>
-<button (click)="creatingPlanForCertainUSer()">Create Plan For User</button>
-
-<select [(ngModel)]="sortBodyPart">
-  <option value="">Sort by</option>
-  <option *ngFor="let part of bodyParts" [value]="part">{{ part }}</option>
-</select>
-
-
-<div class="container" *ngFor="let bodyPart of bodyParts">
-  <h2>{{ bodyPart }}</h2>
-  <div>
-    <div class="gg" *ngFor="let exercise of exercises[bodyPart] | slice : 0 : 20">
-      <input type="checkbox" [(ngModel)]="exercise.selected" *ngIf="creatingPlan" /> 
-      <p>{{  exercise.name }}</p>
-      <p>Target: {{ exercise.target }}</p>
-      <p>Equipment: {{ exercise.equipment }}</p>
-      <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
-    </div>
+<div class="container" *ngIf="loggedObservable | async as user">
+  <div class="button-row">
+    <button *ngIf="user.status !=='guest'" (click)="startCreatingPlan()" class="btn btn-primary">Create your plan</button>
+    <!-- <button (click)="showExercises()" class="btn btn-secondary">Show</button> -->
+    <button (click)="createPlan()" *ngIf="creatingPlan" class="btn btn-success">Confirm</button>
+    <button (click)="startCreatingPlan()" *ngIf="creatingPlan" class="btn btn-danger">Cancel</button>
+    <button *ngIf="addingExercise" (click)="confirm()" class="btn btn-primary">Add Exercise to Existing Plan</button>
+    <button *ngIf="makingPlanForUser" (click)="creatingPlanForCertainUser()" class="btn btn-primary">Create Plan For User</button>
   </div>
+
+  <div class="input-row" *ngIf="creatingPlan">
+    <input type="text" placeholder="Enter plan name" [(ngModel)]="planName" class="form-control" />
+  </div>
+
+  <div class="input-row" *ngIf="creatingPlan">
+    <textarea type="text" placeholder="Enter plan description" [(ngModel)]="planDescription" class="form-control"></textarea>
+  </div>
+
+  <div class="select-row">
+    <select [(ngModel)]="sortBodyPart" class="form-select">
+      <option value="">Sort by</option>
+      <option *ngFor="let part of bodyParts" [value]="part">{{ part }}</option>
+    </select>
+  </div>
+
+  <ng-container *ngIf="!sortBodyPart">
+    <div class="body-part-row" *ngFor="let bodyPart of bodyParts">
+      <div class="body-part">
+        <h2>{{ bodyPart }}</h2>
+        <div class="exercise-row">
+          <div class="exercise" *ngFor="let exercise of exercises[bodyPart] | slice : 0 : 30">
+            <input type="checkbox" [(ngModel)]="exercise.selected" *ngIf="creatingPlan || addingExercise" />
+            <p>{{ exercise.name }}</p>
+            <p>Target: {{ exercise.target }}</p>
+            <p>Equipment: {{ exercise.equipment }}</p>
+            <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="sortBodyPart">
+    <div class="body-part-row">
+      <div class="body-part">
+        <div class="exercise-row">
+          <div class="exercise" *ngFor="let exercise of exercises[sortBodyPart] | slice : 0 : 30">
+            <input type="checkbox" [(ngModel)]="exercise.selected" *ngIf="creatingPlan || addingExercise" />
+            <p>{{ exercise.name }}</p>
+            <p>Target: {{ exercise.target }}</p>
+            <p>Equipment: {{ exercise.equipment }}</p>
+            <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 </div>

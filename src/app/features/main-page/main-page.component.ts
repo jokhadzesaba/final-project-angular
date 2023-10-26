@@ -12,10 +12,12 @@ import { Plan } from 'src/app/shared/interfaces/plan';
 import { User } from 'src/app/shared/interfaces/user';
 import { Router, NavigationExtras } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss'],
+  styleUrls: ['./main-page.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainPageComponent implements OnInit {

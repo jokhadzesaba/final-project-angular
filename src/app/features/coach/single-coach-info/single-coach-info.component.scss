@@ -1,0 +1,97 @@
+.coachPlans {
+    width: 600px;
+  
+    .coachInfo {
+      h2 {
+        font-size: 24px;
+        color: #333;
+      }
+      p {
+        font-size: 18px;
+        color: #666;
+      }
+    }
+  
+    h1 {
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+    }
+  
+    .request {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: inherit
+  
+      p {
+        font-size: 16px;
+        color: #666;
+      }
+  
+      .request-buttons {
+        display: flex;
+        align-items: center;
+  
+        button {
+          padding: 10px;
+          margin-left: 10px;
+          cursor: pointer;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 6px;
+        }
+      }
+    }
+  
+    .coach-plan {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid black;
+      border-radius: 10px;
+  
+      .plan-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        button {
+          padding: 10px;
+          margin-left: 10px;
+          cursor: pointer;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 6px;
+        }
+      }
+  
+      .plan-exercises {
+        font-weight: bold;
+  
+        .exercise {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+  
+          .exercise-info {
+            display: flex;
+            flex-direction: column;
+  
+            p {
+              font-size: 16px;
+              color: #666;
+            }
+          }
+  
+          img {
+            width: 150px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,6 +1,6 @@
-<div>
+<div class="container">
   <h2>BMI Calculator</h2>
-  <form [formGroup]="bmiForm">
+  <form class="bmi-form" [formGroup]="bmiForm">
     <div>
       <label for="height">Height (in cm):</label>
       <input type="number" formControlName="height" id="height" required>
@@ -13,7 +13,7 @@
     </div>
     <button (click)="calculateBMI()" [disabled]="!bmiForm.valid">Calculate BMI</button>
   </form>
-  <div *ngIf="bmiResult !== null">
+  <div class="result" *ngIf="bmiResult !== null">
     <p>Your BMI is: {{ bmiResult | number: '1.1-1' }}</p>
   </div>
 </div>

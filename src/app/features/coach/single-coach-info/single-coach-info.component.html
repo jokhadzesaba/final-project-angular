@@ -1,30 +1,32 @@
-<div *ngIf="coachPlans | async as coach">
-    <div *ngIf="coach">
+<div class="coachPlans" *ngIf="coachPlans | async as coach">
+  <div *ngIf="coach" class="coachInfo">
       <h2>{{ coach.name }} {{ coach.lastname }}</h2>
       <p>Email: {{ coach.email }}</p>
       <p>Phone Number: {{ coach.phoneNumber }}</p>
-    </div>
-    <h1>Requests</h1>
-    <div *ngFor="let request of coach.requests; let i = index">
-        <p>description: {{request.description}}</p>
-        <p>User Id: {{request.userId}}</p>
-        <button (click)="makePlan(request.userId, request.id)">Make Plan For This User</button>
-        <button (click)="deleteRequest(request.id)">Delete Request</button>
-    </div>
-    <div *ngFor="let plan of coach.plans">
-      <div style="display: flex; align-items: center;">
-        <button (click)="showPlan(plan)">{{ plan.name }}</button>
-        <button (click)="deletePlan(plan)" style="margin-left: 10px;">Delete Plan</button>
-      </div>
-      <div *ngIf="selectedPlan && selectedPlan.name === plan.name">
-        <div *ngFor="let exercise of selectedPlan.exercises">
-          <div style="display: flex; align-items: center;">
-            <p>{{ exercise.bodyPart }}</p>
-            <button (click)="deleteExercise(selectedPlan, exercise)" style="margin-left: 10px;">Delete Exercise</button>
-          </div>
-          <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
-        </div>
-      </div>
-    </div>
   </div>
-  
+  <h1>Requests</h1>
+  <div *ngFor="let request of coach.requests; let i = index" class="request">
+      <p>Description: {{request.description}}</p>
+      <p>User Id: {{request.userId}}</p>
+      <div class="request-buttons">
+          <button (click)="makePlan(request.userId, request.id)" class="btn btn-primary">Make Plan For This User</button>
+          <button (click)="deleteRequest(request.id)" class="btn btn-danger">Delete Request</button>
+      </div>
+  </div>
+  <p>Your plans</p>
+  <div *ngFor="let plan of coach.plans" class="coach-plan">
+      <div class="plan-actions">
+          <button (click)="showPlan(plan)" class="btn btn-primary">{{ plan.name }}</button>
+          <button (click)="deletePlan(plan)" class="btn btn-danger">Delete Plan</button>
+      </div>
+      <div *ngIf="selectedPlan && selectedPlan.planId === plan.planId" class="plan-exercises">
+          <div *ngFor="let exercise of selectedPlan.exercises" class="exercise">
+              <div class="exercise-info">
+                  <p>{{ exercise.bodyPart }}</p>
+                  <p>{{exercise.target}}</p>
+              </div>
+              <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+          </div>
+      </div>
+  </div>
+</div>

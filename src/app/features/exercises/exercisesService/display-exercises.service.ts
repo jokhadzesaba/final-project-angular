@@ -8,8 +8,9 @@ export class DisplayExercisesService {
 
   private url = 'https://zylalabs.com/api/392/exercise+database+api/310/list+exercise+by+body+part';
   private headers = new HttpHeaders({
-    'Authorization': 'Bearer 2474|nWPBUqFkqJRjj4ooOW2WwpNpB7soLgZb60BcCZ1W'
+    'Authorization': 'Bearer 2534|6WH4CN6n9hDlwnkqosySDzFJEABNRXw3yrexkquh'
   });
+
   constructor(private http: HttpClient) { }
 
   getExercises(bodyPart: string) {

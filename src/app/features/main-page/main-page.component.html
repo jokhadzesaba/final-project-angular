@@ -5,9 +5,9 @@
         <h4>Plan by: {{ coach.nickName }}</h4>
         <h4>Coach Email: {{ coach.email }}</h4>
         <h4>Plan Name:{{ plan.name }}</h4>
-        <span>Plan description: {{plan.description | slice:0:100 }}...</span>
-        <button class="like-btn" *ngIf="!isPlanLiked(plan)" (click)="likePlan(plan)">Like</button>
-        <button class="unlike-btn" *ngIf="isPlanLiked(plan)" (click)="unlikePlan(plan)">Unlike</button>
+        <span>Plan description: {{plan.description | slice:0:100 }}</span>
+        <button class="like-btn" *ngIf="!isPlanLiked(plan) && (status$ | async) === 'user'" (click)="likePlan(plan)">Like</button>
+        <button class="unlike-btn" *ngIf="isPlanLiked(plan) && (status$ | async) === 'user'" (click)="unlikePlan(plan)">Unlike</button>
         <button class="like-btn" (click)="navigate(plan,coach)">see more</button>
       </div>
     </div>

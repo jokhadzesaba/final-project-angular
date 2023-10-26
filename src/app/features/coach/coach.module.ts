@@ -4,16 +4,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CoachRoutingModule } from './coach-routing.module';
 import { AllcoachComponent } from './allcoach/allcoach.component';
 import { SingleCoachInfoComponent } from './single-coach-info/single-coach-info.component';
-import { CoachInfoComponent } from './allcoach/coach-info/coach-info.component';
 import { CoachRegistrationComponent } from './coach-registration/coach-registration.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { CoachPageGuard } from './coach-page.guard';
 
 
 
 @NgModule({
-  declarations: [AllcoachComponent,SingleCoachInfoComponent,CoachInfoComponent,CoachRegistrationComponent],
-  imports: [ReactiveFormsModule, CommonModule, CoachRoutingModule,SharedModule],
+  declarations: [AllcoachComponent,SingleCoachInfoComponent, CoachRegistrationComponent],
+  imports: [ReactiveFormsModule, CommonModule, CoachRoutingModule],
   providers: [CoachPageGuard],
   exports: [],
 })

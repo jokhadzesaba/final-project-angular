@@ -1,16 +1,26 @@
-
-<div *ngFor="let coach of allCoach | async">
-    <div>
-        <p>Name: {{coach.name}}</p>
-        <p>Email: {{coach.email}}</p>
-        <p>phoneNumber: {{coach.phoneNumber}}</p>
-        <p>id: {{coach.id}}</p>
-        <button (click)="navigateToCoach(coach.id!)">View Details</button>
-        <button (click)="openPlanRequestForm()">request Plan</button>
-        <div *ngIf="showPlanRequestForm">
+<div class="coach-card-container">
+    <ng-container *ngIf="(allCoach | async) as coaches">
+      <div class="coach-card" *ngFor="let coach of coaches">
+        <div>
+          <p><strong>Name:</strong> {{coach.name}}</p>
+          <p><strong>Nickname:</strong> {{coach.nickName}}</p>
+          <p><strong>Email:</strong> {{coach.email}}</p>
+          <p><strong>Phone Number:</strong> {{coach.phoneNumber}}</p>
+          <p><strong>Id:</strong> {{coach.id}}</p>
+        </div>
+        <div class="card-buttons">
+          <div class="request-buttons">
+            <button (click)="navigateToCoach(coach.id!)">View Details</button>
+            <button *ngIf="selectedCoachId !== coach.id && !showPlanRequestForm" (click)="openPlanRequestForm(coach.id!)">Request Plan</button>
+          </div>
+          <div *ngIf="selectedCoachId === coach.id && showPlanRequestForm" class="plan-request-form">
             <h2>Request Plan</h2>
             <textarea #planDescription placeholder="Write your plan description here"></textarea>
             <button (click)="requestPlan(coach.id!, planDescription.value)">Confirm</button>
+            <button class="cancel-button" (click)="cancelPlanRequest()">Cancel</button>
           </div>
-    </div>
-</div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  

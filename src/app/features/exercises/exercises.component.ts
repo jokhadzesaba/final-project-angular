@@ -10,6 +10,9 @@ import { RegistrationUpdateDeleteEditService } from '../sharedServices/registrat
 import { Exercise } from 'src/app/shared/interfaces/exercise';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '../sharedServices/shared.service';
+import { Observable } from 'rxjs';
+import { Coach } from 'src/app/shared/interfaces/coach';
+import { User } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-exercises',
@@ -31,11 +34,14 @@ export class ExercisesComponent implements OnInit {
     'neck',
   ];
   status = '';
-  id = 0;
+  id?:number;
   planName: string = '';
   planDescription: string = '';
   creatingPlan: boolean = false;
+  makingPlanForUser: boolean = false;
   sortBodyPart: string = '';
+  loggedObservable?:Observable<User|Coach>
+  public addingExercise?:boolean
 
   public exercises: { [key: string]: Exercise[] } = {};
   constructor(
@@ -48,13 +54,23 @@ export class ExercisesComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
+    this.loggedObservable = this.service.loggedUser
+    this.showExercises()
     this.service.loggedUser.subscribe((res) => {
       this.status = res.status!;
       this.id = res.id!;
-    });
+      console.log(this.status);
+    });    //this free api has very small limit of requests
     this.sharedService.creatingPlan$.subscribe((value) => {
       this.creatingPlan = value;
     });
+    this.sharedService.addingExercise$.subscribe((value)=>{
+      this.addingExercise = value
+    })
+    this.sharedService.makingPlanForUser$.subscribe((value)=>{
+      this.makingPlanForUser = value
+    })
+
   }
   showExercises() {
     this.bodyParts.forEach((bodyPart) => {
@@ -82,6 +98,8 @@ export class ExercisesComponent implements OnInit {
 
   startCreatingPlan(): void {
     this.creatingPlan = !this.creatingPlan;
+    this.makingPlanForUser = false
+
   }
   getSelectedExercises() {
     const selectedExercises: Exercise[] = [];
@@ -98,13 +116,13 @@ export class ExercisesComponent implements OnInit {
   }
   createPlan() {
     const selectedExercises = this.getSelectedExercises();
-    const planId = this.service.generateUniqueId()
+    const planId = this.sharedService.generateUniqueId()
     if (this.status === 'user') {
-      this.service.addPlan(selectedExercises, this.id, this.planName,this.planDescription, planId,'users');
+      this.service.addPlan(selectedExercises, this.id!, this.planName,this.planDescription, planId,'users');
     } else if (this.status === 'coach') {
       this.service.addPlan(
         selectedExercises,
-        this.id,
+        this.id!,
         this.planName,
         this.planDescription,
         planId,
@@ -119,19 +137,23 @@ export class ExercisesComponent implements OnInit {
   }
   confirm() {
     const selectedExercises: Exercise[] = this.getSelectedExercises();
-    this.service.addExercisesToPlan(selectedExercises, 'users', this.id);
+    this.service.addExercisesToPlan(selectedExercises, 'users', this.id!);
+    this.sharedService.ifchanged(true)
     this.router.navigate(['/user-info']);
+    this.sharedService.addexercise(false)
   }
-  creatingPlanForCertainUSer() {
+  creatingPlanForCertainUser() {
     const selectedExercises:Exercise[] = this.getSelectedExercises()
     this.route.queryParams.subscribe((params) => {
-      const userId = params['userId'];
+      const userId = Number(params['userId']);
       const coachName = params['coachName'];
       const coachLastname = params['coachLastName'];
-      const coachId = params['coachID'];
+      const coachId = Number(params['coachId']);
       const nickName = params['nickName'];
-      const planId = params['planId'];
-      this.service.sendPlanToUser(userId,coachId,coachName,coachLastname,nickName,this.planName,planId,selectedExercises);
+      const requestId = params['requestId'];
+      this.service.sendPlanToUser(userId,coachId,coachName,coachLastname,nickName,this.planName,requestId,this.planDescription,selectedExercises);
+      this.sharedService.setCreatingPlan(false)
+      this.sharedService.makingplanForUser(false)
       this.router.navigate(["/single-coach-info"])
 
     });

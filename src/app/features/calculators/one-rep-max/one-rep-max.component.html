@@ -1,24 +1,23 @@
-<div>
-    <h2>One-Rep Max Calculator</h2>
-    <form [formGroup]="oneRepMaxForm">
-      <div>
-        <label for="weight">Weight Lifted (in kg): </label>
-        <input type="number" id="weight" formControlName="weight" />
-        <div *ngIf="oneRepMaxForm.controls['weight'].invalid && oneRepMaxForm.controls['weight'].touched">
-          <p style="color: red;">Weight is required and should be greater than 0</p>
-        </div>
+<div class="one-rep-max-container">
+  <h2>One-Rep Max Calculator</h2>
+  <form class="one-rep-max-form" [formGroup]="oneRepMaxForm">
+    <div>
+      <label for="weight">Weight Lifted (in kg): </label>
+      <input type="number" id="weight" formControlName="weight" />
+      <div *ngIf="oneRepMaxForm.controls['weight'].invalid && oneRepMaxForm.controls['weight'].touched">
+        <p class="error-message">Weight is required and should be greater than 0</p>
       </div>
-      <div>
-        <label for="repetitions">Repetitions: </label>
-        <input type="number" id="repetitions" formControlName="repetitions" />
-        <div *ngIf="oneRepMaxForm.controls['repetitions'].invalid && oneRepMaxForm.controls['repetitions'].touched">
-          <p style="color: red;">Repetitions are required and should be greater than 0</p>
-        </div>
-      </div>
-      <button (click)="calculateOneRepMax()" [disabled]="oneRepMaxForm.invalid">Calculate One-Rep Max</button>
-    </form>
-    <div *ngIf="oneRepMax > 0">
-      <p>Your One-Rep Max is: {{ oneRepMax | number: '1.0-0' }} kg</p>
     </div>
+    <div>
+      <label for="repetitions">Repetitions: </label>
+      <input type="number" id="repetitions" formControlName="repetitions" />
+      <div *ngIf="oneRepMaxForm.controls['repetitions'].invalid && oneRepMaxForm.controls['repetitions'].touched">
+        <p class="error-message">Repetitions are required and should be greater than 0</p>
+      </div>
+    </div>
+    <button (click)="calculateOneRepMax()" [disabled]="oneRepMaxForm.invalid">Calculate One-Rep Max</button>
+  </form>
+  <div *ngIf="oneRepMax > 0">
+    <p>Your One-Rep Max is: {{ oneRepMax | number: '1.0-0' }} kg</p>
   </div>
-  
+</div>

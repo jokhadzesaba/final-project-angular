@@ -10,9 +10,17 @@
       "status": "coach",
       "plans": [
         {
-          "exercises": "whydude",
-          "description": "naaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaah",
-          "plans": [
+          "name": "idk",
+          "description": "Plan for abstraining. do each exercise 10 times",
+          "creatorId": 1,
+          "exercises": [],
+          "planId": "wtf"
+        },
+        {
+          "name": "idk",
+          "description": "Plan for abstraining. do each exercise 10 times",
+          "creatorId": 1,
+          "exercises": [
             {
               "bodyPart": "waist",
               "equipment": "body weight",
@@ -21,25 +29,16 @@
               "name": "3/4 sit-up",
               "target": "abs",
               "selected": false
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "target": "abs",
-              "selected": false
             }
           ],
-          "planId": "pY7RQSS4"
+          "planId": "eu9fXzQL"
         }
       ],
       "requests": [
         {
           "userId": 1,
-          "description": "tesli bicepsi",
-          "id": "erti"
+          "description": "absTraining",
+          "id": "GE2yi8bJ"
         }
       ]
     },
@@ -55,57 +54,65 @@
       "status": "coach",
       "plans": [
         {
-          "name": "whydude",
-          "description": "naaah",
+          "name": "anotherabstraining",
+          "description": "Plan for abstraining. do each exercise 10 times",
+          "creatorId": 2,
           "exercises": [
             {
               "bodyPart": "waist",
               "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_3.gif",
+              "id": 3,
+              "name": "air bike",
               "target": "abs",
               "selected": false
             },
             {
               "bodyPart": "waist",
               "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_5.gif",
+              "id": 5,
+              "name": "alternate heel touchers",
               "target": "abs",
               "selected": false
             }
           ],
-          "planId": "ori"
+          "planId": "tZfqFynd"
         },
         {
-          "name": "whydude",
-          "description": "naaah",
+          "name": "idonotknow",
+          "description": "Plan for abstraining. do each exercise 10 times",
+          "creatorId": 2,
           "exercises": [
             {
               "bodyPart": "waist",
               "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_10.gif",
+              "id": 10,
+              "name": "arm slingers hanging bent knee legs",
               "target": "abs",
               "selected": false
             },
             {
               "bodyPart": "waist",
               "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_11.gif",
+              "id": 11,
+              "name": "arm slingers hanging straight legs",
               "target": "abs",
               "selected": false
             }
           ],
-          "planId": "sami"
+          "planId": "um1p6m4z"
         }
       ],
-      "requests": [],
+      "requests": [
+        {
+          "userId": 1,
+          "description": "abstraining",
+          "id": "mNjqepPi"
+        }
+      ],
       "id": 2
     }
   ],
@@ -114,38 +121,15 @@
       "name": "saba",
       "lastname": "joxadze",
       "email": "saba@gmail.com",
-      "nickName": "whiteBeard",
-      "phoneNumber": "123123123",
+      "nickName": "bk-201",
+      "phoneNumber": "+995123123123",
       "password": "123123123",
+      "status": "user",
       "likedPlans": [
         {
-          "exercises": "whydude",
-          "description": "naaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaahnaaah",
-          "plans": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
-              "target": "abs",
-              "selected": false
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "target": "abs",
-              "selected": false
-            }
-          ],
-          "planId": "pY7RQSS4"
-        },
-        {
-          "name": "whydude",
-          "description": "naaah",
+          "name": "idk",
+          "description": "abstraining",
+          "creatorId": 1,
           "exercises": [
             {
               "bodyPart": "waist",
@@ -166,66 +150,65 @@
               "selected": false
             }
           ],
-          "planId": "ori"
-        },
-        {
-          "name": "whydude",
-          "description": "naaah",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
-              "target": "abs",
-              "selected": false
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "target": "abs",
-              "selected": false
-            }
-          ],
-          "planId": "sami"
+          "planId": "eu9fMzQL"
         }
       ],
-      "requestedPlans": [
-        {
-          "coachName": "saba",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
-              "target": "abs",
-              "selected": false
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "target": "abs",
-              "selected": false
-            }
-          ],
-          "nickName": "bk-201",
-          "planName": "ahaa brat",
-          "planId": "K4UnHnZM"
-        }
-      ],
+      "requestedPlans": [],
       "age": "12312",
       "id": 1,
-      "plans": [],
-      "status": "user"
+      "plans": [
+        {
+          "name": "idk",
+          "description": "abstraining",
+          "creatorId": 1,
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "target": "abs",
+              "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "target": "abs",
+              "selected": false
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_3.gif",
+              "id": 3,
+              "name": "air bike",
+              "target": "abs",
+              "selected": false
+            }
+          ],
+          "planId": "eu9fXzQL"
+        }
+      ],
+      "requests": [
+        {
+          "userId": 1,
+          "description": "something ",
+          "id": "qCjo4S8U"
+        }
+      ]
     }
   ]
 }

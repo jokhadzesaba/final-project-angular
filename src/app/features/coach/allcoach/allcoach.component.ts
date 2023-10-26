@@ -3,6 +3,7 @@ import { RegistrationUpdateDeleteEditService } from '../../sharedServices/regist
 import { Coach } from 'src/app/shared/interfaces/coach';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { SharedService } from '../../sharedServices/shared.service';
 
 @Component({
   selector: 'app-allcoach',
@@ -16,8 +17,23 @@ export class AllcoachComponent implements OnInit {
   public showPlanRequestForm: boolean = false;
   constructor(
     private service: RegistrationUpdateDeleteEditService,
-    private router: Router
+    private router: Router,
+    private sharedService:SharedService
   ) {}
+
+  public selectedCoachId?: number;
+
+
+  openPlanRequestForm(coachId: number) {
+    this.selectedCoachId = coachId;
+    this.showPlanRequestForm = true;
+  }
+
+  cancelPlanRequest() {
+    this.selectedCoachId = undefined;
+    this.showPlanRequestForm = false;
+  }
+
   ngOnInit(): void {
       this.allCoach = this.service.loadCoaches()
       this.service.loggedUser.subscribe((res) => (this.userId = res.id));
@@ -28,11 +44,8 @@ export class AllcoachComponent implements OnInit {
   navigateToCoach(coachId: number) {
     this.router.navigate(['/coach-info', coachId]);
   }
-  openPlanRequestForm() {
-    this.showPlanRequestForm = true;
-  }
   requestPlan(coachId: number, description: string) {
-    const requestId = this.service.generateUniqueId(); 
+    const requestId = this.sharedService.generateUniqueId(); 
     this.service.sendPlanRequest(this.userId!, coachId, description, requestId);
     this.showPlanRequestForm = false;
   }

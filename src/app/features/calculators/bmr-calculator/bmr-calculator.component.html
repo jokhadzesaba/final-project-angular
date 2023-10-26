@@ -1,48 +1,51 @@
-<div>
-    <h2>BMR Calculator</h2>
-    <form [formGroup]="bmrForm">
-      <div>
+<div class="bmr-container">
+  <h2>BMR Calculator</h2>
+  <form class="bmr-form" [formGroup]="bmrForm">
+    <div class="input-group">
+      <div class="input-item">
         <label for="weight">Weight (in kg): </label>
         <input type="number" id="weight" formControlName="weight" />
         <div *ngIf="bmrForm.controls['weight'].invalid && bmrForm.controls['weight'].touched">
-          <p style="color: red;">Weight is required and should be greater than 0</p>
+          <p class="error-message">Weight is required and should be greater than 0</p>
         </div>
       </div>
-      <div>
+      <div class="input-item">
         <label for="height">Height (in cm): </label>
         <input type="number" id="height" formControlName="height" />
         <div *ngIf="bmrForm.controls['height'].invalid && bmrForm.controls['height'].touched">
-          <p style="color: red;">Height is required and should be greater than 0</p>
+          <p class="error-message">Height is required and should be greater than 0</p>
         </div>
       </div>
-      <div>
+    </div>
+    <div class="input-group">
+      <div class="input-item">
         <label for="age">Age: </label>
         <input type="number" id="age" formControlName="age" />
         <div *ngIf="bmrForm.controls['age'].invalid && bmrForm.controls['age'].touched">
-          <p style="color: red;">Age is required and should be greater than 0</p>
+          <p class="error-message">Age is required and should be greater than 0</p>
         </div>
       </div>
-      <div>
+      <div class="input-item">
         <label for="gender">Gender: </label>
         <select id="gender" formControlName="gender">
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
-      <div>
-        <label for="activityLevel">Activity Level: </label>
-        <select id="activityLevel" formControlName="activityLevel">
-          <option value="sedentary">Sedentary</option>
-          <option value="lightlyActive">Lightly Active</option>
-          <option value="moderatelyActive">Moderately Active</option>
-          <option value="veryActive">Very Active</option>
-          <option value="superActive">Super Active</option>
-        </select>
-      </div>
-      <button (click)="calculateBMR()" [disabled]="bmrForm.invalid">Calculate BMR</button>
-    </form>
-    <div *ngIf="bmr > 0">
-      <p>Your BMR is: {{ bmr | number: '1.0-0' }} calories/day</p>
     </div>
+    <div class="input-item">
+      <label for="activityLevel">Activity Level: </label>
+      <select id="activityLevel" formControlName="activityLevel">
+        <option value="sedentary">Sedentary</option>
+        <option value="lightlyActive">Lightly Active</option>
+        <option value="moderatelyActive">Moderately Active</option>
+        <option value="veryActive">Very Active</option>
+        <option value="superActive">Super Active</option>
+      </select>
+    </div>
+    <button (click)="calculateBMR()" [disabled]="bmrForm.invalid">Calculate BMR</button>
+  </form>
+  <div *ngIf="bmr > 0">
+    <p>Your BMR is: {{ bmr | number: '1.0-0' }} calories/day</p>
   </div>
-  
+</div>

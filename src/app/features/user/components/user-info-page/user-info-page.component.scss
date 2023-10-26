@@ -1,0 +1,95 @@
+.userPlans {
+    width: 600px;
+    .userInfo {
+      h2 {
+        font-size: 24px;
+        color: #333;
+      }
+      p {
+        font-size: 18px;
+        color: #333;
+      }
+    }
+    .requestedPlans, .likedPlans, .yourPlans {
+      h3 {
+        font-size: 20px;
+        color: #333;
+        font-weight: bold;
+      }
+  
+      .plan-card {
+        width: 400px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 20px;
+    
+        .p{
+            word-wrap: break-word;
+        }
+  
+        .plan-actions {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          
+          >button:first-child{
+            width: 150px;
+          }  
+          button {
+            padding: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+        }
+  
+        .plan-exercises {
+            font-weight: bold;
+          h4 {
+            font-size: 18px;
+            color: #333;
+          }
+  
+          .exercise-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            >.exersiceinfo{
+              display: flex;
+              flex-direction: column;
+            }
+            p {
+              font-size: 16px;
+              color: #666;
+            }
+  
+            img {
+              width: 140px; 
+              height: auto; 
+            }
+  
+            button {
+              padding: 10px;
+              margin-left: 10px;
+              width: 100px;
+              cursor: pointer;
+              background-color: #f44336; 
+              color: white;
+  
+              &:first-child {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

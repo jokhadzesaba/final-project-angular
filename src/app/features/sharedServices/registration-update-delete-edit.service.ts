@@ -8,8 +8,6 @@ import {
   catchError,
   throwError,
   take,
-  pipe,
-  of,
 } from 'rxjs';
 import { Coach } from 'src/app/shared/interfaces/coach';
 import { User } from 'src/app/shared/interfaces/user';
@@ -18,8 +16,9 @@ import { map } from 'rxjs';
 import { forkJoin } from 'rxjs';
 import { Plan } from 'src/app/shared/interfaces/plan';
 import { Router } from '@angular/router';
-import { ErrorService } from 'src/app/sharedComponent/error-page/service/error.service';
+import { ErrorService } from 'src/app/shared/sharedComponent/error-page/service/error.service';
 import { RequestedPlan } from 'src/app/shared/interfaces/requestedPlan';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +26,6 @@ import { RequestedPlan } from 'src/app/shared/interfaces/requestedPlan';
 export class RegistrationUpdateDeleteEditService {
   public userAdded = new BehaviorSubject<User[]>([]);
   public coachAdded = new BehaviorSubject<Coach[]>([]);
-
   public users: User[] = [];
   public coaches: Coach[] = [];
   public status: BehaviorSubject<string> = new BehaviorSubject('guest');
@@ -43,13 +41,14 @@ export class RegistrationUpdateDeleteEditService {
     password: '',
     id: 0,
     plans: [],
-    status: '',
+    status: 'guest',
   });
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private errorService: ErrorService
+    private errorService: ErrorService,
+    private shared:SharedService
   ) {}
   addExercisesToPlan(
     exercises: Exercise[],
@@ -74,9 +73,7 @@ export class RegistrationUpdateDeleteEditService {
           }
         },
         error: (error) => {
-          console.log(error);
-          this.errorService.changeMessage(error.message);
-          this.router.navigate(['/error']);
+          return this.handleError(error)
         },
       });
     }
@@ -111,45 +108,43 @@ export class RegistrationUpdateDeleteEditService {
           }
         }),
         catchError((error) => {
-          console.log(error);
-          this.errorService.changeMessage(error.message);
-          this.router.navigate(['/error']);
-          return throwError(error);
+          return this.handleError(error)
         })
       );
   }
 
   addPlan(
     data: Exercise[],
-    userId: number,
+    userIdorCoach: number,
     planName: string,
     planDescription: string,
     planId: string,
     toWho: 'users' | 'coaches'
   ) {
-    this.http.get<User>(`http://localhost:3000/${toWho}/${userId}`).subscribe({
-      next: (user: User) => {
-        const update = [
-          ...user.plans!,
-          {
-            name: planName,
-            description: planDescription,
-            exercises: data,
-            planId: planId,
-          },
-        ];
-        this.http
-          .patch(`http://localhost:3000/${toWho}/${userId}`, {
-            plans: update,
-          })
-          .subscribe();
-      },
-      error: (error) => {
-        console.log(error);
-        this.errorService.changeMessage(error.message);
-        this.router.navigate(['/error']);
-      },
-    });
+    this.http
+      .get<User>(`http://localhost:3000/${toWho}/${userIdorCoach}`)
+      .subscribe({
+        next: (user: User) => {
+          const update = [
+            ...user.plans!,
+            {
+              name: planName,
+              description: planDescription,
+              creatorId: userIdorCoach,
+              exercises: data,
+              planId: planId,
+            },
+          ];
+          this.http
+            .patch(`http://localhost:3000/${toWho}/${userIdorCoach}`, {
+              plans: update,
+            })
+            .subscribe();
+        },
+        error: (error) => {
+            return this.handleError(error)
+        },
+      });
   }
   getUserOrCoach(userId: number, who: 'users' | 'coaches'): Observable<User> {
     return this.http.get<User>(`http://localhost:3000/${who}/${userId}`);
@@ -200,39 +195,27 @@ export class RegistrationUpdateDeleteEditService {
     exercise: Exercise,
     userId: number,
     from: 'users' | 'coaches'
-  ): Observable<Object> {
-    return this.http
-      .get<User | Coach>(`http://localhost:3000/${from}/${userId}`)
-      .pipe(
-        switchMap((userOrCoach: User | Coach) => {
-          const updatedPlans = userOrCoach.plans?.map((p) => {
-            if (p.planId === plan.planId) {
-              const updatedExercises = p.exercises.filter(
-                (ex) => ex.id !== exercise.id
-              );
-              return { ...p, plans: updatedExercises };
-            }
-            return p;
-          });
-          return this.http
-            .patch(`http://localhost:3000/${from}/${userId}`, {
-              plans: updatedPlans,
-            })
-            .pipe(
-              tap(() => {
-                this.userAdded.next(
-                  this.userAdded.value.map((user) => {
-                    if (user.id === userId) {
-                      return { ...user, plans: updatedPlans };
-                    }
-                    return user;
-                  })
-                );
-              })
+  ): Observable<void> {
+    return new Observable<void>((observer) => {
+      this.getUserOrCoach(userId, from).subscribe(
+        (user: User | Coach) => {
+          const userPlan = user.plans?.find((p) => p.planId === plan.planId);
+          if (userPlan) {
+            userPlan.exercises = userPlan.exercises.filter(
+              (e) => e.id !== exercise.id
             );
-        })
+            this.http
+              .patch<User>(`http://localhost:3000/${from}/${userId}`, user)
+              .subscribe()
+          }
+        },
+        (error) => {
+          return this.handleError(error)
+        }
       );
+    });
   }
+  
   deleteRequestedPlan(plan: RequestedPlan, userId: number, coachId: number) {
     this.getUserOrCoach(userId, 'users').subscribe((user: User) => {
       const updatedPlans = user.requestedPlans?.filter(
@@ -243,8 +226,11 @@ export class RegistrationUpdateDeleteEditService {
           requestedPlans: updatedPlans,
         })
         .subscribe();
-    });
-    this.getUserOrCoach(coachId, 'coaches').subscribe((caoch: Coach) => {});
+    },
+    (error) => {
+      return this.handleError(error)
+    }
+    );
   }
 
   getInfo(email: string, password: string): Observable<boolean> {
@@ -274,10 +260,7 @@ export class RegistrationUpdateDeleteEditService {
         }
       }),
       catchError((error) => {
-        console.log(error);
-        this.errorService.changeMessage(error.message);
-        this.router.navigate(['/error']);
-        return throwError(error);
+        return this.handleError(error)
       })
     );
   }
@@ -302,8 +285,9 @@ export class RegistrationUpdateDeleteEditService {
     return this.getUserOrCoach(id, 'users').pipe(
       take(1),
       tap((user: User) => {
-        const ifAlredyLiked = user.likedPlans?.some((e) => (e.planId === plan.planId));
-        if (!ifAlredyLiked) {
+        const ifAlredyLiked = user.likedPlans?.some(
+          (e) => e.planId === plan.planId
+        );
           if (user.likedPlans) {
             const updated = [...user.likedPlans!, plan];
             this.http
@@ -312,9 +296,6 @@ export class RegistrationUpdateDeleteEditService {
               })
               .subscribe();
           }
-        } else {
-          alert('you liked this plan before :)');
-        }
       }),
       catchError((error) => {
         return this.handleError(error);
@@ -326,8 +307,9 @@ export class RegistrationUpdateDeleteEditService {
     return this.getUserOrCoach(id, 'users').pipe(
       take(1),
       tap((user: User) => {
-        const ifAlredyLiked = user.likedPlans?.some((e) => (e.planId === plan.planId));
-        if (ifAlredyLiked) {
+        const ifAlredyLiked = user.likedPlans?.some(
+          (e) => e.planId === plan.planId
+        );
           if (user.likedPlans) {
             const updated = user.likedPlans.filter(
               (likedPlan) => likedPlan.planId !== plan.planId
@@ -338,9 +320,7 @@ export class RegistrationUpdateDeleteEditService {
               })
               .subscribe();
           }
-        } else {
-          alert('you do not have liked this plan before :)');
-        }
+        
       }),
       catchError((error) => {
         return this.handleError(error);
@@ -376,7 +356,8 @@ export class RegistrationUpdateDeleteEditService {
     coachLastName: string,
     nickName: string,
     planName: string,
-    planId: string,
+    requestId: string,
+    description: string,
     exercises: Exercise[]
   ) {
     this.getUserOrCoach(userId, 'users').subscribe((res: User) => {
@@ -389,7 +370,8 @@ export class RegistrationUpdateDeleteEditService {
           exercises: exercises,
           nickName: nickName,
           planName: planName,
-          planId: planId,
+          description: description,
+          planId: requestId,
         },
       ];
       this.http
@@ -402,21 +384,12 @@ export class RegistrationUpdateDeleteEditService {
   searchLikedPlan(plan: Plan, userId: number) {
     return this.getUserOrCoach(userId, 'users').pipe(
       map((user: User) => {
-        const ifLiked = user.likedPlans?.find(e => e.planId === plan.planId);
+        const ifLiked = user.likedPlans?.find((e) => e.planId === plan.planId);
         if (ifLiked) {
           return true;
         }
         return false;
       })
     );
-  }
-  generateUniqueId(): string {
-    const chars =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < 8; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return result;
   }
 }

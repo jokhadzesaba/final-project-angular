@@ -1,7 +1,7 @@
 
 <div class="top-bar">
     <button routerLink="/login" *ngIf="loggedStatus==='guest'">Log In</button>
-    <button *ngIf="loggedStatus!=='guest'">Log Out</button>
+    <button (click)="logOut()" *ngIf="loggedStatus!=='guest'">Log Out</button>
     <button routerLink="/home">Home</button>
     <button routerLink="/coach-feature/coach-list">All Coach</button>
 
