@@ -1,8 +1,5 @@
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    margin: 0 auto;
     max-width: 430px;
     text-align: center;
     width: 100%;
@@ -39,7 +36,7 @@
         transition: 0.4s;
         padding: 10px 20px;
         border-radius: 5px;
-        width: 370px;
+        width: 80%;
     }
   
       header {

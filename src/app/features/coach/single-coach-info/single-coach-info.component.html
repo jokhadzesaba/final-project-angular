@@ -3,6 +3,12 @@
       <h2>{{ coach.name }} {{ coach.lastname }}</h2>
       <p>Email: {{ coach.email }}</p>
       <p>Phone Number: {{ coach.phoneNumber }}</p>
+      <p *ngIf="coach.bmi">BMI: {{ coach.bmi }}</p>
+      <button routerLink="/calculate/bmi" *ngIf="coach.bmi === ''">calculate Your BMI</button>
+      <p *ngIf="coach.bmr">BMR: {{ coach.bmr }}</p>
+      <button routerLink="/calculate/bmr" *ngIf="coach.bmr === ''">calculate Your BMR</button>
+      <p *ngIf="coach.orm">One-Rep-Max: {{ coach.orm }}</p>
+      <button routerLink="/calculate/one-rep-max" *ngIf="coach.orm === ''">calculate Your One-Rep_Max</button>
   </div>
   <h1>Requests</h1>
   <div *ngFor="let request of coach.requests; let i = index" class="request">

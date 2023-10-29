@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { RegistrationUpdateDeleteEditService } from '../../sharedServices/registration-update-delete-edit.service';
+import { CalculateService } from '../service/calculate.service';
+import { Coach } from 'src/app/shared/interfaces/coach';
+import { User } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-bmi',
@@ -8,12 +12,25 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class BMIComponent {
-  bmiForm!: FormGroup;
-  bmiResult: number | null = null;
+  public bmiForm!: FormGroup;
+  public bmiResult: number | null = null;
+  public id?:number;
+  public status?:string
 
-  constructor(private formBuilder: FormBuilder) {}
+
+  constructor(private formBuilder: FormBuilder,private service:RegistrationUpdateDeleteEditService, private calculateService:CalculateService) {}
 
   ngOnInit(): void {
+    this.service.loggedUser.subscribe((res:User|Coach)=>{
+      this.id = res.id;
+      if (res.status === 'user') {
+        this.status = 'users'
+      }else if(res.status === 'coach'){
+        this.status = 'coaches'
+      }else{
+        this.status = 'guest'
+      }
+    })
     this.bmiForm = this.formBuilder.group({
       height: ['', Validators.required],
       weight: ['', Validators.required]
@@ -30,5 +47,8 @@ export class BMIComponent {
     } else {
       this.bmiResult = null;
     }
+  }
+  addToUserData(){
+      this.calculateService.addToUser('bmi', this.bmiResult!, this.status! as 'coaches' | 'users', this.id!)
   }
 }

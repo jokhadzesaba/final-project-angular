@@ -1,9 +1,7 @@
 .container {
+  margin: 0 auto;
   margin-top: 120px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
   max-width: 430px;
   width: 100%;
   background: #fff;
@@ -50,10 +48,10 @@
     .signup {
       font-size: 17px;
       text-align: center;
-      >label{
+      > label {
         cursor: pointer;
       }
-      p{
+      p {
         cursor: pointer;
       }
     }

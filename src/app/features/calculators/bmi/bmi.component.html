@@ -15,5 +15,7 @@
   </form>
   <div class="result" *ngIf="bmiResult !== null">
     <p>Your BMI is: {{ bmiResult | number: '1.1-1' }}</p>
+    <button (click)="addToUserData()" *ngIf="bmiResult !== null && status!=='guest'">Add to Your Info</button>
+    
   </div>
 </div>

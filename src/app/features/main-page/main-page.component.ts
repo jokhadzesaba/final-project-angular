@@ -40,13 +40,18 @@ export class MainPageComponent implements OnInit {
       }
     );
     this.status$ = this.service.status;
-    this.service.getUserOrCoach(this.id!, 'users').subscribe((user: User) => {
-      if (user.likedPlans) {
-        for (const plan of user.likedPlans) {
-          this.likedPlans.push(plan.planId);
-        }
+    this.status$.subscribe((res)=>{
+      if (res === 'user') {
+        this.service.getUserOrCoach(this.id!, 'users').subscribe((user: User) => {
+          if (user.likedPlans) {
+            for (const plan of user.likedPlans) {
+              this.likedPlans.push(plan.planId);
+            }
+          }
+        });  
       }
-    });
+    })
+
 
     this.coachesSubscription = this.service
       .loadCoaches()

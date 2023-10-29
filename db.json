@@ -7,6 +7,9 @@
       "phoneNumber": "+995123123123",
       "password": "123123123",
       "id": 1,
+      "bmi": "",
+      "bmr": "",
+      "orm": "",
       "status": "coach",
       "plans": [
         {
@@ -52,6 +55,9 @@
       "age": "",
       "salary": "",
       "status": "coach",
+      "bmi": 0,
+      "bmr": 0,
+      "orm": 0,
       "plans": [
         {
           "name": "anotherabstraining",
@@ -125,6 +131,9 @@
       "phoneNumber": "+995123123123",
       "password": "123123123",
       "status": "user",
+      "bmi": "24.7",
+      "bmr": "",
+      "orm": "",
       "likedPlans": [
         {
           "name": "idk",

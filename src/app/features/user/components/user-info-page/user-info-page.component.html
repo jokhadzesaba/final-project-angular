@@ -1,9 +1,15 @@
 <div class="userPlans" *ngIf="userPlans | async as user">
   <div *ngIf="user" class="userInfo">
-    <h2>Coach: {{ user.name }} {{ user.lastname }}</h2>
+    <h2>User: {{ user.name }} {{ user.lastname }}</h2>
     <h2>nickName:{{user.nickName}}</h2>
     <p>Email: {{ user.email }}</p>
     <p>Phone Number: {{ user.phoneNumber }}</p>
+    <p *ngIf="user.bmi">bmi: {{ user.bmi }}</p>
+    <button routerLink="/calculate/bmi" *ngIf="user.bmi === ''">calculate Your BMI</button>
+    <p *ngIf="user.bmr">bmr: {{ user.bmr }}</p>
+    <button routerLink="/calculate/bmr" *ngIf="user.bmr === ''">calculate Your BMR</button>
+    <p *ngIf="user.orm">One-Rep-Max: {{ user.orm }}</p>
+    <button routerLink="/calculate/one-rep-max" *ngIf="user.orm === ''">calculate Your One-Rep-Max</button>
   </div>
 
   <div *ngIf="user.requestedPlans && user.requestedPlans.length" class="requestedPlans">

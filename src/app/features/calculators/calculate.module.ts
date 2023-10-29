@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { CalculatorRoutingModule } from './calculate-routing.module';
+import { CalculateService } from './service/calculate.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { CalculatorRoutingModule } from './calculate-routing.module';
     CommonModule,
     CalculatorRoutingModule,
   ],
-  providers: [],
+  providers: [CalculateService],
   exports: [BMRCalculatorComponent, OneRepMaxComponent, BMIComponent],
 })
 export class CalculatorModule {}
