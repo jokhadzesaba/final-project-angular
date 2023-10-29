@@ -264,7 +264,7 @@ export class RegistrationUpdateDeleteEditService {
       })
     );
   }
-  deleteUserRequest(coachId: number, id: string): Observable<any> {
+  deleteUserRequest(coachId: number, id: string) {
     return this.getUserOrCoach(coachId, 'coaches').pipe(
       take(1),
       tap((coach: Coach) => {
