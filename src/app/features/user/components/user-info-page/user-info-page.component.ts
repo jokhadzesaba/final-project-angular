@@ -92,10 +92,7 @@ export class UserInfoPageComponent implements OnInit {
       this.getExercises();
       this.cd.detectChanges()
     }
-
-    )
-    
-      
+    )      
   }
 
   moveExercise(plan: Plan, exercise: Exercise, offset: number) {

@@ -8,6 +8,7 @@ import {
   catchError,
   throwError,
   take,
+  of,
 } from 'rxjs';
 import { Coach } from 'src/app/shared/interfaces/coach';
 import { User } from 'src/app/shared/interfaces/user';
@@ -48,7 +49,7 @@ export class RegistrationUpdateDeleteEditService {
     private http: HttpClient,
     private router: Router,
     private errorService: ErrorService,
-    private shared:SharedService
+    private shared: SharedService
   ) {}
   addExercisesToPlan(
     exercises: Exercise[],
@@ -73,7 +74,7 @@ export class RegistrationUpdateDeleteEditService {
           }
         },
         error: (error) => {
-          return this.handleError(error)
+          return this.handleError(error);
         },
       });
     }
@@ -108,7 +109,7 @@ export class RegistrationUpdateDeleteEditService {
           }
         }),
         catchError((error) => {
-          return this.handleError(error)
+          return this.handleError(error);
         })
       );
   }
@@ -142,7 +143,7 @@ export class RegistrationUpdateDeleteEditService {
             .subscribe();
         },
         error: (error) => {
-            return this.handleError(error)
+          return this.handleError(error);
         },
       });
   }
@@ -195,41 +196,55 @@ export class RegistrationUpdateDeleteEditService {
     exercise: Exercise,
     userId: number,
     from: 'users' | 'coaches'
-  ): Observable<void> {
-    return new Observable<void>((observer) => {
-      this.getUserOrCoach(userId, from).subscribe(
-        (user: User | Coach) => {
-          const userPlan = user.plans?.find((p) => p.planId === plan.planId);
-          if (userPlan) {
-            userPlan.exercises = userPlan.exercises.filter(
-              (e) => e.id !== exercise.id
-            );
-            this.http
-              .patch<User>(`http://localhost:3000/${from}/${userId}`, user)
-              .subscribe()
-          }
-        },
-        (error) => {
-          return this.handleError(error)
+  ) {
+    return this.getUserOrCoach(userId, from).pipe(
+      take(1),
+      switchMap((user: User) => {
+        const userPlan = user.plans?.find((p) => p.planId === plan.planId);
+        if (userPlan) {
+          userPlan.exercises = userPlan.exercises.filter(
+            (e) => e.id !== exercise.id
+          );
+          return this.http
+            .patch<User>(`http://localhost:3000/${from}/${userId}`, user);
         }
-      );
-    });
+        return of(null);
+      })
+    );
   }
-  
+
+  deleteUserRequest(coachId: number, id: string) {
+    return this.getUserOrCoach(coachId, 'coaches').pipe(
+      take(1),
+      tap((coach: Coach) => {
+        const updateRequest = coach.requests?.filter((req) => req.id !== id);
+        this.http
+          .patch(`http://localhost:3000/coaches/${coachId}`, {
+            requests: updateRequest,
+          })
+          .subscribe();
+      }),
+      catchError((error) => {
+        return this.handleError(error);
+      })
+    );
+  }
+
   deleteRequestedPlan(plan: RequestedPlan, userId: number, coachId: number) {
-    this.getUserOrCoach(userId, 'users').subscribe((user: User) => {
-      const updatedPlans = user.requestedPlans?.filter(
-        (p) => p.planId !== plan.planId
-      );
-      this.http
-        .patch(`http://localhost:3000/users/${userId}`, {
-          requestedPlans: updatedPlans,
-        })
-        .subscribe();
-    },
-    (error) => {
-      return this.handleError(error)
-    }
+    this.getUserOrCoach(userId, 'users').subscribe(
+      (user: User) => {
+        const updatedPlans = user.requestedPlans?.filter(
+          (p) => p.planId !== plan.planId
+        );
+        this.http
+          .patch(`http://localhost:3000/users/${userId}`, {
+            requestedPlans: updatedPlans,
+          })
+          .subscribe();
+      },
+      (error) => {
+        return this.handleError(error);
+      }
     );
   }
 
@@ -260,22 +275,6 @@ export class RegistrationUpdateDeleteEditService {
         }
       }),
       catchError((error) => {
-        return this.handleError(error)
-      })
-    );
-  }
-  deleteUserRequest(coachId: number, id: string) {
-    return this.getUserOrCoach(coachId, 'coaches').pipe(
-      take(1),
-      tap((coach: Coach) => {
-        const updateRequest = coach.requests?.filter((req) => req.id !== id);
-        this.http
-          .patch(`http://localhost:3000/coaches/${coachId}`, {
-            requests: updateRequest,
-          })
-          .subscribe();
-      }),
-      catchError((error) => {
         return this.handleError(error);
       })
     );
@@ -288,14 +287,14 @@ export class RegistrationUpdateDeleteEditService {
         const ifAlredyLiked = user.likedPlans?.some(
           (e) => e.planId === plan.planId
         );
-          if (user.likedPlans) {
-            const updated = [...user.likedPlans!, plan];
-            this.http
-              .patch(`http://localhost:3000/users/${id}`, {
-                likedPlans: updated,
-              })
-              .subscribe();
-          }
+        if (user.likedPlans) {
+          const updated = [...user.likedPlans!, plan];
+          this.http
+            .patch(`http://localhost:3000/users/${id}`, {
+              likedPlans: updated,
+            })
+            .subscribe();
+        }
       }),
       catchError((error) => {
         return this.handleError(error);
@@ -310,17 +309,16 @@ export class RegistrationUpdateDeleteEditService {
         const ifAlredyLiked = user.likedPlans?.some(
           (e) => e.planId === plan.planId
         );
-          if (user.likedPlans) {
-            const updated = user.likedPlans.filter(
-              (likedPlan) => likedPlan.planId !== plan.planId
-            );
-            this.http
-              .patch(`http://localhost:3000/users/${id}`, {
-                likedPlans: updated,
-              })
-              .subscribe();
-          }
-        
+        if (user.likedPlans) {
+          const updated = user.likedPlans.filter(
+            (likedPlan) => likedPlan.planId !== plan.planId
+          );
+          this.http
+            .patch(`http://localhost:3000/users/${id}`, {
+              likedPlans: updated,
+            })
+            .subscribe();
+        }
       }),
       catchError((error) => {
         return this.handleError(error);

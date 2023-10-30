@@ -16,7 +16,17 @@
           "name": "idk",
           "description": "Plan for abstraining. do each exercise 10 times",
           "creatorId": 1,
-          "exercises": [],
+          "exercises": [
+            {
+              "bodyPart": "cardio",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_267.gif",
+              "id": 267,
+              "name": "burpee",
+              "target": "cardiovascular system",
+              "selected": false
+            }
+          ],
           "planId": "wtf"
         },
         {
@@ -35,6 +45,59 @@
             }
           ],
           "planId": "eu9fXzQL"
+        },
+        {
+          "name": "cardio training",
+          "description": "each exercise 10times",
+          "creatorId": 1,
+          "exercises": [
+            {
+              "bodyPart": "cardio",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_267.gif",
+              "id": 267,
+              "name": "burpee",
+              "target": "cardiovascular system",
+              "selected": false
+            },
+            {
+              "bodyPart": "cardio",
+              "equipment": "leverage machine",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_454.gif",
+              "id": 454,
+              "name": "cycle cross trainer",
+              "target": "cardiovascular system",
+              "selected": false
+            },
+            {
+              "bodyPart": "cardio",
+              "equipment": "dumbbell",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_486.gif",
+              "id": 486,
+              "name": "dumbbell burpee",
+              "target": "cardiovascular system",
+              "selected": false
+            },
+            {
+              "bodyPart": "cardio",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_866.gif",
+              "id": 866,
+              "name": "jack jump (male)",
+              "target": "cardiovascular system",
+              "selected": false
+            },
+            {
+              "bodyPart": "cardio",
+              "equipment": "rope",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_869.gif",
+              "id": 869,
+              "name": "jump rope",
+              "target": "cardiovascular system",
+              "selected": false
+            }
+          ],
+          "planId": "jftFmVu5"
         }
       ],
       "requests": [
@@ -160,6 +223,59 @@
             }
           ],
           "planId": "eu9fMzQL"
+        },
+        {
+          "name": "cardio training",
+          "description": "each exercise 10times",
+          "creatorId": 1,
+          "exercises": [
+            {
+              "bodyPart": "cardio",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_267.gif",
+              "id": 267,
+              "name": "burpee",
+              "target": "cardiovascular system",
+              "selected": false
+            },
+            {
+              "bodyPart": "cardio",
+              "equipment": "leverage machine",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_454.gif",
+              "id": 454,
+              "name": "cycle cross trainer",
+              "target": "cardiovascular system",
+              "selected": false
+            },
+            {
+              "bodyPart": "cardio",
+              "equipment": "dumbbell",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_486.gif",
+              "id": 486,
+              "name": "dumbbell burpee",
+              "target": "cardiovascular system",
+              "selected": false
+            },
+            {
+              "bodyPart": "cardio",
+              "equipment": "body weight",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_866.gif",
+              "id": 866,
+              "name": "jack jump (male)",
+              "target": "cardiovascular system",
+              "selected": false
+            },
+            {
+              "bodyPart": "cardio",
+              "equipment": "rope",
+              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_869.gif",
+              "id": 869,
+              "name": "jump rope",
+              "target": "cardiovascular system",
+              "selected": false
+            }
+          ],
+          "planId": "jftFmVu5"
         }
       ],
       "requestedPlans": [],
@@ -171,33 +287,6 @@
           "description": "abstraining",
           "creatorId": 1,
           "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "target": "abs",
-              "selected": false
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
-              "target": "abs",
-              "selected": false
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
-              "target": "abs",
-              "selected": false
-            },
             {
               "bodyPart": "waist",
               "equipment": "body weight",
