@@ -9,7 +9,7 @@ export interface Coach {
   phoneNumber: string;
   age: string;
   password: string;
-  id?: number;
+  
   salary?: string;
   description?: string;
   plans?: Plan[];

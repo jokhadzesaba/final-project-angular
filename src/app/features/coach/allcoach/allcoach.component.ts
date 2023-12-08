@@ -36,15 +36,11 @@ export class AllcoachComponent implements OnInit {
 
   ngOnInit(): void {
       this.allCoach = this.service.loadCoaches()
-      this.service.loggedUser.subscribe((res) => (this.userId = res.id));
-      console.log(this.allCoach);
-      
-  
   }
   navigateToCoach(coachId: number) {
     this.router.navigate(['/coach-info', coachId]);
   }
-  requestPlan(coachId: number, description: string) {
+  requestPlan(coachId: string, description: string) {
     const requestId = this.sharedService.generateUniqueId(); 
     this.service.sendPlanRequest(this.userId!, coachId, description, requestId);
     this.showPlanRequestForm = false;

@@ -25,10 +25,11 @@ import { SharedService } from './shared.service';
   providedIn: 'root',
 })
 export class RegistrationUpdateDeleteEditService {
+  public url =
+    'https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app';
   public userAdded = new BehaviorSubject<User[]>([]);
   public coachAdded = new BehaviorSubject<Coach[]>([]);
-  public users: User[] = [];
-  public coaches: Coach[] = [];
+  public id: string = '';
   public status: BehaviorSubject<string> = new BehaviorSubject('guest');
   public logged: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public selectedPlan: Plan | null = null;
@@ -40,7 +41,6 @@ export class RegistrationUpdateDeleteEditService {
     phoneNumber: '',
     age: '',
     password: '',
-    id: 0,
     plans: [],
     status: 'guest',
   });
@@ -81,109 +81,95 @@ export class RegistrationUpdateDeleteEditService {
   }
 
   loadUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`http://localhost:3000/users`);
+    return this.http.get<User[]>(
+      `https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app/users.json`
+    );
   }
 
   loadCoaches(): Observable<Coach[]> {
-    return this.http.get<Coach[]>(`http://localhost:3000/coaches`);
+    return this.http.get<Coach[]>(
+      `https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app/coaches.json`
+    );
   }
 
-  addUserOrCoaches(
-    data: User | Coach,
-    usersOrCoaches: 'users' | 'coaches'
-  ): Observable<User | Coach> {
-    return this.http
-      .post<User | Coach>(`http://localhost:3000/${usersOrCoaches}`, data)
-      .pipe(
-        tap((newUserOrCoach: User | Coach) => {
-          if (usersOrCoaches === 'users') {
-            this.userAdded.next([
-              ...this.userAdded.value,
-              newUserOrCoach as User,
-            ]);
-          } else if (usersOrCoaches === 'coaches') {
-            this.coachAdded.next([
-              ...this.coachAdded.value,
-              newUserOrCoach as Coach,
-            ]);
-          }
-        }),
-        catchError((error) => {
-          return this.handleError(error);
-        })
-      );
+  addUserOrCoaches(data: User | Coach, usersOrCoaches: 'users' | 'coaches') {
+    this.http
+      .post(
+        `https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app/${usersOrCoaches}.json`,
+        data
+      )
+      .subscribe();
   }
 
   addPlan(
     data: Exercise[],
-    userIdorCoach: number,
     planName: string,
     planDescription: string,
     planId: string,
     toWho: 'users' | 'coaches'
   ) {
-    this.http
-      .get<User>(`http://localhost:3000/${toWho}/${userIdorCoach}`)
-      .subscribe({
-        next: (user: User) => {
-          const update = [
-            ...user.plans!,
-            {
-              name: planName,
-              description: planDescription,
-              creatorId: userIdorCoach,
-              exercises: data,
-              planId: planId,
-            },
-          ];
-          this.http
-            .patch(`http://localhost:3000/${toWho}/${userIdorCoach}`, {
-              plans: update,
-            })
-            .subscribe();
-        },
-        error: (error) => {
-          return this.handleError(error);
-        },
-      });
+    this.http.get<User>(`${this.url}/${toWho}/${this.id}.json`).subscribe({
+      next: (user: User | Coach) => {
+        const update = [
+          ...user.plans!,
+          {
+            name: planName,
+            description: planDescription,
+            creatorId: this.id,
+            exercises: data,
+            planId: planId,
+          },
+        ];
+        this.http
+          .patch(`${this.url}/${toWho}/${this.id}.json`, {
+            plans: update,
+          })
+          .subscribe();
+      },
+      error: (error) => {
+        return this.handleError(error);
+      },
+    });
   }
-  getUserOrCoach(userId: number, who: 'users' | 'coaches'): Observable<User> {
-    return this.http.get<User>(`http://localhost:3000/${who}/${userId}`);
+  getUserOrCoach(userId: string, who: 'users' | 'coaches'): Observable<User> {
+    return this.http.get<User>(
+      `https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}.json`
+    );
   }
 
-  deletePlan(plan: Plan, userId: number, from: 'users' | 'coaches') {
-    return this.http
-      .get<User | Coach>(`http://localhost:3000/${from}/${userId}`)
-      .pipe(
-        switchMap((userOrCoach: User | Coach) => {
-          const updatedPlans = userOrCoach.plans?.filter(
-            (p) => p.planId !== plan.planId
-          );
-          return this.http
-            .patch(`http://localhost:3000/${from}/${userId}`, {
-              plans: updatedPlans,
-            })
-            .pipe(
-              tap(() => {
-                this.userAdded.next(
-                  this.userAdded.value.map((user) => {
-                    if (user.id === userId) {
-                      return { ...user, plans: updatedPlans };
-                    }
-                    return user;
-                  })
-                );
-              }),
-              catchError((error) => {
-                return this.handleError(error);
-              })
-            );
-        }),
-        catchError((error) => {
-          return this.handleError(error);
-        })
-      );
-  }
+  // deletePlan(plan: Plan, userId: number, from: 'users' | 'coaches') {
+  //   return this.http
+  //     .get<User | Coach>(`http://localhost:3000/${from}/${userId}`)
+  //     .pipe(
+  //       switchMap((userOrCoach: User | Coach) => {
+  //         const updatedPlans = userOrCoach.plans?.filter(
+  //           (p) => p.planId !== plan.planId
+  //         );
+  //         return this.http
+  //           .patch(`http://localhost:3000/${from}/${userId}`, {
+  //             plans: updatedPlans,
+  //           })
+  //           .pipe(
+  //             tap(() => {
+  //               this.userAdded.next(
+  //                 this.userAdded.value.map((user) => {
+  //                   if (user.id === userId) {
+  //                     return { ...user, plans: updatedPlans };
+  //                   }
+  //                   return user;
+  //                 })
+  //               );
+  //             }),
+  //             catchError((error) => {
+  //               return this.handleError(error);
+  //             })
+  //           );
+  //       }),
+  //       catchError((error) => {
+  //         return this.handleError(error);
+  //       })
+  //     );
+  // }
   handleError(error: Error) {
     console.log(error);
     this.errorService.changeMessage(error.message);
@@ -194,7 +180,7 @@ export class RegistrationUpdateDeleteEditService {
   deleteExercise(
     plan: Plan,
     exercise: Exercise,
-    userId: number,
+    userId: string,
     from: 'users' | 'coaches'
   ) {
     return this.getUserOrCoach(userId, from).pipe(
@@ -205,15 +191,17 @@ export class RegistrationUpdateDeleteEditService {
           userPlan.exercises = userPlan.exercises.filter(
             (e) => e.id !== exercise.id
           );
-          return this.http
-            .patch<User>(`http://localhost:3000/${from}/${userId}`, user);
+          return this.http.patch<User>(
+            `http://localhost:3000/${from}/${userId}`,
+            user
+          );
         }
         return of(null);
       })
     );
   }
 
-  deleteUserRequest(coachId: number, id: string) {
+  deleteUserRequest(coachId: string, id: string) {
     return this.getUserOrCoach(coachId, 'coaches').pipe(
       take(1),
       tap((coach: Coach) => {
@@ -230,7 +218,7 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
 
-  deleteRequestedPlan(plan: RequestedPlan, userId: number, coachId: number) {
+  deleteRequestedPlan(plan: RequestedPlan, userId: string, coachId: number) {
     this.getUserOrCoach(userId, 'users').subscribe(
       (user: User) => {
         const updatedPlans = user.requestedPlans?.filter(
@@ -251,28 +239,28 @@ export class RegistrationUpdateDeleteEditService {
   getInfo(email: string, password: string): Observable<boolean> {
     return forkJoin([this.loadUsers(), this.loadCoaches()]).pipe(
       map(([users, coaches]) => {
-        this.users = users;
-        this.coaches = coaches;
-        const findUser = this.users.find(
-          (user) => user.email === email && user.password === password
+        const foundUser = Object.entries(users).find(
+          ([key, user]) => user.email === email && user.password === password
         );
-        const findCoach = this.coaches.find(
-          (coach) => coach.email === email && coach.password === password
+        const foundCoach = Object.entries(coaches).find(
+          ([key, coach]) => coach.email === email && coach.password === password
         );
-        if (findUser) {
+        if (foundUser) {
+          const [userKey, userData] = foundUser;
           this.status.next('user');
           this.logged.next(true);
-          this.loggedUser.next(findUser);
+          this.loggedUser.next(userData);
+          this.id = userKey;
           return true;
-        } else if (findCoach) {
-          this.loggedUser.next(findCoach);
+        } else if (foundCoach) {
+          const [coachKey, coachData] = foundCoach;
           this.status.next('coach');
           this.logged.next(true);
+          this.loggedUser.next(coachData);
+          this.id = coachKey;
           return true;
-        } else {
-          this.status.next('still guest');
-          return false;
         }
+        return false;
       }),
       catchError((error) => {
         return this.handleError(error);
@@ -280,17 +268,14 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
 
-  likePlan(plan: Plan, id: number) {
-    return this.getUserOrCoach(id, 'users').pipe(
+  likePlan(plan: Plan) {
+    return this.getUserOrCoach(this.id, 'users').pipe(
       take(1),
       tap((user: User) => {
-        const ifAlredyLiked = user.likedPlans?.some(
-          (e) => e.planId === plan.planId
-        );
         if (user.likedPlans) {
-          const updated = [...user.likedPlans!, plan];
+          const updated = [...Object.values(user.likedPlans), plan];
           this.http
-            .patch(`http://localhost:3000/users/${id}`, {
+            .patch(`${this.url}/users/${this.id}.json`, {
               likedPlans: updated,
             })
             .subscribe();
@@ -302,19 +287,19 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
 
-  unlikePlan(plan: Plan, id: number) {
-    return this.getUserOrCoach(id, 'users').pipe(
+  unlikePlan(plan: Plan) {
+    return this.getUserOrCoach(this.id, 'users').pipe(
       take(1),
       tap((user: User) => {
-        const ifAlredyLiked = user.likedPlans?.some(
-          (e) => e.planId === plan.planId
-        );
         if (user.likedPlans) {
-          const updated = user.likedPlans.filter(
-            (likedPlan) => likedPlan.planId !== plan.planId
+          console.log(user.likedPlans);
+          
+          const updated = Object.values(user.likedPlans).filter(
+            likedPlan => likedPlan.planId !== plan.planId
           );
+          console.log(updated);
           this.http
-            .patch(`http://localhost:3000/users/${id}`, {
+            .patch(`${this.url}/users/${this.id}.json`, {
               likedPlans: updated,
             })
             .subscribe();
@@ -325,13 +310,12 @@ export class RegistrationUpdateDeleteEditService {
       })
     );
   }
-  updateOrder(user: User): Observable<User> {
-    console.log(user.id);
-    return this.http.put<User>(`http://localhost:3000/users/${user.id}`, user);
-  }
+  // updateOrder(user: User): Observable<User> {
+  //   return this.http.put<User>(`http://localhost:3000/users/${user.id}`, user);
+  // }
   sendPlanRequest(
     userId: number,
-    coachId: number,
+    coachId: string,
     description: string,
     id: string
   ) {
@@ -348,8 +332,8 @@ export class RegistrationUpdateDeleteEditService {
     });
   }
   sendPlanToUser(
-    userId: number,
-    coachId: number,
+    userId: string,
+    coachId: string,
     coachName: string,
     coachLastName: string,
     nickName: string,
@@ -379,7 +363,7 @@ export class RegistrationUpdateDeleteEditService {
         .subscribe();
     });
   }
-  searchLikedPlan(plan: Plan, userId: number) {
+  searchLikedPlan(plan: Plan, userId: string) {
     return this.getUserOrCoach(userId, 'users').pipe(
       map((user: User) => {
         const ifLiked = user.likedPlans?.find((e) => e.planId === plan.planId);

@@ -1,14 +1,17 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { object } from '@angular/fire/database';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
+import { Coach } from 'src/app/shared/interfaces/coach';
 
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.scss'],
 })
-export class LogInComponent {
+export class LogInComponent implements OnInit{
   public form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: [
@@ -25,8 +28,13 @@ export class LogInComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: RegistrationUpdateDeleteEditService
+    private authService: RegistrationUpdateDeleteEditService,
+    private http: HttpClient
+    
   ) {}
+  ngOnInit(): void {
+    
+  }
   onSubmit() {
     const rawForm = this.form.getRawValue();
     const email = rawForm.email!;
@@ -43,4 +51,15 @@ export class LogInComponent {
       }
     });
   }
+  idk() {
+    const url = "https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app"
+    this.http.get(`${url}/coaches/-NkpSH8y_SeyJAGnhYhm.json`,).subscribe((coaches:any)=>{
+      console.log(coaches);
+      
+      
+    });
+    
+   }
+    
+  
 }

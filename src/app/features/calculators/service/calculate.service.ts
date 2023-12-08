@@ -11,7 +11,7 @@ export class CalculateService {
 
   constructor(private http:HttpClient, private service:RegistrationUpdateDeleteEditService) { }
 
-  addToUser(which:'bmi'| 'bmr' | 'orm', value:number, who:'users'| 'coaches', id:number){
+  addToUser(which:'bmi'| 'bmr' | 'orm', value:number, who:'users'| 'coaches', id:string){
     this.service.getUserOrCoach(id, who).subscribe((res:User|Coach)=>{
         const update = value.toFixed(1);
         if (which === 'bmi') {

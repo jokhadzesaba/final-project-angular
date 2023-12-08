@@ -25,7 +25,7 @@ export class SinglePlanPageComponent implements OnInit{
     const coachId = Number(this.route.snapshot.queryParamMap.get('coach'));
     const planId = this.route.snapshot.queryParamMap.get('plan');
 
-    this.coach$ = this.service.getUserOrCoach(coachId, 'coaches');
+    // this.coach$ = this.service.getUserOrCoach(coachId, 'coaches');
     this.plan$ = this.coach$.pipe(
       map((coach: Coach) => coach.plans?.find(e => e.planId === planId)!)
     );

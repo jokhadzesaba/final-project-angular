@@ -21,7 +21,7 @@ import { SharedService } from 'src/app/features/sharedServices/shared.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserInfoPageComponent implements OnInit {
-  public id?: number;
+  public id!: string;
   public userPlans!: Observable<User>;
   public user!: User;
   public selectedPlan!: Plan | null;
@@ -62,8 +62,9 @@ export class UserInfoPageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.service.loggedUser.subscribe((user) => {
+      this.id = this.service.id 
       this.user = user;
-      this.id = user.id!;
+      
     });
     this.sharedService.wasChanged$.subscribe(value=>{
       if (value===true) {
@@ -75,67 +76,67 @@ export class UserInfoPageComponent implements OnInit {
   }
   getExercises() {
     if (this.user) {
-      this.userPlans = this.service.getUserOrCoach(this.user.id!, 'users');
+      this.userPlans = this.service.getUserOrCoach(this.id, 'users');
     }
   }
   sanitizeUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
-  deletePlan(plan: Plan) {
-    this.service.deletePlan(plan, this.id!, 'users').subscribe(() => {
-      this.getExercises();
-      this.cd.detectChanges();
-    });
-  }
-  deleteExercise(plan: Plan, exercise: Exercise) {
-    this.service.deleteExercise(plan, exercise, this.id!, 'users').subscribe(()=>{
-      this.getExercises();
-      this.cd.detectChanges()
-    }
-    )      
-  }
+  // deletePlan(plan: Plan) {
+  //   this.service.deletePlan(plan, this.id!, 'users').subscribe(() => {
+  //     this.getExercises();
+  //     this.cd.detectChanges();
+  //   });
+  // }
+  // deleteExercise(plan: Plan, exercise: Exercise) {
+  //   this.service.deleteExercise(plan, exercise, this.id!, 'users').subscribe(()=>{
+  //     this.getExercises();
+  //     this.cd.detectChanges()
+  //   }
+  //   )      
+  // }
 
-  moveExercise(plan: Plan, exercise: Exercise, offset: number) {
-    if (plan && plan.exercises) {
-      const currentIndex = plan.exercises.indexOf(exercise);
-      const newIndex = currentIndex + offset;
+  // moveExercise(plan: Plan, exercise: Exercise, offset: number) {
+  //   if (plan && plan.exercises) {
+  //     const currentIndex = plan.exercises.indexOf(exercise);
+  //     const newIndex = currentIndex + offset;
 
-      if (
-        plan.exercises &&
-        currentIndex !== -1 &&
-        newIndex >= 0 &&
-        newIndex < plan.exercises.length
-      ) {
-        const updatedExercises = [...plan.exercises];
-        const movedExercise = updatedExercises[currentIndex];
-        updatedExercises.splice(currentIndex, 1);
-        updatedExercises.splice(newIndex, 0, movedExercise);
-        const updatedPlan = { ...plan, exercises: updatedExercises };
+  //     if (
+  //       plan.exercises &&
+  //       currentIndex !== -1 &&
+  //       newIndex >= 0 &&
+  //       newIndex < plan.exercises.length
+  //     ) {
+  //       const updatedExercises = [...plan.exercises];
+  //       const movedExercise = updatedExercises[currentIndex];
+  //       updatedExercises.splice(currentIndex, 1);
+  //       updatedExercises.splice(newIndex, 0, movedExercise);
+  //       const updatedPlan = { ...plan, exercises: updatedExercises };
 
-        if (this.user && this.user.plans) {
-          const planIndex = this.user.plans.findIndex(
-            (p) => p.name === plan.name
-          );
+  //       if (this.user && this.user.plans) {
+  //         const planIndex = this.user.plans.findIndex(
+  //           (p) => p.name === plan.name
+  //         );
 
-          if (planIndex !== -1 && this.user.plans[planIndex]) {
-            this.user.plans[planIndex] = updatedPlan;
+  //         if (planIndex !== -1 && this.user.plans[planIndex]) {
+  //           this.user.plans[planIndex] = updatedPlan;
 
-            this.service.updateOrder(this.user).subscribe(() => {
-              this.service
-                .getUserOrCoach(this.user.id!, 'users')
-                .subscribe((updatedUser) => {
-                  this.getExercises();
-                  this.cd.detectChanges();
-                });
-            });
-          }
-        }
-      }
-    }
-  }
+  //           this.service.updateOrder(this.user).subscribe(() => {
+  //             this.service
+  //               .getUserOrCoach(this.user.id!, 'users')
+  //               .subscribe((updatedUser) => {
+  //                 this.getExercises();
+  //                 this.cd.detectChanges();
+  //               });
+  //           });
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   deleteRequestedPlan(plan:RequestedPlan){
-      this.service.deleteRequestedPlan(plan, this.id!, plan.coachId)
-      this.service.getUserOrCoach(this.id!, 'users').subscribe((user) => {
+      // this.service.deleteRequestedPlan(plan, this.id!, plan.coachId)
+      this.service.getUserOrCoach("this.id!", 'users').subscribe((user) => { // id fix
         this.user = user;
         this.getExercises();
         this.cd.detectChanges();

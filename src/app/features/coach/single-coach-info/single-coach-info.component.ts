@@ -15,7 +15,7 @@ import { SharedService } from '../../sharedServices/shared.service';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class SingleCoachInfoComponent {
-  public id?:number;
+  public id?:string;
   public coachPlans!: Observable<Coach>;
   coach!: Coach;
   public selectedPlan!: Plan | null;
@@ -38,31 +38,30 @@ export class SingleCoachInfoComponent {
   ngOnInit(): void {
     this.service.loggedUser.subscribe((coach) => {
       this.coach = coach;
-      this.id = coach.id!;
+      this.id = "will do later";
     });
     
     this.getExercises();
   }
   getExercises() {
     if (this.coach) {
-      this.coachPlans = this.service.getUserOrCoach(this.coach.id!, 'coaches');
+      this.coachPlans = this.service.getUserOrCoach("this.coach.id!", 'coaches'); // need fix id
     }
     return this.coachPlans
   }
   sanitizeUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
-  deletePlan(plan: Plan) {
-    this.service.deletePlan(plan, this.id!, 'coaches').subscribe(() => {
-      this.getExercises();
-      this.cd.detectChanges();
-    });
-  }
+  // deletePlan(plan: Plan) {
+  //   this.service.deletePlan(plan, this.id!, 'coaches').subscribe(() => {
+  //     this.getExercises();
+  //     this.cd.detectChanges();
+  //   });
+  // }
   makePlan(userId:number, requestId:string){
     let navigationExtras: NavigationExtras = {
       queryParams: {
         userId: userId,
-        coachId:this.coach.id,
         coachName:this.coach.name,
         coachlastName:this.coach.lastname,
         nickName:this.coach.nickName,

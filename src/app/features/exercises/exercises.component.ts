@@ -23,14 +23,14 @@ import { User } from 'src/app/shared/interfaces/user';
 export class ExercisesComponent implements OnInit {
   bodyParts = [
     'waist',
-    'upper legs',
+    'upperLegs',
     'back',
-    'lower legs',
+    'lowerLegs',
     'chest',
-    'upper arms',
+    'upperArms',
     'cardio',
     'shoulders',
-    'lower arms',
+    'lowerArms',
     'neck',
   ];
   status = '';
@@ -58,7 +58,7 @@ export class ExercisesComponent implements OnInit {
     this.showExercises()
     this.service.loggedUser.subscribe((res) => {
       this.status = res.status!;
-      this.id = res.id!;
+      // this.id = res.id!;
       console.log(this.status);
     });    //this free api has very small limit of requests
     this.sharedService.creatingPlan$.subscribe((value) => {
@@ -77,6 +77,8 @@ export class ExercisesComponent implements OnInit {
       this.exerciseService.getExercises(bodyPart).subscribe((data: any) => {
         this.exercises = { ...this.exercises, [bodyPart]: data };
         this.sortExercises();
+        console.log(this.exercises);
+        
         this.cd.detectChanges();
       });
     });
@@ -116,13 +118,14 @@ export class ExercisesComponent implements OnInit {
   }
   createPlan() {
     const selectedExercises = this.getSelectedExercises();
+    console.log(selectedExercises);
+    
     const planId = this.sharedService.generateUniqueId()
     if (this.status === 'user') {
-      this.service.addPlan(selectedExercises, this.id!, this.planName,this.planDescription, planId,'users');
+      this.service.addPlan(selectedExercises, this.planName,this.planDescription, planId,'users');
     } else if (this.status === 'coach') {
       this.service.addPlan(
         selectedExercises,
-        this.id!,
         this.planName,
         this.planDescription,
         planId,
@@ -151,7 +154,8 @@ export class ExercisesComponent implements OnInit {
       const coachId = Number(params['coachId']);
       const nickName = params['nickName'];
       const requestId = params['requestId'];
-      this.service.sendPlanToUser(userId,coachId,coachName,coachLastname,nickName,this.planName,requestId,this.planDescription,selectedExercises);
+      this.service.sendPlanToUser("userId","coachId",coachName,coachLastname,nickName,this.planName,requestId,this.planDescription,selectedExercises);
+      //fix id
       this.sharedService.setCreatingPlan(false)
       this.sharedService.makingplanForUser(false)
       this.router.navigate(["/single-coach-info"])

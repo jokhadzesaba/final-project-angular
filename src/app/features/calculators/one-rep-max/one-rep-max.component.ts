@@ -14,7 +14,7 @@ import { Coach } from 'src/app/shared/interfaces/coach';
 export class OneRepMaxComponent implements OnInit{
   oneRepMaxForm: FormGroup;
   oneRepMax: number = 0;
-  public id?: number;
+  public id?: string;
   public status?: string;
 
   constructor(
@@ -29,7 +29,7 @@ export class OneRepMaxComponent implements OnInit{
   }
   ngOnInit(): void {
     this.service.loggedUser.subscribe((res:User|Coach)=>{
-      this.id = res.id;
+      this.id = "";
       if (res.status === 'user') {
         this.status = 'users'
       }else if(res.status === 'coach'){

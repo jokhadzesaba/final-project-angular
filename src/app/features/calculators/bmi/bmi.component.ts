@@ -14,7 +14,7 @@ import { User } from 'src/app/shared/interfaces/user';
 export class BMIComponent {
   public bmiForm!: FormGroup;
   public bmiResult: number | null = null;
-  public id?:number;
+  public id?:string;
   public status?:string
 
 
@@ -22,7 +22,7 @@ export class BMIComponent {
 
   ngOnInit(): void {
     this.service.loggedUser.subscribe((res:User|Coach)=>{
-      this.id = res.id;
+      this.id = "";
       if (res.status === 'user') {
         this.status = 'users'
       }else if(res.status === 'coach'){

@@ -17,6 +17,9 @@ import { SharedService } from './features/sharedServices/shared.service';
 import { SinglePageModule } from './features/single-plan-page/single-plan.module';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import { SinglePageModule } from './features/single-plan-page/single-plan.module
     CoachModule,
     UserModule,
     MainModule,
-    SinglePageModule
+    SinglePageModule,
+    
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

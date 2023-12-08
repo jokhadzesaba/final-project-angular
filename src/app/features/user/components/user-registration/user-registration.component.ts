@@ -1,6 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormBuilder, Validators, FormControl, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import {
+  FormBuilder,
+  Validators,
+  FormControl,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
 import { User } from 'src/app/shared/interfaces/user';
 export const matchPassword: ValidatorFn = (
@@ -17,22 +24,36 @@ export const matchPassword: ValidatorFn = (
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
   styleUrls: ['./user-registration.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserRegistrationComponent {
-  constructor(private fb: FormBuilder, private http: HttpClient, private service:RegistrationUpdateDeleteEditService) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private service: RegistrationUpdateDeleteEditService
+  ) {}
   public form = this.fb.group(
     {
-    name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9-]+$/)]],
-    lastname: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    phoneNumber: ['', [Validators.required,Validators.pattern(/^\+995\d{9}$/)]],
-    password: ['', [Validators.required,Validators.pattern(/^[a-zA-Z0-9]+$/), Validators.minLength(8),]],
-    confirmPassword: ['', [Validators.required]],
-    age: ['', [Validators.required,]],
-    nickName:['',[Validators.required,Validators.minLength(4),]]
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9-]+$/)]],
+      lastname: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: [
+        '',
+        [Validators.required, Validators.pattern(/^\+995\d{9}$/)],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z0-9]+$/),
+          Validators.minLength(8),
+        ],
+      ],
+      confirmPassword: ['', [Validators.required]],
+      age: ['', [Validators.required]],
+      nickName: ['', [Validators.required, Validators.minLength(4)]],
     },
-  {validators:matchPassword}
+    { validators: matchPassword }
   );
   name = this.form.get('name') as FormControl;
   age = this.form.get('age') as FormControl;
@@ -40,32 +61,78 @@ export class UserRegistrationComponent {
   phoneNumber = this.form.get('phoneNumber') as FormControl;
   password = this.form.get('password') as FormControl;
   email = this.form.get('email') as FormControl;
-  nickName = this.form.get('nickName') as FormControl
+  nickName = this.form.get('nickName') as FormControl;
 
   public submit() {
     const employee: User = {
       name: this.form.getRawValue().name!,
       lastname: this.form.getRawValue().lastname!,
-      nickName:this.form.getRawValue().nickName!,
+      nickName: this.form.getRawValue().nickName!,
       email: this.form.getRawValue().email!,
       phoneNumber: this.form.getRawValue().phoneNumber!,
       password: this.form.getRawValue().password!,
       age: this.form.getRawValue().age!,
-      bmi:"",
-      orm:"",
-      bmr:"",
-      plans:[],
-      likedPlans:[],
-      status:"user",
-      requestedPlans:[],
-
+      bmi: '',
+      orm: '',
+      bmr: '',
+      plans: [
+        {
+          name: 'placeholder',
+          description: 'placeholder',
+          planId: 'placeholder',
+          creatorId: -1,
+          exercises: [
+            {
+              bodyPart: 'idk',
+              equipment: '`idk',
+              gifUrl: 'idk',
+              id: -1,
+              name: 'idk',
+              target: 'idk',
+            },
+          ],
+        },
+      ],
+      likedPlans: [
+        {
+          name: 'placeholder',
+          description: 'placeholder',
+          planId: 'placeholder',
+          creatorId: -1,
+          exercises: [
+            {
+              bodyPart: 'idk',
+              equipment: '`idk',
+              gifUrl: 'idk',
+              id: -1,
+              name: 'idk',
+              target: 'idk',
+            },
+          ],
+        },
+      ],
+      status: 'user',
+      requestedPlans: [
+        {
+          coachId: -1,
+          coachName: 'placeholder',
+          nickName: 'placeholder',
+          description: 'placeholder',
+          planId: 'placeholder',
+          planName: 'placeholder',
+          exercises: [
+            {
+              bodyPart: 'idk',
+              equipment: '`idk',
+              gifUrl: 'idk',
+              id: -1,
+              name: 'idk',
+              target: 'idk',
+            },
+          ],
+        },
+      ],
     };
-    this.service.addUserOrCoaches(employee, "users").subscribe(()=>{
-      this.form.reset()
-    })
-    
+    this.service.addUserOrCoaches(employee, 'users');
   }
-  
 }
-
-

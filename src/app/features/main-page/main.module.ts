@@ -4,6 +4,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { CommonModule } from '@angular/common';
 
 
+
 @NgModule({
   declarations: [MainPageComponent],
   imports: [CommonModule, MainRoutingModule],

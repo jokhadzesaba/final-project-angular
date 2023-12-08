@@ -3,10 +3,16 @@
     <header>Signup</header>
     <form [formGroup]="form">
       <input formControlName="name" placeholder="Enter your name(required)" />
-      <input formControlName="lastname" placeholder="Enter your lastname(required)" />
-      <input formControlName="email" placeholder="Enter your email(required) " />
-      <input formControlName="phoneNumber" placeholder="Enter your phoneNumber(required) " />
-      <input formControlName="nickName" placeholder="Enter your nickName(required) " />
+
+      <input
+        formControlName="email"
+        placeholder="Enter your email(required) "
+      />
+
+      <input
+        formControlName="nickName"
+        placeholder="Enter your nickName(required) "
+      />
       <input
         type="password"
         formControlName="password"
@@ -17,8 +23,10 @@
         formControlName="confirmPassword"
         placeholder="Enter your confirmPassword(required)"
       />
-      <input formControlName="age" placeholder="Enter your age(required)" />
-      <button [disabled]="form.invalid" (click)="submit" routerLink="/login">Registrate As User</button>
+
+      <button  (click)="submit()" routerLink="/login">
+        Registrate As User
+      </button>
     </form>
     <div class="signup">
       <span class="signup"

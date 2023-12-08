@@ -6,14 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class DisplayExercisesService {
 
-  private url = 'https://zylalabs.com/api/392/exercise+database+api/310/list+exercise+by+body+part';
-  private headers = new HttpHeaders({
-    'Authorization': 'Bearer 2534|6WH4CN6n9hDlwnkqosySDzFJEABNRXw3yrexkquh'
-  });
+  private url = 'https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app';
+  
 
   constructor(private http: HttpClient) { }
 
   getExercises(bodyPart: string) {
-    return this.http.get(`${this.url}?bodyPart=${bodyPart}`, {headers:this.headers});
+    return this.http.get(`${this.url}/exercises/${bodyPart}.json`);
   }
 }

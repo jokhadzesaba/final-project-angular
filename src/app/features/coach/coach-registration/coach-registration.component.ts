@@ -41,7 +41,7 @@ export class CoachRegistrationComponent {
   nickName = this.form.get('nickName') as FormControl
 
   public submit() {
-    const coach: Coach = {
+    const coach = {
       name: this.form.getRawValue().name!,
       lastname: this.form.getRawValue().lastname!,
       nickName: this.form.getRawValue().nickName!,
@@ -54,12 +54,28 @@ export class CoachRegistrationComponent {
       orm:"",
       bmr:"",
       status:"coach",
-      plans: [],
-      requests:[],
+      plans: [
+        {
+          name: 'placeholder',
+          description: 'placeholder',
+          planId: 'placeholder',
+          creatorId: -1,
+          exercises: [
+            {
+              bodyPart: 'idk',
+              equipment: '`idk',
+              gifUrl: 'idk',
+              id: -1,
+              name: 'idk',
+              target: 'idk',
+              selected:false
+            },
+          ],
+        },
+      ],
+      requests:[{description:"placeholder", userId:-1, id:"placeholder"}],
     };
-    this.service.addUserOrCoaches(coach, "coaches").subscribe(()=>{
-      this.form.reset()
-    })
+    this.service.addUserOrCoaches(coach, "coaches")
   }
   
 }
