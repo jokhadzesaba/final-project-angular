@@ -34,14 +34,14 @@ export class ExercisesComponent implements OnInit {
     'neck',
   ];
   status = '';
-  id?:number;
+  id?: number;
   planName: string = '';
   planDescription: string = '';
   creatingPlan: boolean = false;
   makingPlanForUser: boolean = false;
   sortBodyPart: string = '';
-  loggedObservable?:Observable<User|Coach>
-  public addingExercise?:boolean
+  loggedObservable?: Observable<User | Coach>;
+  public addingExercise?: boolean;
 
   public exercises: { [key: string]: Exercise[] } = {};
   constructor(
@@ -54,36 +54,30 @@ export class ExercisesComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this.loggedObservable = this.service.loggedUser
-    this.showExercises()
+    this.loggedObservable = this.service.loggedUser;
+    this.showExercises();
     this.service.loggedUser.subscribe((res) => {
       this.status = res.status!;
-      // this.id = res.id!;
-      console.log(this.status);
-    });    //this free api has very small limit of requests
+    });
     this.sharedService.creatingPlan$.subscribe((value) => {
       this.creatingPlan = value;
     });
-    this.sharedService.addingExercise$.subscribe((value)=>{
-      this.addingExercise = value
-    })
-    this.sharedService.makingPlanForUser$.subscribe((value)=>{
-      this.makingPlanForUser = value
-    })
-
+    this.sharedService.addingExercise$.subscribe((value) => {
+      this.addingExercise = value;
+    });
+    this.sharedService.makingPlanForUser$.subscribe((value) => {
+      this.makingPlanForUser = value;
+    });
   }
   showExercises() {
     this.bodyParts.forEach((bodyPart) => {
       this.exerciseService.getExercises(bodyPart).subscribe((data: any) => {
         this.exercises = { ...this.exercises, [bodyPart]: data };
         this.sortExercises();
-        console.log(this.exercises);
-        
         this.cd.detectChanges();
       });
     });
   }
-
   sortExercises() {
     if (this.sortBodyPart) {
       const filteredExercises: { [key: string]: Exercise[] } = {};
@@ -100,8 +94,7 @@ export class ExercisesComponent implements OnInit {
 
   startCreatingPlan(): void {
     this.creatingPlan = !this.creatingPlan;
-    this.makingPlanForUser = false
-
+    this.makingPlanForUser = false;
   }
   getSelectedExercises() {
     const selectedExercises: Exercise[] = [];
@@ -118,11 +111,15 @@ export class ExercisesComponent implements OnInit {
   }
   createPlan() {
     const selectedExercises = this.getSelectedExercises();
-    console.log(selectedExercises);
-    
-    const planId = this.sharedService.generateUniqueId()
+    const planId = this.sharedService.generateUniqueId(5);
     if (this.status === 'user') {
-      this.service.addPlan(selectedExercises, this.planName,this.planDescription, planId,'users');
+      this.service.addPlan(
+        selectedExercises,
+        this.planName,
+        this.planDescription,
+        planId,
+        'users'
+      );
     } else if (this.status === 'coach') {
       this.service.addPlan(
         selectedExercises,
@@ -134,6 +131,7 @@ export class ExercisesComponent implements OnInit {
     }
     this.creatingPlan = false;
     this.planName = '';
+    this.planDescription = '';
   }
   sanitizeUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);
@@ -141,12 +139,12 @@ export class ExercisesComponent implements OnInit {
   confirm() {
     const selectedExercises: Exercise[] = this.getSelectedExercises();
     this.service.addExercisesToPlan(selectedExercises, 'users', this.id!);
-    this.sharedService.ifchanged(true)
+    this.sharedService.ifchanged(true);
     this.router.navigate(['/user-info']);
-    this.sharedService.addexercise(false)
+    this.sharedService.addexercise(false);
   }
   creatingPlanForCertainUser() {
-    const selectedExercises:Exercise[] = this.getSelectedExercises()
+    const selectedExercises: Exercise[] = this.getSelectedExercises();
     this.route.queryParams.subscribe((params) => {
       const userId = Number(params['userId']);
       const coachName = params['coachName'];
@@ -154,12 +152,21 @@ export class ExercisesComponent implements OnInit {
       const coachId = Number(params['coachId']);
       const nickName = params['nickName'];
       const requestId = params['requestId'];
-      this.service.sendPlanToUser("userId","coachId",coachName,coachLastname,nickName,this.planName,requestId,this.planDescription,selectedExercises);
+      this.service.sendPlanToUser(
+        'userId',
+        'coachId',
+        coachName,
+        coachLastname,
+        nickName,
+        this.planName,
+        requestId,
+        this.planDescription,
+        selectedExercises
+      );
       //fix id
-      this.sharedService.setCreatingPlan(false)
-      this.sharedService.makingplanForUser(false)
-      this.router.navigate(["/single-coach-info"])
-
+      this.sharedService.setCreatingPlan(false);
+      this.sharedService.makingplanForUser(false);
+      this.router.navigate(['/single-coach-info']);
     });
   }
 }

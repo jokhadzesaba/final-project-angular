@@ -1,4 +1,4 @@
-<div class="coachPlans" *ngIf="coachPlans | async as coach">
+<div class="coachPlans">
   <div *ngIf="coach" class="coachInfo">
       <h2>{{ coach.name }} {{ coach.lastname }}</h2>
       <p>Email: {{ coach.email }}</p>
@@ -23,7 +23,7 @@
   <div *ngFor="let plan of coach.plans" class="coach-plan">
       <div class="plan-actions">
           <button (click)="showPlan(plan)" class="btn btn-primary">{{ plan.name }}</button>
-          <!-- <button (click)="deletePlan(plan)" class="btn btn-danger">Delete Plan</button> -->
+          <button (click)="deletePlan(plan)" class="btn btn-danger">Delete Plan</button>
       </div>
       <div *ngIf="selectedPlan && selectedPlan.planId === plan.planId" class="plan-exercises">
           <div *ngFor="let exercise of selectedPlan.exercises" class="exercise">

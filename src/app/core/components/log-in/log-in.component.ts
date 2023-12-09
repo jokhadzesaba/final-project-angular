@@ -51,15 +51,7 @@ export class LogInComponent implements OnInit{
       }
     });
   }
-  idk() {
-    const url = "https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app"
-    this.http.get(`${url}/coaches/-NkpSH8y_SeyJAGnhYhm.json`,).subscribe((coaches:any)=>{
-      console.log(coaches);
-      
-      
-    });
-    
-   }
+
     
   
 }

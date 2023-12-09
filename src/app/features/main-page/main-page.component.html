@@ -1,7 +1,7 @@
 <div *ngIf="coaches$; else loading">
   <div class="planContainer">
     <ng-container *ngFor="let coach of coaches$">
-      <div class="card" *ngFor="let plan of coach.plans">
+      <div class="card" *ngFor="let plan of coach.plans | slice:1">
         <div class="card-content">    
           <h4>Plan by: {{ coach.name }}</h4>
           <h4>Coach Email: {{ coach.email }}</h4>
@@ -9,7 +9,7 @@
           <span>Plan description: {{plan.description | slice:0:100 }}</span>
           <button class="like-btn" *ngIf="!isPlanLiked(plan) && (status$ | async) === 'user'" (click)="likePlan(plan)">Like</button>
           <button class="unlike-btn" *ngIf="isPlanLiked(plan) && (status$ | async) === 'user'" (click)="unlikePlan(plan)">Unlike</button>
-          <button class="like-btn" (click)="navigate(plan,coach)">see more</button>
+          <button class="like-btn" (click)="navigate(plan)">see more</button>
         </div>
       </div>
     </ng-container>

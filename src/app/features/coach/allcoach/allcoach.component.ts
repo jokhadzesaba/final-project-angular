@@ -1,8 +1,12 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { RegistrationUpdateDeleteEditService } from '../../sharedServices/registration-update-delete-edit.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { SharedService } from '../../sharedServices/shared.service';
 
 @Component({
@@ -12,17 +16,16 @@ import { SharedService } from '../../sharedServices/shared.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AllcoachComponent implements OnInit {
-  public allCoach?: Observable<Coach[]>;
-  public userId?: number;
+  public allCoach!: Coach[];
   public showPlanRequestForm: boolean = false;
   constructor(
     private service: RegistrationUpdateDeleteEditService,
     private router: Router,
-    private sharedService:SharedService
+    private sharedService: SharedService,
+    private cd: ChangeDetectorRef
   ) {}
 
   public selectedCoachId?: number;
-
 
   openPlanRequestForm(coachId: number) {
     this.selectedCoachId = coachId;
@@ -35,15 +38,23 @@ export class AllcoachComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.allCoach = this.service.loadCoaches()
+    this.service.loadCoaches().subscribe((coaches: Coach[]) => {
+      this.allCoach = coaches;
+      console.log(this.allCoach);
+      this.cd.detectChanges();
+    });
   }
-  navigateToCoach(coachId: number) {
-    this.router.navigate(['/coach-info', coachId]);
-  }
+  // navigateToCoach(coachId: number) {
+  //   this.router.navigate(['/coach-info', coachId]);
+  // }
   requestPlan(coachId: string, description: string) {
-    const requestId = this.sharedService.generateUniqueId(); 
-    this.service.sendPlanRequest(this.userId!, coachId, description, requestId);
+    const requestId = this.sharedService.generateUniqueId(6);
+    this.service.sendPlanRequest(
+      this.service.firebaseId,
+      coachId,
+      description,
+      requestId
+    );
     this.showPlanRequestForm = false;
   }
-  
 }

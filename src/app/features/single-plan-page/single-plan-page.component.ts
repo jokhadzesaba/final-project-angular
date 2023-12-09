@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, NgZone, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, NgZone, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Plan } from 'src/app/shared/interfaces/plan';
@@ -11,28 +11,41 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   selector: 'app-single-plan-page',
   templateUrl: './single-plan-page.component.html',
   styleUrls: ['./single-plan-page.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SinglePlanPageComponent implements OnInit{
-  plan$!: Observable<Plan>;
-  coach$!: Observable<Coach>;
+export class SinglePlanPageComponent implements OnInit {
+  coach!: Coach;
   showFullDescription = false;
+  plan!: Plan;
 
-  constructor(private route: ActivatedRoute, private service: RegistrationUpdateDeleteEditService,
-    private sanitizer: DomSanitizer,) {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: RegistrationUpdateDeleteEditService,
+    private sanitizer: DomSanitizer,
+    private cd: ChangeDetectorRef,
+  ) {}
 
   ngOnInit() {
-    const coachId = Number(this.route.snapshot.queryParamMap.get('coach'));
     const planId = this.route.snapshot.queryParamMap.get('plan');
-
-    // this.coach$ = this.service.getUserOrCoach(coachId, 'coaches');
-    this.plan$ = this.coach$.pipe(
-      map((coach: Coach) => coach.plans?.find(e => e.planId === planId)!)
-    );
+    this.service.loadCoaches().subscribe((coch) => {
+      const coaches = Object.values(coch);
+      console.log(coaches);
+      
+      for (let coach of coaches) {
+        for (let id of coach.plans!) {
+          if (planId === id.planId) {
+            this.plan = id;
+            this.coach = coach
+            console.log(id);
+            console.log(coach);
+            this.cd.detectChanges()
+            break
+          }
+        }
+      }
+    });
   }
   sanitizeUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);
-    
   }
-  
 }

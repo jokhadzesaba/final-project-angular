@@ -9,6 +9,7 @@ export interface User {
   phoneNumber: string;
   age: string;
   password: string;
+  id:string;
   plans?: Plan[];
   likedPlans?: Plan[];
   status?: string;

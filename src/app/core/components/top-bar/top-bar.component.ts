@@ -37,6 +37,7 @@ export class TopBarComponent implements OnInit{
       lastname: '',
       email: '',
       phoneNumber: '',
+      id:'',
       age: '',
       password: '',
       plans: [],

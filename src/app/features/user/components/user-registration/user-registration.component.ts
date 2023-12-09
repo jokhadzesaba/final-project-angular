@@ -9,6 +9,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
+import { SharedService } from 'src/app/features/sharedServices/shared.service';
 import { User } from 'src/app/shared/interfaces/user';
 export const matchPassword: ValidatorFn = (
   control: AbstractControl
@@ -30,7 +31,8 @@ export class UserRegistrationComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private service: RegistrationUpdateDeleteEditService
+    private service: RegistrationUpdateDeleteEditService,
+    private sharedService:SharedService
   ) {}
   public form = this.fb.group(
     {
@@ -62,7 +64,7 @@ export class UserRegistrationComponent {
   password = this.form.get('password') as FormControl;
   email = this.form.get('email') as FormControl;
   nickName = this.form.get('nickName') as FormControl;
-
+  
   public submit() {
     const employee: User = {
       name: this.form.getRawValue().name!,
@@ -72,6 +74,7 @@ export class UserRegistrationComponent {
       phoneNumber: this.form.getRawValue().phoneNumber!,
       password: this.form.getRawValue().password!,
       age: this.form.getRawValue().age!,
+      id: this.sharedService.generateUniqueId(8),
       bmi: '',
       orm: '',
       bmr: '',

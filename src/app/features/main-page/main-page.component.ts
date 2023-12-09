@@ -21,7 +21,6 @@ export class MainPageComponent implements OnInit {
   public coaches$!: Coach[];
   public status$!: Observable<String>;
   public likedPlans: string[] = [];
-  public id?: string;
 
   constructor(
     private service: RegistrationUpdateDeleteEditService,
@@ -31,10 +30,7 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit() {
     this.status$ = this.service.status;
-    console.log(this.likedPlans);
-    
     this.service.loggedUser.subscribe((user: User) => {
-      this.id = this.service.id;
       this.service.loadCoaches().subscribe((coaches) => {
         this.coaches$ = Object.values(coaches);
         if (user.status === 'user') {
@@ -63,7 +59,7 @@ export class MainPageComponent implements OnInit {
       this.cd.detectChanges();
     });
   }
-  navigate(plan: Plan, coach: Coach) {
+  navigate(plan: Plan) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         plan: plan.planId,

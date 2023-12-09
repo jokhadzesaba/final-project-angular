@@ -1,11 +1,11 @@
 <div class="container">
-    <div *ngIf="coach$ | async as coach" class="card">
+    <div *ngIf="coach" class="card">
       <h4>Plan by: {{ coach.nickName }}</h4>
       <p>Coach Email: {{ coach.email }}</p>
       <p>Coach phoneNumber: {{ coach.phoneNumber }}</p>
     </div>
   
-    <div *ngIf="plan$ | async as plan" class="card">
+    <div *ngIf="plan" class="card">
       <h4>Plan Name: {{ plan.name }}</h4>
       <h4 class="description">Description:{{ plan.description }}</h4>
       <h4>Exercises:</h4>

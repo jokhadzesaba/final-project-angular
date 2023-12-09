@@ -1,18 +1,22 @@
 <div class="container">
-    <input type="checkbox" id="check">
-    <div class="login form">
-      <header>Login</header>
-      <form [formGroup]="form">
-        <input formControlName="email" placeholder="Enter your email">
-        <input type="password" formControlName="password" placeholder="Enter your password">
-      </form>
-      <div class="signup">
-        <span class="signup">Don't have an account?
-         <label routerLink="/user-registration" >Sign up</label>
-        </span>
+  <input type="checkbox" id="check" />
+  <div class="login form">
+    <header>Login</header>
+    <form [formGroup]="form">
+      <input formControlName="email" placeholder="Enter your email" />
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+    </form>
+    <div class="signup">
+      <span class="signup"
+        >Don't have an account?
+        <label routerLink="/user-registration">Sign up</label>
+      </span>
     </div>
     <button (click)="onSubmit()">Log In</button>
-    <button (click)="idk()" >idk button</button>
     <a class="guest-link" routerLink="/home">Enter As guest</a>
   </div>
-  </div>
+</div>

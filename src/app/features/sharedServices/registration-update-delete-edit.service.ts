@@ -25,11 +25,10 @@ import { SharedService } from './shared.service';
   providedIn: 'root',
 })
 export class RegistrationUpdateDeleteEditService {
-  public url =
-    'https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app';
+  public url = 'https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app';
   public userAdded = new BehaviorSubject<User[]>([]);
   public coachAdded = new BehaviorSubject<Coach[]>([]);
-  public id: string = '';
+  public firebaseId: string = '';
   public status: BehaviorSubject<string> = new BehaviorSubject('guest');
   public logged: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public selectedPlan: Plan | null = null;
@@ -40,6 +39,7 @@ export class RegistrationUpdateDeleteEditService {
     email: '',
     phoneNumber: '',
     age: '',
+    id:'',
     password: '',
     plans: [],
     status: 'guest',
@@ -108,20 +108,20 @@ export class RegistrationUpdateDeleteEditService {
     planId: string,
     toWho: 'users' | 'coaches'
   ) {
-    this.http.get<User>(`${this.url}/${toWho}/${this.id}.json`).subscribe({
+    this.http.get<User>(`${this.url}/${toWho}/${this.firebaseId}.json`).subscribe({
       next: (user: User | Coach) => {
         const update = [
           ...user.plans!,
           {
             name: planName,
             description: planDescription,
-            creatorId: this.id,
+            creatorId: user.id,
             exercises: data,
             planId: planId,
           },
         ];
         this.http
-          .patch(`${this.url}/${toWho}/${this.id}.json`, {
+          .patch(`${this.url}/${toWho}/${this.firebaseId}.json`, {
             plans: update,
           })
           .subscribe();
@@ -137,39 +137,36 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
 
-  // deletePlan(plan: Plan, userId: number, from: 'users' | 'coaches') {
-  //   return this.http
-  //     .get<User | Coach>(`http://localhost:3000/${from}/${userId}`)
-  //     .pipe(
-  //       switchMap((userOrCoach: User | Coach) => {
-  //         const updatedPlans = userOrCoach.plans?.filter(
-  //           (p) => p.planId !== plan.planId
-  //         );
-  //         return this.http
-  //           .patch(`http://localhost:3000/${from}/${userId}`, {
-  //             plans: updatedPlans,
-  //           })
-  //           .pipe(
-  //             tap(() => {
-  //               this.userAdded.next(
-  //                 this.userAdded.value.map((user) => {
-  //                   if (user.id === userId) {
-  //                     return { ...user, plans: updatedPlans };
-  //                   }
-  //                   return user;
-  //                 })
-  //               );
-  //             }),
-  //             catchError((error) => {
-  //               return this.handleError(error);
-  //             })
-  //           );
-  //       }),
-  //       catchError((error) => {
-  //         return this.handleError(error);
-  //       })
-  //     );
-  // }
+  deletePlan(
+    plan: Plan,
+    from: 'users' | 'coaches',
+    planType: 'liked' | 'personal'
+  ) {
+    return this.http
+      .get<User | Coach>(`${this.url}/${from}/${this.firebaseId}.json`)
+      .pipe(
+        switchMap((userOrCoach: User | Coach) => {
+          if (planType === 'personal') {
+            const updatedPlans = Object.values(userOrCoach.plans!).filter(
+              (p) => p.planId !== plan.planId
+            );
+              return this.http.patch(`${this.url}/${from}/${this.firebaseId}.json`, {
+              plans: updatedPlans,
+            });
+          } else {
+            const updatedPlans = Object.values((userOrCoach as User).likedPlans!).filter(
+              (p) => p.planId !== plan.planId
+            );
+            return this.http.patch(`${this.url}/${from}/${this.firebaseId}.json`, {
+              likedPlans: updatedPlans,
+            });
+          }
+        }),
+        catchError((error) => {
+          return this.handleError(error);
+        })
+      );
+  }
   handleError(error: Error) {
     console.log(error);
     this.errorService.changeMessage(error.message);
@@ -177,22 +174,19 @@ export class RegistrationUpdateDeleteEditService {
     return throwError(error);
   }
 
-  deleteExercise(
-    plan: Plan,
-    exercise: Exercise,
-    userId: string,
-    from: 'users' | 'coaches'
-  ) {
-    return this.getUserOrCoach(userId, from).pipe(
+  deleteExercise(plan: Plan, exercise: Exercise, from: 'users' | 'coaches') {
+    return this.getUserOrCoach(this.firebaseId, from).pipe(
       take(1),
       switchMap((user: User) => {
-        const userPlan = user.plans?.find((p) => p.planId === plan.planId);
+        const userPlan = Object.values(user.plans!).find(
+          (p) => p.planId === plan.planId
+        );
         if (userPlan) {
-          userPlan.exercises = userPlan.exercises.filter(
+          userPlan.exercises = Object.values(userPlan.exercises).filter(
             (e) => e.id !== exercise.id
           );
           return this.http.patch<User>(
-            `http://localhost:3000/${from}/${userId}`,
+            `${this.url}/${from}/${this.firebaseId}.json`,
             user
           );
         }
@@ -250,14 +244,14 @@ export class RegistrationUpdateDeleteEditService {
           this.status.next('user');
           this.logged.next(true);
           this.loggedUser.next(userData);
-          this.id = userKey;
+          this.firebaseId = userKey;
           return true;
         } else if (foundCoach) {
           const [coachKey, coachData] = foundCoach;
           this.status.next('coach');
           this.logged.next(true);
           this.loggedUser.next(coachData);
-          this.id = coachKey;
+          this.firebaseId = coachKey;
           return true;
         }
         return false;
@@ -269,13 +263,13 @@ export class RegistrationUpdateDeleteEditService {
   }
 
   likePlan(plan: Plan) {
-    return this.getUserOrCoach(this.id, 'users').pipe(
+    return this.getUserOrCoach(this.firebaseId, 'users').pipe(
       take(1),
       tap((user: User) => {
         if (user.likedPlans) {
           const updated = [...Object.values(user.likedPlans), plan];
           this.http
-            .patch(`${this.url}/users/${this.id}.json`, {
+            .patch(`${this.url}/users/${this.firebaseId}.json`, {
               likedPlans: updated,
             })
             .subscribe();
@@ -288,18 +282,17 @@ export class RegistrationUpdateDeleteEditService {
   }
 
   unlikePlan(plan: Plan) {
-    return this.getUserOrCoach(this.id, 'users').pipe(
+    return this.getUserOrCoach(this.firebaseId, 'users').pipe(
       take(1),
       tap((user: User) => {
         if (user.likedPlans) {
           console.log(user.likedPlans);
-          
+
           const updated = Object.values(user.likedPlans).filter(
-            likedPlan => likedPlan.planId !== plan.planId
+            (likedPlan) => likedPlan.planId !== plan.planId
           );
-          console.log(updated);
           this.http
-            .patch(`${this.url}/users/${this.id}.json`, {
+            .patch(`${this.url}/users/${this.firebaseId}.json`, {
               likedPlans: updated,
             })
             .subscribe();
@@ -314,7 +307,7 @@ export class RegistrationUpdateDeleteEditService {
   //   return this.http.put<User>(`http://localhost:3000/users/${user.id}`, user);
   // }
   sendPlanRequest(
-    userId: number,
+    userId: string,
     coachId: string,
     description: string,
     id: string

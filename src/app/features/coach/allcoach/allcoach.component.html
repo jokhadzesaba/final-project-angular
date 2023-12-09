@@ -1,12 +1,11 @@
 <!-- <div class="coach-card-container">
-    <ng-container *ngIf="(allCoach | async) as coaches">
-      <div class="coach-card" *ngFor="let coach of coaches">
+    <ng-container *ngIf="allCoach">
+      <div class="coach-card" *ngFor="let coach of allCoach | keyvalue">
         <div>
           <p><strong>Name:</strong> {{coach.name}}</p>
           <p><strong>Nickname:</strong> {{coach.nickName}}</p>
           <p><strong>Email:</strong> {{coach.email}}</p>
-          <p><strong>Phone Number:</strong> {{coach.phoneNumber}}</p>
-          <p><strong>Id:</strong> {{coach.id}}</p>
+
         </div>
         <div class="card-buttons">
           <div class="request-buttons">
@@ -24,3 +23,4 @@
     </ng-container>
   </div>
    -->
+  

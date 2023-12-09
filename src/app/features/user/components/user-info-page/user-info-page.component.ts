@@ -21,7 +21,6 @@ import { SharedService } from 'src/app/features/sharedServices/shared.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserInfoPageComponent implements OnInit {
-  public id!: string;
   public userPlans!: Observable<User>;
   public user!: User;
   public selectedPlan!: Plan | null;
@@ -30,13 +29,13 @@ export class UserInfoPageComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private cd: ChangeDetectorRef,
     private router: Router,
-    private sharedService:SharedService
+    private sharedService: SharedService
   ) {}
 
   addExercise(plan: Plan) {
     this.service.selectedPlan = plan;
-    this.sharedService.addexercise(true)
-    this.sharedService.ifchanged(false)
+    this.sharedService.addexercise(true);
+    this.sharedService.ifchanged(false);
     this.router.navigate(['/exercises']);
     this.getExercises();
   }
@@ -49,52 +48,52 @@ export class UserInfoPageComponent implements OnInit {
     }
   }
   showRequestedPlan(requestedPlan: RequestedPlan) {
-    if (this.selectedPlan && this.selectedPlan.planId === requestedPlan.planId) {
+    if (
+      this.selectedPlan &&
+      this.selectedPlan.planId === requestedPlan.planId
+    ) {
       this.selectedPlan = null;
     } else {
       this.selectedPlan = {
         name: requestedPlan.planName,
-        description:requestedPlan.description,
+        description: requestedPlan.description,
         exercises: requestedPlan.exercises,
-        planId:requestedPlan.planId
+        planId: requestedPlan.planId,
       };
     }
   }
   ngOnInit(): void {
     this.service.loggedUser.subscribe((user) => {
-      this.id = this.service.id 
       this.user = user;
-      
     });
-    this.sharedService.wasChanged$.subscribe(value=>{
-      if (value===true) {
+    this.sharedService.wasChanged$.subscribe((value) => {
+      if (value === true) {
         this.getExercises();
-        this.cd.markForCheck()
+        this.cd.markForCheck();
       }
-    })
+    });
     this.getExercises();
   }
   getExercises() {
     if (this.user) {
-      this.userPlans = this.service.getUserOrCoach(this.id, 'users');
+      this.userPlans = this.service.getUserOrCoach(this.service.firebaseId, 'users');
     }
   }
   sanitizeUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
-  // deletePlan(plan: Plan) {
-  //   this.service.deletePlan(plan, this.id!, 'users').subscribe(() => {
-  //     this.getExercises();
-  //     this.cd.detectChanges();
-  //   });
-  // }
-  // deleteExercise(plan: Plan, exercise: Exercise) {
-  //   this.service.deleteExercise(plan, exercise, this.id!, 'users').subscribe(()=>{
-  //     this.getExercises();
-  //     this.cd.detectChanges()
-  //   }
-  //   )      
-  // }
+  deletePlan(plan: Plan, planType:"personal" | "liked") {
+    this.service.deletePlan(plan, 'users', planType).subscribe(() => {
+      this.getExercises();
+      this.cd.detectChanges();
+    });
+  }
+  deleteExercise(plan: Plan, exercise: Exercise) {
+    this.service.deleteExercise(plan, exercise, 'users').subscribe(() => {
+      this.getExercises();
+      this.cd.detectChanges();
+    });
+  }
 
   // moveExercise(plan: Plan, exercise: Exercise, offset: number) {
   //   if (plan && plan.exercises) {
@@ -134,22 +133,22 @@ export class UserInfoPageComponent implements OnInit {
   //     }
   //   }
   // }
-  deleteRequestedPlan(plan:RequestedPlan){
-      // this.service.deleteRequestedPlan(plan, this.id!, plan.coachId)
-      this.service.getUserOrCoach("this.id!", 'users').subscribe((user) => { // id fix
-        this.user = user;
-        this.getExercises();
-        this.cd.detectChanges();
-      });
+  deleteRequestedPlan(plan: RequestedPlan) {
+    // this.service.deleteRequestedPlan(plan, this.id!, plan.coachId)
+    this.service.getUserOrCoach('this.id!', 'users').subscribe((user) => {
+      // id fix
+      this.user = user;
+      this.getExercises();
+      this.cd.detectChanges();
+    });
   }
-  navigate(plan:Plan){
+  navigate(plan: Plan) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        coach:plan.creatorId,
-        plan:plan.planId,
-      }
-    }
-    this.router.navigate([`/plan/${plan.planId}`], navigationExtras)
-
+        coach: plan.creatorId,
+        plan: plan.planId,
+      },
+    };
+    this.router.navigate([`/plan/${plan.planId}`], navigationExtras);
   }
 }
