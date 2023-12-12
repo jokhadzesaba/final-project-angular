@@ -1,10 +1,96 @@
+<div class="container flex">
+  <div class="menu-icon">
+    <div>
+      <img (click)="showMenu()" src="../../../../assets//menuicon.png" alt="img" />
+      <div *ngIf="menu | async" class="dropdown-content">
+        <button routerLink="/home">Home</button>
+        <button routerLink="/coach-feature/coach-list">Coaches</button>
+        <button routerLink="/exercises">Exercises</button>
+        <button routerLink="/calculate/bmi">BMI</button>
+        <button routerLink="/calculate/bmr">BMR</button>
+        <button routerLink="/calculate/one-rep-max">One-Rep-Max</button>
+        <button routerLink="/user/user-registration">Registration</button>
+      </div>
+    </div>
+    <div>
+      <img src="../../../../assets/logo.jpg" alt="img" />
+    </div>
+    <div class="flex h-centered">
+      <button *ngIf="loggedStatus === 'guest'" routerLink="/login">
+        Log In
+      </button>
+      <img
+        *ngIf="loggedStatus === 'user'"
+        routerLink="/user/user-info"
+        src="../../../../assets/menuicon.png"
+        alt="img"
+      />
+      <img
+        *ngIf="loggedStatus === 'coach'"
+        onclick="navigate()"
+        src="../../../../assets/menuicon.png"
+        alt="img"
+      />
+    </div>
+  </div>
+  <div class="navigation-profile flex">
+    <div class="navigation flex">
+      <img src="../../../../assets/logo.jpg" alt="img" />
+      <div>
+        <button routerLink="/home">Home</button>
+      </div>
+      <div>
+        <button routerLink="/coach-feature/coach-list">Coaches</button>
+      </div>
+      <div>
+        <button routerLink="/exercises">Exercises</button>
+      </div>
 
+      <div class="dropdown flex h-centered">
+        <button>Calculate</button>
+        <div class="dropdown-content">
+          <button routerLink="/calculate/bmi">BMI</button>
+          <button routerLink="/calculate/bmr">BMR</button>
+          <button routerLink="/calculate/one-rep-max">One-Rep-Max</button>
+        </div>
+      </div>
+      <div class="dropdown flex h-centered">
+        <button>Registration</button>
+        <div class="dropdown-content">
+          <button routerLink="/user/user-registration">User</button>
+          <button routerLink="/coach-feature/coach-registration">Coach</button>
+        </div>
+      </div>
+    </div>
+    <div class="profile flex">
+      <div
+        *ngIf="loggedStatus !== 'guest'"
+        class="img-container flex h-centered"
+      >
+        <img src="../../../../assets/download.png" alt="img" />
+      </div>
+      <div
+        *ngIf="loggedStatus !== 'guest'"
+        class="info-container flex column v-centered"
+      >
+        <p>Saba</p>
+        <p>User</p>
+      </div>
+    </div>
+    <button (click)="logOut()" *ngIf="loggedStatus !== 'guest'">Log Out</button>
+    <div *ngIf="loggedStatus === 'guest'" class="flex h-centered">
+      <button routerLink="/login">Log In</button>
+    </div>
+  </div>
+</div>
+
+<!-- 
 <div class="top-bar">
     <button routerLink="/login" *ngIf="loggedStatus==='guest'">Log In</button>
     <button (click)="logOut()" *ngIf="loggedStatus!=='guest'">Log Out</button>
     <button routerLink="/home">Home</button>
     <button routerLink="/coach-feature/coach-list">All Coach</button>
-
+    
     <div class="dropdown">
         <p>Registration</p>
         <div class="dropdown-content">
@@ -14,16 +100,8 @@
     </div>
 
     <button *ngIf="loggedStatus === 'user'" routerLink="/user/user-info">Profile</button>
-    <button *ngIf="loggedStatus === 'coach'" routerLink="/coach-feature/single-coach-info">Profile</button>
+    <button *ngIf="loggedStatus === 'coach' "(click)="navigate()" >Profile</button>
     <button routerLink="/exercises">Exercises</button>
 
-    <div class="dropdown">
-        <p>Calculate</p>
-        <div class="dropdown-content">
-            <button routerLink="/calculate/bmi">BMI</button>
-            <button routerLink="/calculate/bmr">BMR</button>
-            <button routerLink="/calculate/one-rep-max">One-Rep-Max</button>
-        </div>
-    </div>
     <p>Status:{{loggedStatus}}</p>
-</div>
+</div> -->

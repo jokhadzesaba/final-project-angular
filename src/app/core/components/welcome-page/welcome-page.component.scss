@@ -1,0 +1,36 @@
+@use "src/styles.scss" as m;
+.container{
+    width: 100%;
+    height: 500px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    button{
+        position: absolute;
+        @include m.myButton(100px, 40px, rgb(32, 32, 168), white, 16px, 5px);
+        top: 300px;
+        left: 25%;
+    }
+    p{
+        position: absolute;
+        color: white;
+    }
+    >p:first-of-type{
+        top: 10px;
+        left: 25%;
+        font-size: 25px;
+        
+    }
+    >p:last-of-type{
+        width: 200px;
+        font-size: 18px;
+        line-height: 25px;
+        left: 25%;
+        top:60px
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 605px) {
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
