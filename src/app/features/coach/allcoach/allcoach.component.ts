@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { RegistrationUpdateDeleteEditService } from '../../sharedServices/registration-update-delete-edit.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { SharedService } from '../../sharedServices/shared.service';
 
 @Component({
@@ -16,7 +16,8 @@ import { SharedService } from '../../sharedServices/shared.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AllcoachComponent implements OnInit {
-  public allCoach!: Coach[];
+  public allCoachValues!: Coach[];
+  public allCoachKeys!: string[];
   public showPlanRequestForm: boolean = false;
   constructor(
     private service: RegistrationUpdateDeleteEditService,
@@ -39,14 +40,17 @@ export class AllcoachComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.loadCoaches().subscribe((coaches: Coach[]) => {
-      this.allCoach = coaches;
-      console.log(this.allCoach);
+      this.allCoachValues = Object.values(coaches);
+      this.allCoachKeys = Object.keys(coaches);
       this.cd.detectChanges();
     });
+    this.service.loadCoaches().subscribe((coach) => {
+
+    });
   }
-  // navigateToCoach(coachId: number) {
-  //   this.router.navigate(['/coach-info', coachId]);
-  // }
+  navigateToCoach(coachId: string) {
+    this.router.navigate([`/single-coach-info/${coachId}`]);
+  }
   requestPlan(coachId: string, description: string) {
     const requestId = this.sharedService.generateUniqueId(6);
     this.service.sendPlanRequest(

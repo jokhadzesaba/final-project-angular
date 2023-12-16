@@ -1,19 +1,50 @@
 <div class="container" *ngIf="loggedObservable | async as user">
   <div class="button-row">
-    <button *ngIf="user.status !=='guest'" (click)="startCreatingPlan()" class="btn btn-primary">Create your plan</button>
-    <!-- <button (click)="showExercises()" class="btn btn-secondary">Show</button> -->
-    <button (click)="createPlan()" *ngIf="creatingPlan" class="btn btn-success">Confirm</button>
-    <button (click)="startCreatingPlan()" *ngIf="creatingPlan" class="btn btn-danger">Cancel</button>
-    <button *ngIf="addingExercise" (click)="confirm()" class="btn btn-primary">Add Exercise to Existing Plan</button>
-    <button *ngIf="makingPlanForUser" (click)="creatingPlanForCertainUser()" class="btn btn-primary">Create Plan For User</button>
+    <button
+      *ngIf="user.status !== 'guest'"
+      (click)="startCreatingPlan()"
+      class="btn btn-primary"
+    >
+      Create your plan
+    </button>
+    <button (click)="createPlan()" *ngIf="creatingPlan" class="btn btn-success">
+      Confirm
+    </button>
+    <button
+      (click)="startCreatingPlan()"
+      *ngIf="creatingPlan"
+      class="btn btn-danger"
+    >
+      Cancel
+    </button>
+    <button *ngIf="addingExercise" (click)="confirm()" class="btn btn-primary">
+      Add Exercise to Existing Plan
+    </button>
+    <button
+      *ngIf="makingPlanForUser"
+      (click)="creatingPlanForCertainUser()"
+      class="btn btn-primary"
+    >
+      Create Plan For User
+    </button>
   </div>
 
   <div class="input-row" *ngIf="creatingPlan">
-    <input type="text" placeholder="Enter plan name" [(ngModel)]="planName" class="form-control" />
+    <input
+      type="text"
+      placeholder="Enter plan name"
+      [(ngModel)]="planName"
+      class="form-control"
+    />
   </div>
 
   <div class="input-row" *ngIf="creatingPlan">
-    <textarea type="text" placeholder="Enter plan description" [(ngModel)]="planDescription" class="form-control"></textarea>
+    <textarea
+      type="text"
+      placeholder="Enter plan description"
+      [(ngModel)]="planDescription"
+      class="form-control"
+    ></textarea>
   </div>
 
   <div class="select-row">
@@ -28,12 +59,22 @@
       <div class="body-part">
         <h2>{{ bodyPart }}</h2>
         <div class="exercise-row">
-          <div class="exercise" *ngFor="let exercise of exercises[bodyPart] | slice : 0 : 30">
-            <input type="checkbox" [(ngModel)]="exercise.selected" *ngIf="creatingPlan || addingExercise" />
-            <p>{{ exercise.name }}</p>
-            <p>Target: {{ exercise.target }}</p>
-            <p>Equipment: {{ exercise.equipment }}</p>
-            <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+          <div
+            class="exercise"
+            *ngFor="let exercise of exercises[bodyPart] | slice : 0 : 50"
+          >
+            <input
+              type="checkbox"
+              [(ngModel)]="exercise.selected"
+              *ngIf="creatingPlan || addingExercise"
+            />
+            <p><strong>Target:</strong> {{ exercise.target }}</p>
+            <p><strong>Equipment:</strong> {{ exercise.equipment }}</p>
+            <p><strong>Name:</strong> {{ exercise.name }}</p>
+            <img
+              [src]="sanitizeUrl(exercise.gifUrl)"
+              alt="{{ exercise.name }}"
+            />
           </div>
         </div>
       </div>
@@ -44,12 +85,22 @@
     <div class="body-part-row">
       <div class="body-part">
         <div class="exercise-row">
-          <div class="exercise" *ngFor="let exercise of exercises[sortBodyPart] | slice : 0 : 30">
-            <input type="checkbox" [(ngModel)]="exercise.selected" *ngIf="creatingPlan || addingExercise" />
-            <p>{{ exercise.name }}</p>
+          <div
+            class="exercise"
+            *ngFor="let exercise of exercises[sortBodyPart] | slice : 0 : 50"
+          >
+            <input
+              type="checkbox"
+              [(ngModel)]="exercise.selected"
+              *ngIf="creatingPlan || addingExercise"
+            />
             <p>Target: {{ exercise.target }}</p>
             <p>Equipment: {{ exercise.equipment }}</p>
-            <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
+            <p>Name: {{ exercise.name }}</p>
+            <img
+              [src]="sanitizeUrl(exercise.gifUrl)"
+              alt="{{ exercise.name }}"
+            />
           </div>
         </div>
       </div>

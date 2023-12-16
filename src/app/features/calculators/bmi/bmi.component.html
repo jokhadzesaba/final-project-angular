@@ -1,21 +1,39 @@
 <div class="container">
   <h2>BMI Calculator</h2>
   <form class="bmi-form" [formGroup]="bmiForm">
+    <p>{{ status }}</p>
     <div>
       <label for="height">Height (in cm):</label>
-      <input type="number" formControlName="height" id="height" required>
-      <span class="error" *ngIf="bmiForm.get('height')!.invalid && (bmiForm.get('height')!.dirty || bmiForm.get('height')!.touched)">Please enter a valid height.</span>
+      <input type="number" formControlName="height" id="height" required />
+      <span
+        class="error"
+        *ngIf="
+          bmiForm.get('height')!.invalid &&
+          (bmiForm.get('height')!.dirty || bmiForm.get('height')!.touched)
+        "
+        >Please enter a valid height.</span
+      >
     </div>
     <div>
       <label for="weight">Weight (in kg):</label>
-      <input type="number" formControlName="weight" id="weight" required>
-      <span class="error" *ngIf="bmiForm.get('weight')!.invalid && (bmiForm.get('weight')!.dirty || bmiForm.get('weight')!.touched)">Please enter a valid weight.</span>
+      <input type="number" formControlName="weight" id="weight" required />
+      <span
+        class="error"
+        *ngIf="
+          bmiForm.get('weight')!.invalid &&
+          (bmiForm.get('weight')!.dirty || bmiForm.get('weight')!.touched)
+        "
+        >Please enter a valid weight.</span
+      >
     </div>
-    <button (click)="calculateBMI()" [disabled]="!bmiForm.valid">Calculate BMI</button>
+    <button (click)="calculateBMI()" [disabled]="!bmiForm.valid">
+      Calculate BMI
+    </button>
   </form>
   <div class="result" *ngIf="bmiResult !== null">
-    <p>Your BMI is: {{ bmiResult | number: '1.1-1' }}</p>
-    <button (click)="addToUserData()" *ngIf="bmiResult !== null && status!=='guest'">Add to Your Info</button>
-    
+    <p>Your BMI is: {{ bmiResult | number : "1.1-1" }}</p>
+    <button (click)="addToUserData()" *ngIf="bmiResult !== null && adding">
+      Add to Your Info
+    </button>
   </div>
 </div>

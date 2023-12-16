@@ -1,42 +1,51 @@
+@use "src/styles.scss" as m;
 .planContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   .card {
+    background-image: url(../../../assets/exer2.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
     border: 1px solid #ccc;
     border-radius: 10px;
     margin: 10px;
     padding: 20px;
-    width: calc(100% / 3 - 40px);
+    width: 320px;
+    height: 320px;
+    justify-content: space-between;
+    color: white;
 
     .card-content {
       display: flex;
       flex-direction: column;
       gap: 20px;
       margin-bottom: 20px;
-
-      span {
-        height: 108px;
-        word-wrap: break-word;
-        word-break: break-all;
-      }
     }
-
-    .like-btn,
-    .unlike-btn {
-      background-color: #4CAF50;
-      border: none;
+    > div:last-child {
+      justify-content: center;
+    }
+    button {
+      background-color: rgb(194, 45, 194);
       color: white;
+      border: none;
       padding: 15px 32px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
       cursor: pointer;
+      border-radius: 2px;
+      width: 140px; 
+      height: 45px;
+    }
 
-      &.unlike-btn {
-        background-color: #f44336; // Red
-      }
+    .like-btn {
+      background-color: #4caf50;
+    }
+    .unlike-btn {
+      background-color: #f44336;
     }
   }
 }

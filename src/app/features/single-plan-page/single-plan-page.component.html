@@ -1,10 +1,10 @@
 <div class="container">
-    <div *ngIf="coach" class="card">
+  <ng-container *ngIf="coach; else loading">
+    <div class="card">
       <h4>Plan by: {{ coach.nickName }}</h4>
       <p>Coach Email: {{ coach.email }}</p>
-      <p>Coach phoneNumber: {{ coach.phoneNumber }}</p>
     </div>
-  
+
     <div *ngIf="plan" class="card">
       <h4>Plan Name: {{ plan.name }}</h4>
       <h4 class="description">Description:{{ plan.description }}</h4>
@@ -15,5 +15,11 @@
         <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
       </div>
     </div>
-  </div>
-  
+  </ng-container>
+
+  <ng-template  #loading>
+    <div *ngIf="loadingError === true">
+      <h1>if you cannot see info of this plan it might be deleted by coach itself.</h1>
+    </div>
+  </ng-template>
+</div>

@@ -16,7 +16,7 @@ export class BMRCalculatorComponent implements OnInit {
   bmr: number = 0;
   public id?: string;
   public status?: string;
-  
+  public adding:boolean = false
   constructor(
     private formBuilder: FormBuilder,
     private service: RegistrationUpdateDeleteEditService,
@@ -31,17 +31,16 @@ export class BMRCalculatorComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.service.loggedUser.subscribe((res:User|Coach)=>{
-      this.id = "";
+    this.service.loggedUser.subscribe((res: User | Coach) => {
+      this.id = '';
       if (res.status === 'user') {
-        this.status = 'users'
-      }else if(res.status === 'coach'){
-        this.status = 'coaches'
-      }else{
-        this.status = 'guest'
+        this.status = 'users';
+      } else if (res.status === 'coach') {
+        this.status = 'coaches';
+      } else {
+        this.status = 'guest';
       }
-      
-    })
+    });
   }
 
   calculateBMR(): void {
@@ -76,15 +75,17 @@ export class BMRCalculatorComponent implements OnInit {
         bmr *= 1.9;
         break;
     }
-
     this.bmr = bmr;
+    if (this.status === 'user' || 'coach') {
+      this.adding = true
+    }
   }
   addToUserData() {
     this.calculateService.addToUser(
       'bmr',
       this.bmr,
-      this.status! as 'coaches' | 'users',
-      this.id!
+      this.status! as 'coaches' | 'users'
     );
+    this.adding = false
   }
 }

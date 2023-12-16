@@ -1,76 +1,113 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
-import { Exercise } from 'src/app/shared/interfaces/exercise';
 import { Plan } from 'src/app/shared/interfaces/plan';
 import { RegistrationUpdateDeleteEditService } from '../../sharedServices/registration-update-delete-edit.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { SharedService } from '../../sharedServices/shared.service';
 
 @Component({
   selector: 'app-single-coach-info',
   templateUrl: './single-coach-info.component.html',
   styleUrls: ['./single-coach-info.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SingleCoachInfoComponent {
-  public id?:string;
-  public coachPlans!: Plan[];
-  coach!: Coach;
+export class SingleCoachInfoComponent implements OnInit {
+  public loggedId?: string;
+  public status?: string;
+  public coachPlans!: Observable<Coach>;
+  public coach!: Coach;
   public selectedPlan!: Plan | null;
-
-  showPlan(plan: Plan) {
-    if (this.selectedPlan && this.selectedPlan.planId === plan.planId) {
-      this.selectedPlan = null;
-    } else {
-      this.selectedPlan = plan;
-    }
-  }
-
+  public images?: string[];
+  public selectedImage?: string = '';
+  public changingImage:boolean = false
   constructor(
     private service: RegistrationUpdateDeleteEditService,
     private sanitizer: DomSanitizer,
     private cd: ChangeDetectorRef,
-    private router:Router,
-    private sharedService:SharedService
+    private router: Router,
+    private sharedService: SharedService,
+    private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this.getCoach()
-    
+    this.getExercises();
   }
-  getCoach(){
-    this.service.loggedUser.subscribe((coach) => {
-      this.coach = coach;
-      this.cd.detectChanges()
+  selectImage(img: string) {
+    this.selectedImage = img;
+  }
+  getExercises() {
+    const coachId = this.route.snapshot.paramMap.get('id');
+    this.service.loggedUser.subscribe((log) => {
+      this.loggedId = log.id;
+      this.status = log.status;
     });
+    this.service
+      .getUserOrCoach(coachId!, 'coaches')
+      .subscribe((coach: Coach) => {
+        this.coach = coach;
+        this.images = this.sharedService.images;
+        this.cd.detectChanges();
+      });
   }
   sanitizeUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
   deletePlan(plan: Plan) {
-    this.service.deletePlan(plan, "coaches", "personal" ).subscribe(() => {
-      this.getCoach()
+    this.service.deletePlan(plan, 'coaches', 'personal').subscribe(() => {
+      this.getExercises();
       this.cd.detectChanges();
     });
   }
-  makePlan(userId:number, requestId:string){
+  makePlan(userId: string, requestId: string) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         userId: userId,
-        coachName:this.coach.name,
-        coachlastName:this.coach.lastname,
-        nickName:this.coach.nickName,
-        requestId:requestId
-      }
+        coachId: this.coach.id,
+        coachName: this.coach.nickName,
+        requestId: requestId,
+      },
     };
     this.sharedService.setCreatingPlan(true);
-    this.sharedService.makingplanForUser(true)
+    this.sharedService.makingplanForUser(true);
     this.router.navigate(['/exercises'], navigationExtras);
   }
-  deleteRequest(id:string){
-    this.service.deleteUserRequest(this.id!,id).subscribe(()=>{
-      this.cd.detectChanges()
-    })    
+  deleteRequest(id: string) {
+    this.service.deleteUserRequest(id).subscribe(() => {
+      // id fix
+      this.cd.detectChanges();
+    });
+  }
+  likePlan(plan: Plan) {
+    this.service.likePlan(plan).subscribe(() => {
+      this.sharedService.likedPlans.push(plan.planId);
+    });
+  }
+  unlikePlan(plan: Plan) {
+    this.service.unlikePlan(plan).subscribe(() => {
+      this.sharedService.likedPlans = this.sharedService.likedPlans.filter(
+        (planid) => planid !== plan.planId
+      );
+    });
+  }
+  showPlan(plan: Plan) {
+    this.sharedService.navigateToPlan(plan.planId);
+  }
+  change(){
+    this.changingImage = true
+  }
+  cancel(){
+    this.changingImage = false
+  }
+  changeProgilePhoto(url: string) {
+    this.service.changePrfileImg(url, 'coaches').subscribe(() => {
+      this.changingImage = false
+      this.getExercises()
+    });
   }
 }

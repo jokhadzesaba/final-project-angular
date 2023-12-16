@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { Plan } from 'src/app/shared/interfaces/plan';
 import { User } from 'src/app/shared/interfaces/user';
 import { Router, NavigationExtras } from '@angular/router';
+import { SharedService } from '../sharedServices/shared.service';
 
 @Component({
   selector: 'app-main-page',
@@ -20,12 +21,12 @@ import { Router, NavigationExtras } from '@angular/router';
 export class MainPageComponent implements OnInit {
   public coaches$!: Coach[];
   public status$!: Observable<String>;
-  public likedPlans: string[] = [];
 
   constructor(
     private service: RegistrationUpdateDeleteEditService,
     private cd: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private sharedService:SharedService
   ) {}
 
   ngOnInit() {
@@ -35,7 +36,7 @@ export class MainPageComponent implements OnInit {
         this.coaches$ = Object.values(coaches);
         if (user.status === 'user') {
           if (user.likedPlans) {
-            Object.values(user.likedPlans).forEach(plans => this.likedPlans.push(plans.planId))
+            Object.values(user.likedPlans).forEach(plans => this.sharedService.likedPlans.push(plans.planId))
           }
         }
         this.cd.detectChanges();
@@ -44,27 +45,22 @@ export class MainPageComponent implements OnInit {
   }
 
   isPlanLiked(plan: Plan) {
-    return this.likedPlans.some((e) => e === plan.planId);
+    return this.sharedService.likedPlans.some((e) => e === plan.planId);
   }
   likePlan(plan: Plan) {
     this.service.likePlan(plan).subscribe(() => {
-      this.likedPlans.push(plan.planId);
+      this.sharedService.likedPlans.push(plan.planId);
       this.cd.detectChanges();
     });
   }
 
   unlikePlan(plan: Plan) {
     this.service.unlikePlan(plan).subscribe(() => {
-      this.likedPlans = this.likedPlans.filter((e) => e !== plan.planId);
+      this.sharedService.likedPlans = this.sharedService.likedPlans.filter((e) => e !== plan.planId);
       this.cd.detectChanges();
     });
   }
   navigate(plan: Plan) {
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        plan: plan.planId,
-      },
-    };
-    this.router.navigate([`/plan/${plan.planId}`], navigationExtras);
+    this.sharedService.navigateToPlan(plan.planId)
   }
 }

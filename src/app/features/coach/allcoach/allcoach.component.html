@@ -1,26 +1,31 @@
-<!-- <div class="coach-card-container">
-    <ng-container *ngIf="allCoach">
-      <div class="coach-card" *ngFor="let coach of allCoach | keyvalue">
-        <div>
-          <p><strong>Name:</strong> {{coach.name}}</p>
-          <p><strong>Nickname:</strong> {{coach.nickName}}</p>
-          <p><strong>Email:</strong> {{coach.email}}</p>
-
-        </div>
-        <div class="card-buttons">
-          <div class="request-buttons">
-            <button (click)="navigateToCoach(coach.id!)">View Details</button>
-            <button *ngIf="selectedCoachId !== coach.id && !showPlanRequestForm" (click)="openPlanRequestForm(coach.id!)">Request Plan</button>
-          </div>
-          <div *ngIf="selectedCoachId === coach.id && showPlanRequestForm" class="plan-request-form">
-            <h2>Request Plan</h2>
-            <textarea #planDescription placeholder="Write your plan description here"></textarea>
-            <button (click)="requestPlan(coach.id!, planDescription.value)">Confirm</button>
-            <button class="cancel-button" (click)="cancelPlanRequest()">Cancel</button>
-          </div>
-        </div>
+<div class="coach-card-container">
+  <ng-container *ngIf="allCoachValues">
+    <div class="coach-card" *ngFor="let coach of allCoachValues; let i=index">
+      <div>
+        <p><strong>Nickname:</strong> {{ coach.nickName }}</p>
+        <p><strong>Email:</strong> {{ coach.email }}</p>
+        <button (click)="navigateToCoach(allCoachKeys[i])">See Coach Info</button>
+        <p>{{allCoachKeys[i]}}</p>
       </div>
-    </ng-container>
-  </div>
-   -->
-  
+      <div class="card-buttons">
+        <div class="request-buttons">
+          <button (click)="navigateToCoach(coach.id!)">View Details</button>
+          <button>Request Plan</button>
+        </div>
+        <div class="plan-request-form">
+        <h2>Request Plan</h2>
+        <textarea
+          #planDescription
+          placeholder="Write your plan description here"
+        ></textarea>
+        <button (click)="requestPlan(allCoachKeys[i], planDescription.value)">
+          Confirm
+        </button>
+        <button class="cancel-button" (click)="cancelPlanRequest()">
+          Cancel
+        </button>
+      </div>
+    </div>
+    </div>
+  </ng-container>
+</div>

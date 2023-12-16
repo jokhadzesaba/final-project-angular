@@ -105,10 +105,10 @@
         color: #3498db;
       }
       button{
-        background-color: #009579;
+        background-color: #3498db;
         cursor: pointer;
         color: white;
-        width: 100px;
+        width: 110px;
         height: 30px;
         border: none;
         border-radius: 5px;
@@ -116,4 +116,8 @@
       }
     }
   }
-  
+  @media screen and (min-width: 320px) and (max-width: 550px){
+    .bmr-container{
+      width: 310px;
+    }
+  }

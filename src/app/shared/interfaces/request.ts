@@ -1,5 +1,5 @@
 export interface Request{
     description:string,
-    userId:number,
-    id:string
+    userId:string,
+    requestId:string
 }

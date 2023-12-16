@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject} from 'rxjs';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
 import { User } from 'src/app/shared/interfaces/user';
@@ -29,16 +29,13 @@ export class TopBarComponent implements OnInit {
   }
   logOut() {
     this.service.loggedUser.next({
-      name: '',
       nickName: '',
-      lastname: '',
       email: '',
-      phoneNumber: '',
       id: '',
-      age: '',
       password: '',
       plans: [],
       status: 'guest',
+      profileImgUrl:''
     });
     this.router.navigate(['/login']);
   }

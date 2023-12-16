@@ -2,8 +2,6 @@
   <div class="registration form">
     <header>Signup</header>
     <form [formGroup]="form">
-      <input formControlName="name" placeholder="Enter your name(required)" />
-
       <input
         formControlName="email"
         placeholder="Enter your email(required) "
@@ -31,7 +29,7 @@
     <div class="signup">
       <span class="signup"
         >Already have an account?
-        <label routerLink="/login">Login</label>
+        <label routerLink="/login/login">Login</label>
       </span>
       <p routerLink="/coach-feature/coach-registration">Registrate As Coach</p>
     </div>

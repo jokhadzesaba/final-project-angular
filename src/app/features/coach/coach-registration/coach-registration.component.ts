@@ -21,13 +21,7 @@ export class CoachRegistrationComponent {
   ) {}
   public form = this.fb.group(
     {
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9-]+$/)]],
-      lastname: [''],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: [
-        '',
-        [Validators.required, Validators.pattern(/^\+995\d{9}$/)],
-      ],
       password: [
         '',
         [
@@ -37,32 +31,21 @@ export class CoachRegistrationComponent {
         ],
       ],
       confirmPassword: ['', [Validators.required]],
-      age: [''],
-      salary: [''],
       nickName: ['', [Validators.required]],
     },
     { validators: matchPassword }
   );
-  name = this.form.get('name') as FormControl;
-  age = this.form.get('age') as FormControl;
-  lastname = this.form.get('lastname') as FormControl;
-  phoneNumber = this.form.get('phoneNumber') as FormControl;
   password = this.form.get('password') as FormControl;
   email = this.form.get('email') as FormControl;
-  salary = this.form.get('salary') as FormControl;
   nickName = this.form.get('nickName') as FormControl;
 
   public submit() {
     const coach = {
-      name: this.form.getRawValue().name!,
-      lastname: this.form.getRawValue().lastname!,
       nickName: this.form.getRawValue().nickName!,
       email: this.form.getRawValue().email!,
-      phoneNumber: this.form.getRawValue().phoneNumber!,
       password: this.form.getRawValue().password!,
-      age: this.form.getRawValue().age!,
-      salary: this.form.getRawValue().salary!,
       id: this.sharedService.generateUniqueId(8),
+      profileImgUrl:'assets/profile-pictures/default.png',
       bmi: '',
       orm: '',
       bmr: '',
@@ -72,7 +55,7 @@ export class CoachRegistrationComponent {
           name: 'placeholder',
           description: 'placeholder',
           planId: 'placeholder',
-          creatorId: -1,
+          creatorId: "-1",
           exercises: [
             {
               bodyPart: 'idk',

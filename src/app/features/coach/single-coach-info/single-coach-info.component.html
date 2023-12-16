@@ -1,38 +1,101 @@
-<div class="coachPlans">
-  <div *ngIf="coach" class="coachInfo">
-      <h2>{{ coach.name }} {{ coach.lastname }}</h2>
-      <p>Email: {{ coach.email }}</p>
-      <p>Phone Number: {{ coach.phoneNumber }}</p>
-      <p *ngIf="coach.bmi">BMI: {{ coach.bmi }}</p>
-      <button routerLink="/calculate/bmi" *ngIf="coach.bmi === ''">calculate Your BMI</button>
-      <p *ngIf="coach.bmr">BMR: {{ coach.bmr }}</p>
-      <button routerLink="/calculate/bmr" *ngIf="coach.bmr === ''">calculate Your BMR</button>
+<div *ngIf="coach as coach" class="container flex column h-centered">
+  <div *ngIf="changingImage" class="change-img centered column ">
+    <div class="flex">
+      <div *ngFor="let img of images">
+        <input type="radio" name="selected" (change)="selectImage(img)" />
+        <img [src]="img" alt="img" />
+      </div>
+    </div>
+    <div class="flex">
+    <button (click)="changeProgilePhoto(selectedImage!)">change</button>
+    <button (change)="cancel()" >cancel</button>
+  </div>
+  </div>
+  <div class="userInfo flex">
+    <div class="img-container flex h-centered column">
+      <img [src]="coach.profileImgUrl" alt="img" />
+      <button *ngIf="coach.id === loggedId" (click)="change()" >Change</button>
+    </div>
+    <div class="data flex column">
+      <h2>nickName:Saba</h2>
+      <p>Email: coach1@gmail.com</p>
+      <p *ngIf="coach.bmi">bmi: {{ coach.bmi }}</p>
+      <button routerLink="/calculate/bmi" *ngIf="coach.bmi === ''">
+        calculate Your BMI
+      </button>
+      <p *ngIf="coach.bmr">bmr: {{ coach.bmr }}</p>
+      <button routerLink="/calculate/bmr" *ngIf="coach.bmr === ''">
+        calculate Your BMR
+      </button>
       <p *ngIf="coach.orm">One-Rep-Max: {{ coach.orm }}</p>
-      <button routerLink="/calculate/one-rep-max" *ngIf="coach.orm === ''">calculate Your One-Rep_Max</button>
+      <button routerLink="/calculate/one-rep-max" *ngIf="coach.orm === ''">
+        calculate Your One-Rep-Max
+      </button>
+    </div>
   </div>
-  <h1>Requests</h1>
-  <div *ngFor="let request of coach.requests; let i = index" class="request">
-      <p>Description: {{request.description}}</p>
-      <p>User Id: {{request.userId}}</p>
-      <div class="request-buttons">
-          <button (click)="makePlan(request.userId, request.id)" class="btn btn-primary">Make Plan For This User</button>
-          <button (click)="deleteRequest(request.id)" class="btn btn-danger">Delete Request</button>
+  <h2 *ngIf="coach.id === loggedId">Requested Plans:</h2>
+  <div *ngIf="coach.requests && coach.requests.length > 1 && coach.id === loggedId" class="plans">
+    <div
+      *ngFor="let request of coach.requests | slice : 1"
+      class="plan-card centered"
+    >
+      <div class="request flex h-centered">
+        <p>Description: {{ request.description }}</p>
+        <div class="flex">
+          <button
+            *ngIf="coach.id === loggedId"
+            (click)="makePlan(request.userId, request.requestId)"
+            class="btn btn-primary"
+          >
+            Make Plan For This User
+          </button>
+          <button>Delete</button>
+          <button
+            *ngIf="coach.id === loggedId"
+            (click)="deleteRequest(request.requestId)"
+            class="btn btn-danger"
+          >
+            Delete Request
+          </button>
+        </div>
       </div>
+    </div>
   </div>
-  <p>Your plans</p>
-  <div *ngFor="let plan of coach.plans" class="coach-plan">
+  <h2>Plans:</h2>
+  <div *ngIf="coach.plans && coach.plans.length > 1" class="plans">
+    <div *ngFor="let plan of coach.plans | slice : 1" class="plan-card">
       <div class="plan-actions">
-          <button (click)="showPlan(plan)" class="btn btn-primary">{{ plan.name }}</button>
-          <button (click)="deletePlan(plan)" class="btn btn-danger">Delete Plan</button>
+        <div class="img-placeholder">
+          <p>Des: {{ plan.description | slice : 1 : 100 }}</p>
+          <img src="../../../../../assets/exer1.jpg" alt="img" />
+        </div>
+        <div>
+          <button (click)="showPlan(plan)" class="btn btn-primary">
+            {{ plan.name }}
+          </button>
+          <button
+            *ngIf="coach.id === loggedId"
+            (click)="deletePlan(plan)"
+            class="btn btn-danger"
+          >
+            Delete Plan
+          </button>
+          <button
+            *ngIf="status === 'user'"
+            (click)="likePlan(plan)"
+            class="btn btn-danger"
+          >
+            Like Plan
+          </button>
+          <button
+            *ngIf="status === 'user'"
+            (click)="unlikePlan(plan)"
+            class="btn btn-danger"
+          >
+            Unlike Plan
+          </button>
+        </div>
       </div>
-      <div *ngIf="selectedPlan && selectedPlan.planId === plan.planId" class="plan-exercises">
-          <div *ngFor="let exercise of selectedPlan.exercises" class="exercise">
-              <div class="exercise-info">
-                  <p>{{ exercise.bodyPart }}</p>
-                  <p>{{exercise.target}}</p>
-              </div>
-              <img [src]="sanitizeUrl(exercise.gifUrl)" alt="{{ exercise.name }}" />
-          </div>
-      </div>
+    </div>
   </div>
 </div>

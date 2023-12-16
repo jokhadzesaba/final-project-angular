@@ -78,15 +78,20 @@
         color: #3498db;
       }
       button{
-        background-color: #009579;
+        background-color: #3498db;
         color: white;
         cursor: pointer;
-        width: 100px;
+        width: 110px;
         height: 30px;
         border: none;
         border-radius: 5px;
         margin-top: 5px;
       }
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 550px){
+    .container{
+      width: 310px;
     }
   }
   

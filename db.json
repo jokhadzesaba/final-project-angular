@@ -1,16 +1,415 @@
 {
   "coaches": {
-    "-Nkr0BKlJuyXJ2aqBgqe": {
+    "-NlEzHQtUQ53YSyY5dRB": {
       "age": "",
       "bmi": "",
       "bmr": "",
-      "email": "saba12@gmail.com",
-      "lastname": "",
-      "name": "saba",
+      "email": "coach1@gmail.com",
+      "id": "Xt14LVOt",
       "nickName": "idkmate",
       "orm": "",
       "password": "123123123",
-      "phoneNumber": "+995123123123",
+      "profileImgUrl":"assets/profile-pictures/default.png",
+      "plans": [
+        {
+          "creatorId": -1,
+          "description": "placeholder",
+          "exercises": [
+            {
+              "bodyPart": "idk",
+              "equipment": "`idk",
+              "gifUrl": "idk",
+              "id": -1,
+              "name": "idk",
+              "selected": false,
+              "target": "idk"
+            }
+          ],
+          "name": "placeholder",
+          "planId": "placeholder"
+        },
+        {
+          "creatorId": "Xt14LVOt",
+          "description": "dudepls",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "dude",
+          "planId": "BH5l0"
+        },
+        {
+          "creatorId": "Xt14LVOt",
+          "description": "lkasd",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "midibijo",
+          "planId": "ZTF7f"
+        },
+        {
+          "creatorId": "Xt14LVOt",
+          "description": "slice",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "slice",
+          "planId": "4ziF0"
+        },
+        {
+          "creatorId": "Xt14LVOt",
+          "description": "do not you dare to fuck this up",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "it is working mate",
+          "planId": "pRong"
+        }
+      ],
+      "requests": [
+        {
+          "description": "placeholder",
+          "id": "placeholder",
+          "userId": -1
+        },
+        {
+          "description": "chest exercises",
+          "requestId": "Dct4Sb",
+          "userId": "-NlEPZ2WnDwjFMXH2SAr"
+        }
+      ],
+      "salary": "",
+      "status": "coach"
+    },
+    "-NlFR2LPB0KuxvEjQooi": {
+      "age": "",
+      "bmi": "",
+      "bmr": "",
+      "email": "coach2@gmail.com",
+      "id": "sz3sVQQG",
+      "nickName": "coach2",
+      "orm": "",
+      "password": "123123123",
+      "profileImgUrl":"assets/profile-pictures/default.png",
+      "plans": [
+        {
+          "creatorId": -1,
+          "description": "placeholder",
+          "exercises": [
+            {
+              "bodyPart": "idk",
+              "equipment": "`idk",
+              "gifUrl": "idk",
+              "id": -1,
+              "name": "idk",
+              "selected": false,
+              "target": "idk"
+            }
+          ],
+          "name": "placeholder",
+          "planId": "placeholder"
+        },
+        {
+          "creatorId": "sz3sVQQG",
+          "description": "recomended: each exercise 10x times ",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_3.gif",
+              "id": 3,
+              "name": "air bike",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_5.gif",
+              "id": 5,
+              "name": "alternate heel touchers",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_13.gif",
+              "id": 13,
+              "name": "arms overhead full sit-up (male)",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "assisted",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_30.gif",
+              "id": 30,
+              "name": "assisted sit-up",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "band",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_49.gif",
+              "id": 49,
+              "name": "band bicycle crunch",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "abs training",
+          "planId": "llcXe"
+        },
+        {
+          "creatorId": "sz3sVQQG",
+          "description": "10x each exercise",
+          "exercises": [
+            {
+              "bodyPart": "chest",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_9.gif",
+              "id": 9,
+              "name": "archer push up",
+              "selected": false,
+              "target": "pectorals"
+            },
+            {
+              "bodyPart": "chest",
+              "equipment": "barbell",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_99.gif",
+              "id": 99,
+              "name": "barbell bench press",
+              "selected": false,
+              "target": "pectorals"
+            },
+            {
+              "bodyPart": "chest",
+              "equipment": "barbell",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_109.gif",
+              "id": 109,
+              "name": "barbell decline bench press",
+              "selected": false,
+              "target": "pectorals"
+            },
+            {
+              "bodyPart": "chest",
+              "equipment": "cable",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_284.gif",
+              "id": 284,
+              "name": "cable decline one arm press",
+              "selected": false,
+              "target": "pectorals"
+            },
+            {
+              "bodyPart": "chest",
+              "equipment": "cable",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_285.gif",
+              "id": 285,
+              "name": "cable decline press",
+              "selected": false,
+              "target": "pectorals"
+            }
+          ],
+          "name": "chest training",
+          "planId": "CeLdb"
+        }
+      ],
+      "requests": [
+        {
+          "description": "placeholder",
+          "id": "placeholder",
+          "userId": -1
+        }
+      ],
+      "salary": "",
+      "status": "coach"
+    },
+    "-NlFRbH4DJwkjnl84uuE": {
+      "age": "",
+      "bmi": "",
+      "bmr": "",
+      "email": "coach3@gmail.com",
+      "id": "SutkXiaH",
+      "nickName": "coach3",
+      "orm": "",
+      "password": "123123123",
+      "profileImgUrl":"assets/profile-pictures/default.png",
+      "plans": [
+        {
+          "creatorId": -1,
+          "description": "placeholder",
+          "exercises": [
+            {
+              "bodyPart": "idk",
+              "equipment": "`idk",
+              "gifUrl": "idk",
+              "id": -1,
+              "name": "idk",
+              "selected": false,
+              "target": "idk"
+            }
+          ],
+          "name": "placeholder",
+          "planId": "placeholder"
+        },
+        {
+          "creatorId": "SutkXiaH",
+          "description": "do no skip leg days dude",
+          "exercises": [
+            {
+              "bodyPart": "upper legs",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_4.gif",
+              "id": 4,
+              "name": "all fours squad stretch",
+              "selected": false,
+              "target": "quads"
+            },
+            {
+              "bodyPart": "upper legs",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_41.gif",
+              "id": 41,
+              "name": "backward jump",
+              "selected": false,
+              "target": "quads"
+            },
+            {
+              "bodyPart": "upper legs",
+              "equipment": "band",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_80.gif",
+              "id": 80,
+              "name": "band single leg split squat",
+              "selected": false,
+              "target": "quads"
+            },
+            {
+              "bodyPart": "upper legs",
+              "equipment": "band",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_88.gif",
+              "id": 88,
+              "name": "band straight back stiff leg deadlift",
+              "selected": false,
+              "target": "glutes"
+            },
+            {
+              "bodyPart": "upper legs",
+              "equipment": "barbell",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_121.gif",
+              "id": 121,
+              "name": "barbell full squat",
+              "selected": false,
+              "target": "glutes"
+            }
+          ],
+          "name": "upperlegs training",
+          "planId": "vLfBS"
+        },
+        {
+          "creatorId": "SutkXiaH",
+          "description": "necktraining",
+          "exercises": [
+            {
+              "bodyPart": "neck",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1028.gif",
+              "id": 1028,
+              "name": "neck side stretch",
+              "selected": false,
+              "target": "levator scapulae"
+            },
+            {
+              "bodyPart": "neck",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1140.gif",
+              "id": 1140,
+              "name": "side push neck stretch",
+              "selected": false,
+              "target": "levator scapulae"
+            }
+          ],
+          "name": "neck",
+          "planId": "UGNiq"
+        }
+      ],
+      "requests": [
+        {
+          "description": "placeholder",
+          "id": "placeholder",
+          "userId": -1
+        }
+      ],
+      "salary": "",
+      "status": "coach"
+    },
+    "-NlYRReue8mxhl9AsEfb": {
+      "bmi": "",
+      "bmr": "",
+      "email": "",
+      "id": "W5MNsWvP",
+      "nickName": "",
+      "orm": "",
+      "password": "",
       "plans": [
         {
           "creatorId": -1,
@@ -37,1524 +436,10 @@
           "userId": -1
         }
       ],
-      "salary": "",
       "status": "coach"
     }
   },
-  "users": {
-    "-Nl-xBJqjVx4fwREPA6S": {
-      "age": "",
-      "bmi": "",
-      "bmr": "",
-      "email": "saba1@gmail.com",
-      "lastname": "",
-      "likedPlans": [
-        {
-          "creatorId": -1,
-          "description": "placeholder",
-          "exercises": [
-            {
-              "bodyPart": "idk",
-              "equipment": "`idk",
-              "gifUrl": "idk",
-              "id": -1,
-              "name": "idk",
-              "target": "idk"
-            }
-          ],
-          "name": "placeholder",
-          "planId": "placeholder"
-        }
-      ],
-      "name": "saba",
-      "nickName": "idkmate",
-      "orm": "",
-      "password": "123123123",
-      "phoneNumber": "",
-      "plans": [
-        {
-          "creatorId": -1,
-          "description": "placeholder",
-          "exercises": [
-            {
-              "bodyPart": "idk",
-              "equipment": "`idk",
-              "gifUrl": "idk",
-              "id": -1,
-              "name": "idk",
-              "target": "idk"
-            }
-          ],
-          "name": "placeholder",
-          "planId": "placeholder"
-        }
-      ],
-      "requestedPlans": [
-        {
-          "coachId": -1,
-          "coachName": "placeholder",
-          "description": "placeholder",
-          "exercises": [
-            {
-              "bodyPart": "idk",
-              "equipment": "`idk",
-              "gifUrl": "idk",
-              "id": -1,
-              "name": "idk",
-              "target": "idk"
-            }
-          ],
-          "nickName": "placeholder",
-          "planId": "placeholder",
-          "planName": "placeholder"
-        }
-      ],
-      "status": "user"
-    }
-  },
   "exercises": {
-    "neck": [
-      {
-        "bodyPart": "neck",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1028.gif",
-        "id": 1028,
-        "name": "neck side stretch",
-        "target": "levator scapulae"
-      },
-      {
-        "bodyPart": "neck",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1140.gif",
-        "id": 1140,
-        "name": "side push neck stretch",
-        "target": "levator scapulae"
-      }
-    ],
-    "cardio": [
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_36.gif",
-        "id": 36,
-        "name": "astride jumps (male)",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_37.gif",
-        "id": 37,
-        "name": "back and forth step",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_240.gif",
-        "id": 240,
-        "name": "bear crawl",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_267.gif",
-        "id": 267,
-        "name": "burpee",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_454.gif",
-        "id": 454,
-        "name": "cycle cross trainer",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_486.gif",
-        "id": 486,
-        "name": "dumbbell burpee",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_822.gif",
-        "id": 822,
-        "name": "half knee bends (male)",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_837.gif",
-        "id": 837,
-        "name": "high knee against wall",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_865.gif",
-        "id": 865,
-        "name": "jack burpee",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_866.gif",
-        "id": 866,
-        "name": "jack jump (male)",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "rope",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_869.gif",
-        "id": 869,
-        "name": "jump rope",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1024.gif",
-        "id": 1024,
-        "name": "mountain climber",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1062.gif",
-        "id": 1062,
-        "name": "push to run",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1110.gif",
-        "id": 1110,
-        "name": "run",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1111.gif",
-        "id": 1111,
-        "name": "run (equipment)",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1117.gif",
-        "id": 1117,
-        "name": "scissor jumps (male)",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1128.gif",
-        "id": 1128,
-        "name": "semi squat jump (male)",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1129.gif",
-        "id": 1129,
-        "name": "short stride run",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1153.gif",
-        "id": 1153,
-        "name": "skater hops",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1155.gif",
-        "id": 1155,
-        "name": "ski step",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1242.gif",
-        "id": 1242,
-        "name": "star jump (male)",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "stationary bike",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1243.gif",
-        "id": 1243,
-        "name": "stationary bike run v. 3",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1244.gif",
-        "id": 1244,
-        "name": "stationary bike walk",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1255.gif",
-        "id": 1255,
-        "name": "swing 360",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "elliptical machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1275.gif",
-        "id": 1275,
-        "name": "walk elliptical cross trainer",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1276.gif",
-        "id": 1276,
-        "name": "walking high knees lunge",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1278.gif",
-        "id": 1278,
-        "name": "walking on incline treadmill",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "stepmill machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1279.gif",
-        "id": 1279,
-        "name": "walking on stepmill",
-        "target": "cardiovascular system"
-      },
-      {
-        "bodyPart": "cardio",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1316.gif",
-        "id": 1316,
-        "name": "wheel run",
-        "target": "cardiovascular system"
-      }
-    ],
-    "waist": [
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-        "id": 1,
-        "name": "3/4 sit-up",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-        "id": 2,
-        "name": "45\u00b0 side bend",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_3.gif",
-        "id": 3,
-        "name": "air bike",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_5.gif",
-        "id": 5,
-        "name": "alternate heel touchers",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_10.gif",
-        "id": 10,
-        "name": "arm slingers hanging bent knee legs",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_11.gif",
-        "id": 11,
-        "name": "arm slingers hanging straight legs",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_13.gif",
-        "id": 13,
-        "name": "arms overhead full sit-up (male)",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_15.gif",
-        "id": 15,
-        "name": "assisted hanging knee raise",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_16.gif",
-        "id": 16,
-        "name": "assisted hanging knee raise with throw down",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_20.gif",
-        "id": 20,
-        "name": "assisted lying leg raise with lateral throw down",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_21.gif",
-        "id": 21,
-        "name": "assisted lying leg raise with throw down",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "medicine ball",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_22.gif",
-        "id": 22,
-        "name": "assisted motion russian twist",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_26.gif",
-        "id": 26,
-        "name": "assisted prone rectus femoris stretch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_30.gif",
-        "id": 30,
-        "name": "assisted sit-up",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_44.gif",
-        "id": 44,
-        "name": "band alternating v-up",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_46.gif",
-        "id": 46,
-        "name": "band assisted wheel rollerout",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_49.gif",
-        "id": 49,
-        "name": "band bicycle crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_58.gif",
-        "id": 58,
-        "name": "band horizontal pallof press",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_59.gif",
-        "id": 59,
-        "name": "band jack knife sit-up",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_61.gif",
-        "id": 61,
-        "name": "band kneeling twisting crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_63.gif",
-        "id": 63,
-        "name": "band lying straight leg raise",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_70.gif",
-        "id": 70,
-        "name": "band push sit-up",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_74.gif",
-        "id": 74,
-        "name": "band seated twist",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_83.gif",
-        "id": 83,
-        "name": "band standing crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_85.gif",
-        "id": 85,
-        "name": "band standing twisting crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_93.gif",
-        "id": 93,
-        "name": "band v-up",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_94.gif",
-        "id": 94,
-        "name": "band vertical pallof press",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_162.gif",
-        "id": 162,
-        "name": "barbell press sit-up",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_181.gif",
-        "id": 181,
-        "name": "barbell rollerout",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_182.gif",
-        "id": 182,
-        "name": "barbell rollerout from bench",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_193.gif",
-        "id": 193,
-        "name": "barbell seated twist",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_195.gif",
-        "id": 195,
-        "name": "barbell side bent v. 2",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_200.gif",
-        "id": 200,
-        "name": "barbell sitted alternate leg raise",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_201.gif",
-        "id": 201,
-        "name": "barbell sitted alternate leg raise (female)",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_207.gif",
-        "id": 207,
-        "name": "barbell standing ab rollerout",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_219.gif",
-        "id": 219,
-        "name": "barbell standing twist",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_252.gif",
-        "id": 252,
-        "name": "bodyweight incline side plank",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_264.gif",
-        "id": 264,
-        "name": "bottoms-up",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_266.gif",
-        "id": 266,
-        "name": "bridge - mountain climber (cross body)",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_268.gif",
-        "id": 268,
-        "name": "butt-ups",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_302.gif",
-        "id": 302,
-        "name": "cable judo flip",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_304.gif",
-        "id": 304,
-        "name": "cable kneeling crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_351.gif",
-        "id": 351,
-        "name": "cable reverse crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_368.gif",
-        "id": 368,
-        "name": "cable russian twists (on stability ball)",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_370.gif",
-        "id": 370,
-        "name": "cable seated crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_379.gif",
-        "id": 379,
-        "name": "cable seated twist",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_383.gif",
-        "id": 383,
-        "name": "cable side bend",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_384.gif",
-        "id": 384,
-        "name": "cable side bend crunch (bosu ball)",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_385.gif",
-        "id": 385,
-        "name": "cable side crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_391.gif",
-        "id": 391,
-        "name": "cable standing crunch",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_392.gif",
-        "id": 392,
-        "name": "cable standing crunch (with rope attachment)",
-        "target": "abs"
-      },
-      {
-        "bodyPart": "waist",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_396.gif",
-        "id": 396,
-        "name": "cable standing lift",
-        "target": "abs"
-      }
-    ],
-    "upperLegs": [
-      {
-        "bodyPart": "upper legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_4.gif",
-        "id": 4,
-        "name": "all fours squad stretch",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_12.gif",
-        "id": 12,
-        "name": "arms apart circular toe touch (male)",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_18.gif",
-        "id": 18,
-        "name": "assisted lying glutes stretch",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_19.gif",
-        "id": 19,
-        "name": "assisted lying gluteus and piriformis stretch",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_24.gif",
-        "id": 24,
-        "name": "assisted prone hamstring",
-        "target": "hamstrings"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_25.gif",
-        "id": 25,
-        "name": "assisted prone lying quads stretch",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_29.gif",
-        "id": 29,
-        "name": "assisted side lying adductor stretch",
-        "target": "adductors"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_41.gif",
-        "id": 41,
-        "name": "backward jump",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_42.gif",
-        "id": 42,
-        "name": "balance board",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_48.gif",
-        "id": 48,
-        "name": "band bent-over hip extension",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_57.gif",
-        "id": 57,
-        "name": "band hip lift",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_62.gif",
-        "id": 62,
-        "name": "band lying hip internal rotation",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_65.gif",
-        "id": 65,
-        "name": "band one arm single leg split squat",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_69.gif",
-        "id": 69,
-        "name": "band pull through",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_73.gif",
-        "id": 73,
-        "name": "band seated hip internal rotation",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_80.gif",
-        "id": 80,
-        "name": "band single leg split squat",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_81.gif",
-        "id": 81,
-        "name": "band squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_82.gif",
-        "id": 82,
-        "name": "band squat row",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_86.gif",
-        "id": 86,
-        "name": "band step-up",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_87.gif",
-        "id": 87,
-        "name": "band stiff leg deadlift",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_88.gif",
-        "id": 88,
-        "name": "band straight back stiff leg deadlift",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_98.gif",
-        "id": 98,
-        "name": "barbell bench front squat",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_100.gif",
-        "id": 100,
-        "name": "barbell bench squat",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_104.gif",
-        "id": 104,
-        "name": "barbell clean and press",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_105.gif",
-        "id": 105,
-        "name": "barbell clean-grip front squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_108.gif",
-        "id": 108,
-        "name": "barbell deadlift",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_117.gif",
-        "id": 117,
-        "name": "barbell front chest squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_120.gif",
-        "id": 120,
-        "name": "barbell front squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_121.gif",
-        "id": 121,
-        "name": "barbell full squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_122.gif",
-        "id": 122,
-        "name": "barbell full squat (back pov)",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_123.gif",
-        "id": 123,
-        "name": "barbell full squat (side pov)",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_124.gif",
-        "id": 124,
-        "name": "barbell full zercher squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_125.gif",
-        "id": 125,
-        "name": "barbell glute bridge",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_126.gif",
-        "id": 126,
-        "name": "barbell glute bridge two legs on bench (male)",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_127.gif",
-        "id": 127,
-        "name": "barbell good morning",
-        "target": "hamstrings"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_129.gif",
-        "id": 129,
-        "name": "barbell hack squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_130.gif",
-        "id": 130,
-        "name": "barbell high bar squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_136.gif",
-        "id": 136,
-        "name": "barbell jefferson squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_138.gif",
-        "id": 138,
-        "name": "barbell jump squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_139.gif",
-        "id": 139,
-        "name": "barbell lateral lunge",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_140.gif",
-        "id": 140,
-        "name": "barbell low bar squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_141.gif",
-        "id": 141,
-        "name": "barbell lunge",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_146.gif",
-        "id": 146,
-        "name": "barbell lying lifting (on hip)",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_150.gif",
-        "id": 150,
-        "name": "barbell narrow stance squat",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_153.gif",
-        "id": 153,
-        "name": "barbell one arm side deadlift",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_155.gif",
-        "id": 155,
-        "name": "barbell one leg squat",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_156.gif",
-        "id": 156,
-        "name": "barbell overhead squat",
-        "target": "quads"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_166.gif",
-        "id": 166,
-        "name": "barbell rack pull",
-        "target": "glutes"
-      },
-      {
-        "bodyPart": "upper legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_169.gif",
-        "id": 169,
-        "name": "barbell rear lunge",
-        "target": "glutes"
-      }
-    ],
-    "lowerLegs": [
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_7.gif",
-        "id": 7,
-        "name": "ankle circles",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_17.gif",
-        "id": 17,
-        "name": "assisted lying calves stretch",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_78.gif",
-        "id": 78,
-        "name": "band single leg calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_79.gif",
-        "id": 79,
-        "name": "band single leg reverse calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_91.gif",
-        "id": 91,
-        "name": "band two legs calf raise - (band under both legs) v. 2",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_116.gif",
-        "id": 116,
-        "name": "barbell floor calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_186.gif",
-        "id": 186,
-        "name": "barbell seated calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_187.gif",
-        "id": 187,
-        "name": "barbell seated calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_210.gif",
-        "id": 210,
-        "name": "barbell standing calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_215.gif",
-        "id": 215,
-        "name": "barbell standing leg calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_218.gif",
-        "id": 218,
-        "name": "barbell standing rocking leg calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_257.gif",
-        "id": 257,
-        "name": "bodyweight standing calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_265.gif",
-        "id": 265,
-        "name": "box jump down with one leg stabilization",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_389.gif",
-        "id": 389,
-        "name": "cable standing calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_398.gif",
-        "id": 398,
-        "name": "cable standing one leg calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_425.gif",
-        "id": 425,
-        "name": "calf push stretch with hands against wall",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_426.gif",
-        "id": 426,
-        "name": "calf stretch with hands against wall",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "rope",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_427.gif",
-        "id": 427,
-        "name": "calf stretch with rope",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_439.gif",
-        "id": 439,
-        "name": "circles knee stretch",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_461.gif",
-        "id": 461,
-        "name": "donkey calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_669.gif",
-        "id": 669,
-        "name": "dumbbell seated calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_681.gif",
-        "id": 681,
-        "name": "dumbbell seated one leg calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_682.gif",
-        "id": 682,
-        "name": "dumbbell seated one leg calf raise - hammer grip",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_683.gif",
-        "id": 683,
-        "name": "dumbbell seated one leg calf raise - palm up",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_696.gif",
-        "id": 696,
-        "name": "dumbbell single leg calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_710.gif",
-        "id": 710,
-        "name": "dumbbell standing calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_763.gif",
-        "id": 763,
-        "name": "exercise ball on the wall calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_764.gif",
-        "id": 764,
-        "name": "exercise ball on the wall calf raise (tennis ball between ankles)",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_765.gif",
-        "id": 765,
-        "name": "exercise ball on the wall calf raise (tennis ball between knees)",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "sled machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_820.gif",
-        "id": 820,
-        "name": "hack calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "sled machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_821.gif",
-        "id": 821,
-        "name": "hack one leg calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_936.gif",
-        "id": 936,
-        "name": "lever calf press ",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_941.gif",
-        "id": 941,
-        "name": "lever donkey calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_973.gif",
-        "id": 973,
-        "name": "lever rotary calf",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_974.gif",
-        "id": 974,
-        "name": "lever seated calf press",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_975.gif",
-        "id": 975,
-        "name": "lever seated calf raise ",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_989.gif",
-        "id": 989,
-        "name": "lever seated squat calf raise on leg press machine",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_994.gif",
-        "id": 994,
-        "name": "lever standing calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1039.gif",
-        "id": 1039,
-        "name": "one leg donkey calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1040.gif",
-        "id": 1040,
-        "name": "one leg floor calf raise",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "rope",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1047.gif",
-        "id": 1047,
-        "name": "peroneals stretch",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "rope",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1051.gif",
-        "id": 1051,
-        "name": "posterior tibialis stretch",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1118.gif",
-        "id": 1118,
-        "name": "seated calf stretch (male)",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1147.gif",
-        "id": 1147,
-        "name": "single leg calf raise (on a dumbbell)",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "sled machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1158.gif",
-        "id": 1158,
-        "name": "sled 45\u0432\u00b0 calf press",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "sled machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1163.gif",
-        "id": 1163,
-        "name": "sled calf press on leg press",
-        "target": "calves"
-      },
-      {
-        "bodyPart": "lower legs",
-        "equipment": "sled machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1165.gif",
-        "id": 1165,
-        "name": "sled forward angled calf raise",
-        "target": "calves"
-      }
-    ],
     "back": [
       {
         "bodyPart": "back",
@@ -1965,6 +850,240 @@
         "target": "upper back"
       }
     ],
+    "cardio": [
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_36.gif",
+        "id": 36,
+        "name": "astride jumps (male)",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_37.gif",
+        "id": 37,
+        "name": "back and forth step",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_240.gif",
+        "id": 240,
+        "name": "bear crawl",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_267.gif",
+        "id": 267,
+        "name": "burpee",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_454.gif",
+        "id": 454,
+        "name": "cycle cross trainer",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_486.gif",
+        "id": 486,
+        "name": "dumbbell burpee",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_822.gif",
+        "id": 822,
+        "name": "half knee bends (male)",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_837.gif",
+        "id": 837,
+        "name": "high knee against wall",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_865.gif",
+        "id": 865,
+        "name": "jack burpee",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_866.gif",
+        "id": 866,
+        "name": "jack jump (male)",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "rope",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_869.gif",
+        "id": 869,
+        "name": "jump rope",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1024.gif",
+        "id": 1024,
+        "name": "mountain climber",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1062.gif",
+        "id": 1062,
+        "name": "push to run",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1110.gif",
+        "id": 1110,
+        "name": "run",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1111.gif",
+        "id": 1111,
+        "name": "run (equipment)",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1117.gif",
+        "id": 1117,
+        "name": "scissor jumps (male)",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1128.gif",
+        "id": 1128,
+        "name": "semi squat jump (male)",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1129.gif",
+        "id": 1129,
+        "name": "short stride run",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1153.gif",
+        "id": 1153,
+        "name": "skater hops",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1155.gif",
+        "id": 1155,
+        "name": "ski step",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1242.gif",
+        "id": 1242,
+        "name": "star jump (male)",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "stationary bike",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1243.gif",
+        "id": 1243,
+        "name": "stationary bike run v. 3",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1244.gif",
+        "id": 1244,
+        "name": "stationary bike walk",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1255.gif",
+        "id": 1255,
+        "name": "swing 360",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "elliptical machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1275.gif",
+        "id": 1275,
+        "name": "walk elliptical cross trainer",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1276.gif",
+        "id": 1276,
+        "name": "walking high knees lunge",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1278.gif",
+        "id": 1278,
+        "name": "walking on incline treadmill",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "stepmill machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1279.gif",
+        "id": 1279,
+        "name": "walking on stepmill",
+        "target": "cardiovascular system"
+      },
+      {
+        "bodyPart": "cardio",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1316.gif",
+        "id": 1316,
+        "name": "wheel run",
+        "target": "cardiovascular system"
+      }
+    ],
     "chest": [
       {
         "bodyPart": "chest",
@@ -2367,390 +1486,698 @@
         "target": "pectorals"
       }
     ],
-    "upperArms": [
+    "lowerArms": [
       {
-        "bodyPart": "upper arms",
-        "equipment": "assisted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_33.gif",
-        "id": 33,
-        "name": "assisted standing triceps extension (with towel)",
-        "target": "triceps"
+        "bodyPart": "lower arms",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_72.gif",
+        "id": 72,
+        "name": "band reverse wrist curl",
+        "target": "forearms"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower arms",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_95.gif",
+        "id": 95,
+        "name": "band wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_157.gif",
+        "id": 157,
+        "name": "barbell palms down wrist curl over a bench",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_158.gif",
+        "id": 158,
+        "name": "barbell palms up wrist curl over a bench",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_171.gif",
+        "id": 171,
+        "name": "barbell revers wrist curl v. 2",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_180.gif",
+        "id": 180,
+        "name": "barbell reverse wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_208.gif",
+        "id": 208,
+        "name": "barbell standing back wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_235.gif",
+        "id": 235,
+        "name": "barbell wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_236.gif",
+        "id": 236,
+        "name": "barbell wrist curl v. 2",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_356.gif",
+        "id": 356,
+        "name": "cable reverse wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_388.gif",
+        "id": 388,
+        "name": "cable standing back wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_424.gif",
+        "id": 424,
+        "name": "cable wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_506.gif",
+        "id": 506,
+        "name": "dumbbell finger curls",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_571.gif",
+        "id": 571,
+        "name": "dumbbell lying pronation",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_572.gif",
+        "id": 572,
+        "name": "dumbbell lying pronation on floor",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_577.gif",
+        "id": 577,
+        "name": "dumbbell lying supination",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_578.gif",
+        "id": 578,
+        "name": "dumbbell lying supination on floor",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_601.gif",
+        "id": 601,
+        "name": "dumbbell one arm revers wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_608.gif",
+        "id": 608,
+        "name": "dumbbell one arm seated neutral wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_616.gif",
+        "id": 616,
+        "name": "dumbbell one arm wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_621.gif",
+        "id": 621,
+        "name": "dumbbell over bench one arm reverse wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_622.gif",
+        "id": 622,
+        "name": "dumbbell over bench one arm wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_623.gif",
+        "id": 623,
+        "name": "dumbbell over bench revers wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_624.gif",
+        "id": 624,
+        "name": "dumbbell over bench wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_654.gif",
+        "id": 654,
+        "name": "dumbbell reverse wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_680.gif",
+        "id": 680,
+        "name": "dumbbell seated one arm rotate",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_684.gif",
+        "id": 684,
+        "name": "dumbbell seated palms up wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_797.gif",
+        "id": 797,
+        "name": "finger curls",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "kettlebell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_873.gif",
+        "id": 873,
+        "name": "kettlebell alternating hang clean",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
         "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_34.gif",
-        "id": 34,
-        "name": "assisted triceps dip (kneeling)",
-        "target": "triceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_945.gif",
+        "id": 945,
+        "name": "lever gripper hands ",
+        "target": "forearms"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower arms",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1022.gif",
+        "id": 1022,
+        "name": "modified push up to lower arms",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1142.gif",
+        "id": 1142,
+        "name": "side wrist pull stretch",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "smith machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1204.gif",
+        "id": 1204,
+        "name": "smith seated wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "smith machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1210.gif",
+        "id": 1210,
+        "name": "smith standing back wrist curl",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "weighted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1308.gif",
+        "id": 1308,
+        "name": "weighted standing hand squeeze",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1323.gif",
+        "id": 1323,
+        "name": "wrist circles",
+        "target": "forearms"
+      },
+      {
+        "bodyPart": "lower arms",
+        "equipment": "weighted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1324.gif",
+        "id": 1324,
+        "name": "wrist rollerer",
+        "target": "forearms"
+      }
+    ],
+    "lowerLegs": [
+      {
+        "bodyPart": "lower legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_7.gif",
+        "id": 7,
+        "name": "ankle circles",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_17.gif",
+        "id": 17,
+        "name": "assisted lying calves stretch",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
         "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_43.gif",
-        "id": 43,
-        "name": "band alternating biceps curl",
-        "target": "biceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_78.gif",
+        "id": 78,
+        "name": "band single leg calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_51.gif",
-        "id": 51,
-        "name": "band close-grip push-up",
-        "target": "triceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_79.gif",
+        "id": 79,
+        "name": "band single leg reverse calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_52.gif",
-        "id": 52,
-        "name": "band concentration curl",
-        "target": "biceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_91.gif",
+        "id": 91,
+        "name": "band two legs calf raise - (band under both legs) v. 2",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_64.gif",
-        "id": 64,
-        "name": "band one arm overhead biceps curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_77.gif",
-        "id": 77,
-        "name": "band side triceps extension",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_97.gif",
-        "id": 97,
-        "name": "barbell alternate biceps curl",
-        "target": "biceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_116.gif",
+        "id": 116,
+        "name": "barbell floor calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_103.gif",
-        "id": 103,
-        "name": "barbell biceps curl (with arm blaster)",
-        "target": "biceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_186.gif",
+        "id": 186,
+        "name": "barbell seated calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_106.gif",
-        "id": 106,
-        "name": "barbell close-grip bench press",
-        "target": "triceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_187.gif",
+        "id": 187,
+        "name": "barbell seated calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_107.gif",
-        "id": 107,
-        "name": "barbell curl",
-        "target": "biceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_210.gif",
+        "id": 210,
+        "name": "barbell standing calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_111.gif",
-        "id": 111,
-        "name": "barbell decline close grip to skull press",
-        "target": "triceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_215.gif",
+        "id": 215,
+        "name": "barbell standing leg calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_115.gif",
-        "id": 115,
-        "name": "barbell drag curl",
-        "target": "biceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_218.gif",
+        "id": 218,
+        "name": "barbell standing rocking leg calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_132.gif",
-        "id": 132,
-        "name": "barbell incline close grip bench press",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_133.gif",
-        "id": 133,
-        "name": "barbell incline reverse-grip press",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_137.gif",
-        "id": 137,
-        "name": "barbell jm bench press",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_142.gif",
-        "id": 142,
-        "name": "barbell lying back of the head tricep extension",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_143.gif",
-        "id": 143,
-        "name": "barbell lying close-grip press",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_144.gif",
-        "id": 144,
-        "name": "barbell lying close-grip triceps extension",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_145.gif",
-        "id": 145,
-        "name": "barbell lying extension",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_147.gif",
-        "id": 147,
-        "name": "barbell lying preacher curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_148.gif",
-        "id": 148,
-        "name": "barbell lying triceps extension",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_149.gif",
-        "id": 149,
-        "name": "barbell lying triceps extension skull crusher",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_152.gif",
-        "id": 152,
-        "name": "barbell one arm floor press",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_160.gif",
-        "id": 160,
-        "name": "barbell pin presses",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_161.gif",
-        "id": 161,
-        "name": "barbell preacher curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_163.gif",
-        "id": 163,
-        "name": "barbell prone incline curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_172.gif",
-        "id": 172,
-        "name": "barbell reverse close-grip bench press",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_173.gif",
-        "id": 173,
-        "name": "barbell reverse curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_178.gif",
-        "id": 178,
-        "name": "barbell reverse grip skullcrusher",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_179.gif",
-        "id": 179,
-        "name": "barbell reverse preacher curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_188.gif",
-        "id": 188,
-        "name": "barbell seated close grip behind neck triceps extension",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_189.gif",
-        "id": 189,
-        "name": "barbell seated close-grip concentration curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_192.gif",
-        "id": 192,
-        "name": "barbell seated overhead triceps extension",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_211.gif",
-        "id": 211,
-        "name": "barbell standing close grip curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_213.gif",
-        "id": 213,
-        "name": "barbell standing concentration curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_216.gif",
-        "id": 216,
-        "name": "barbell standing overhead triceps extension",
-        "target": "triceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_217.gif",
-        "id": 217,
-        "name": "barbell standing reverse grip curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_220.gif",
-        "id": 220,
-        "name": "barbell standing wide grip biceps curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_222.gif",
-        "id": 222,
-        "name": "barbell standing wide-grip curl",
-        "target": "biceps"
-      },
-      {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_242.gif",
-        "id": 242,
-        "name": "bench dip (knees bent)",
-        "target": "triceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_257.gif",
+        "id": 257,
+        "name": "bodyweight standing calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_243.gif",
-        "id": 243,
-        "name": "bench dip on floor",
-        "target": "triceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_265.gif",
+        "id": 265,
+        "name": "box jump down with one leg stabilization",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_247.gif",
-        "id": 247,
-        "name": "biceps leg concentration curl",
-        "target": "biceps"
+        "bodyPart": "lower legs",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_389.gif",
+        "id": 389,
+        "name": "cable standing calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_248.gif",
-        "id": 248,
-        "name": "biceps narrow pull-ups",
-        "target": "biceps"
+        "bodyPart": "lower legs",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_398.gif",
+        "id": 398,
+        "name": "cable standing one leg calf raise",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_249.gif",
-        "id": 249,
-        "name": "biceps pull-up",
-        "target": "biceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_425.gif",
+        "id": 425,
+        "name": "calf push stretch with hands against wall",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_250.gif",
-        "id": 250,
-        "name": "body-up",
-        "target": "triceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_426.gif",
+        "id": 426,
+        "name": "calf stretch with hands against wall",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
-        "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_253.gif",
-        "id": 253,
-        "name": "bodyweight kneeling triceps extension",
-        "target": "triceps"
+        "bodyPart": "lower legs",
+        "equipment": "rope",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_427.gif",
+        "id": 427,
+        "name": "calf stretch with rope",
+        "target": "calves"
       },
       {
-        "bodyPart": "upper arms",
+        "bodyPart": "lower legs",
         "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_254.gif",
-        "id": 254,
-        "name": "bodyweight side lying biceps curl",
-        "target": "biceps"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_439.gif",
+        "id": 439,
+        "name": "circles knee stretch",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_461.gif",
+        "id": 461,
+        "name": "donkey calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_669.gif",
+        "id": 669,
+        "name": "dumbbell seated calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_681.gif",
+        "id": 681,
+        "name": "dumbbell seated one leg calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_682.gif",
+        "id": 682,
+        "name": "dumbbell seated one leg calf raise - hammer grip",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_683.gif",
+        "id": 683,
+        "name": "dumbbell seated one leg calf raise - palm up",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_696.gif",
+        "id": 696,
+        "name": "dumbbell single leg calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_710.gif",
+        "id": 710,
+        "name": "dumbbell standing calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_763.gif",
+        "id": 763,
+        "name": "exercise ball on the wall calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_764.gif",
+        "id": 764,
+        "name": "exercise ball on the wall calf raise (tennis ball between ankles)",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_765.gif",
+        "id": 765,
+        "name": "exercise ball on the wall calf raise (tennis ball between knees)",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "sled machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_820.gif",
+        "id": 820,
+        "name": "hack calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "sled machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_821.gif",
+        "id": 821,
+        "name": "hack one leg calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_936.gif",
+        "id": 936,
+        "name": "lever calf press ",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_941.gif",
+        "id": 941,
+        "name": "lever donkey calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_973.gif",
+        "id": 973,
+        "name": "lever rotary calf",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_974.gif",
+        "id": 974,
+        "name": "lever seated calf press",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_975.gif",
+        "id": 975,
+        "name": "lever seated calf raise ",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_989.gif",
+        "id": 989,
+        "name": "lever seated squat calf raise on leg press machine",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "leverage machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_994.gif",
+        "id": 994,
+        "name": "lever standing calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1039.gif",
+        "id": 1039,
+        "name": "one leg donkey calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1040.gif",
+        "id": 1040,
+        "name": "one leg floor calf raise",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "rope",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1047.gif",
+        "id": 1047,
+        "name": "peroneals stretch",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "rope",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1051.gif",
+        "id": 1051,
+        "name": "posterior tibialis stretch",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1118.gif",
+        "id": 1118,
+        "name": "seated calf stretch (male)",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "dumbbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1147.gif",
+        "id": 1147,
+        "name": "single leg calf raise (on a dumbbell)",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "sled machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1158.gif",
+        "id": 1158,
+        "name": "sled 45в° calf press",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "sled machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1163.gif",
+        "id": 1163,
+        "name": "sled calf press on leg press",
+        "target": "calves"
+      },
+      {
+        "bodyPart": "lower legs",
+        "equipment": "sled machine",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1165.gif",
+        "id": 1165,
+        "name": "sled forward angled calf raise",
+        "target": "calves"
+      }
+    ],
+    "neck": [
+      {
+        "bodyPart": "neck",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1028.gif",
+        "id": 1028,
+        "name": "neck side stretch",
+        "target": "levator scapulae"
+      },
+      {
+        "bodyPart": "neck",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1140.gif",
+        "id": 1140,
+        "name": "side push neck stretch",
+        "target": "levator scapulae"
       }
     ],
     "shoulders": [
@@ -3155,303 +2582,1430 @@
         "target": "delts"
       }
     ],
-    "lowerArms": [
+    "upperArms": [
       {
-        "bodyPart": "lower arms",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_72.gif",
-        "id": 72,
-        "name": "band reverse wrist curl",
-        "target": "forearms"
+        "bodyPart": "upper arms",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_33.gif",
+        "id": 33,
+        "name": "assisted standing triceps extension (with towel)",
+        "target": "triceps"
       },
       {
-        "bodyPart": "lower arms",
-        "equipment": "band",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_95.gif",
-        "id": 95,
-        "name": "band wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_157.gif",
-        "id": 157,
-        "name": "barbell palms down wrist curl over a bench",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_158.gif",
-        "id": 158,
-        "name": "barbell palms up wrist curl over a bench",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_171.gif",
-        "id": 171,
-        "name": "barbell revers wrist curl v. 2",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_180.gif",
-        "id": 180,
-        "name": "barbell reverse wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_208.gif",
-        "id": 208,
-        "name": "barbell standing back wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_235.gif",
-        "id": 235,
-        "name": "barbell wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_236.gif",
-        "id": 236,
-        "name": "barbell wrist curl v. 2",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_356.gif",
-        "id": 356,
-        "name": "cable reverse wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_388.gif",
-        "id": 388,
-        "name": "cable standing back wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "cable",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_424.gif",
-        "id": 424,
-        "name": "cable wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_506.gif",
-        "id": 506,
-        "name": "dumbbell finger curls",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_571.gif",
-        "id": 571,
-        "name": "dumbbell lying pronation",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_572.gif",
-        "id": 572,
-        "name": "dumbbell lying pronation on floor",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_577.gif",
-        "id": 577,
-        "name": "dumbbell lying supination",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_578.gif",
-        "id": 578,
-        "name": "dumbbell lying supination on floor",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_601.gif",
-        "id": 601,
-        "name": "dumbbell one arm revers wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_608.gif",
-        "id": 608,
-        "name": "dumbbell one arm seated neutral wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": " https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_616.gif",
-        "id": 616,
-        "name": "dumbbell one arm wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_621.gif",
-        "id": 621,
-        "name": "dumbbell over bench one arm reverse wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_622.gif",
-        "id": 622,
-        "name": "dumbbell over bench one arm wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_623.gif",
-        "id": 623,
-        "name": "dumbbell over bench revers wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_624.gif",
-        "id": 624,
-        "name": "dumbbell over bench wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_654.gif",
-        "id": 654,
-        "name": "dumbbell reverse wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_680.gif",
-        "id": 680,
-        "name": "dumbbell seated one arm rotate",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "dumbbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_684.gif",
-        "id": 684,
-        "name": "dumbbell seated palms up wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "barbell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_797.gif",
-        "id": 797,
-        "name": "finger curls",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "kettlebell",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_873.gif",
-        "id": 873,
-        "name": "kettlebell alternating hang clean",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
+        "bodyPart": "upper arms",
         "equipment": "leverage machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_945.gif",
-        "id": 945,
-        "name": "lever gripper hands ",
-        "target": "forearms"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_34.gif",
+        "id": 34,
+        "name": "assisted triceps dip (kneeling)",
+        "target": "triceps"
       },
       {
-        "bodyPart": "lower arms",
+        "bodyPart": "upper arms",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_43.gif",
+        "id": 43,
+        "name": "band alternating biceps curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_51.gif",
+        "id": 51,
+        "name": "band close-grip push-up",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_52.gif",
+        "id": 52,
+        "name": "band concentration curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_64.gif",
+        "id": 64,
+        "name": "band one arm overhead biceps curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_77.gif",
+        "id": 77,
+        "name": "band side triceps extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_97.gif",
+        "id": 97,
+        "name": "barbell alternate biceps curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_103.gif",
+        "id": 103,
+        "name": "barbell biceps curl (with arm blaster)",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_106.gif",
+        "id": 106,
+        "name": "barbell close-grip bench press",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_107.gif",
+        "id": 107,
+        "name": "barbell curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_111.gif",
+        "id": 111,
+        "name": "barbell decline close grip to skull press",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_115.gif",
+        "id": 115,
+        "name": "barbell drag curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_132.gif",
+        "id": 132,
+        "name": "barbell incline close grip bench press",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_133.gif",
+        "id": 133,
+        "name": "barbell incline reverse-grip press",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_137.gif",
+        "id": 137,
+        "name": "barbell jm bench press",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_142.gif",
+        "id": 142,
+        "name": "barbell lying back of the head tricep extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_143.gif",
+        "id": 143,
+        "name": "barbell lying close-grip press",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_144.gif",
+        "id": 144,
+        "name": "barbell lying close-grip triceps extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_145.gif",
+        "id": 145,
+        "name": "barbell lying extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_147.gif",
+        "id": 147,
+        "name": "barbell lying preacher curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_148.gif",
+        "id": 148,
+        "name": "barbell lying triceps extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_149.gif",
+        "id": 149,
+        "name": "barbell lying triceps extension skull crusher",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_152.gif",
+        "id": 152,
+        "name": "barbell one arm floor press",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_160.gif",
+        "id": 160,
+        "name": "barbell pin presses",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_161.gif",
+        "id": 161,
+        "name": "barbell preacher curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_163.gif",
+        "id": 163,
+        "name": "barbell prone incline curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_172.gif",
+        "id": 172,
+        "name": "barbell reverse close-grip bench press",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_173.gif",
+        "id": 173,
+        "name": "barbell reverse curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_178.gif",
+        "id": 178,
+        "name": "barbell reverse grip skullcrusher",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_179.gif",
+        "id": 179,
+        "name": "barbell reverse preacher curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_188.gif",
+        "id": 188,
+        "name": "barbell seated close grip behind neck triceps extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_189.gif",
+        "id": 189,
+        "name": "barbell seated close-grip concentration curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_192.gif",
+        "id": 192,
+        "name": "barbell seated overhead triceps extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_211.gif",
+        "id": 211,
+        "name": "barbell standing close grip curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_213.gif",
+        "id": 213,
+        "name": "barbell standing concentration curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_216.gif",
+        "id": 216,
+        "name": "barbell standing overhead triceps extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_217.gif",
+        "id": 217,
+        "name": "barbell standing reverse grip curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_220.gif",
+        "id": 220,
+        "name": "barbell standing wide grip biceps curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_222.gif",
+        "id": 222,
+        "name": "barbell standing wide-grip curl",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
         "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1022.gif",
-        "id": 1022,
-        "name": "modified push up to lower arms",
-        "target": "forearms"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_242.gif",
+        "id": 242,
+        "name": "bench dip (knees bent)",
+        "target": "triceps"
       },
       {
-        "bodyPart": "lower arms",
+        "bodyPart": "upper arms",
         "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1142.gif",
-        "id": 1142,
-        "name": "side wrist pull stretch",
-        "target": "forearms"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_243.gif",
+        "id": 243,
+        "name": "bench dip on floor",
+        "target": "triceps"
       },
       {
-        "bodyPart": "lower arms",
-        "equipment": "smith machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1204.gif",
-        "id": 1204,
-        "name": "smith seated wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "smith machine",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1210.gif",
-        "id": 1210,
-        "name": "smith standing back wrist curl",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
-        "equipment": "weighted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1308.gif",
-        "id": 1308,
-        "name": "weighted standing hand squeeze",
-        "target": "forearms"
-      },
-      {
-        "bodyPart": "lower arms",
+        "bodyPart": "upper arms",
         "equipment": "body weight",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1323.gif",
-        "id": 1323,
-        "name": "wrist circles",
-        "target": "forearms"
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_247.gif",
+        "id": 247,
+        "name": "biceps leg concentration curl",
+        "target": "biceps"
       },
       {
-        "bodyPart": "lower arms",
-        "equipment": "weighted",
-        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1324.gif",
-        "id": 1324,
-        "name": "wrist rollerer",
-        "target": "forearms"
+        "bodyPart": "upper arms",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_248.gif",
+        "id": 248,
+        "name": "biceps narrow pull-ups",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_249.gif",
+        "id": 249,
+        "name": "biceps pull-up",
+        "target": "biceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_250.gif",
+        "id": 250,
+        "name": "body-up",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_253.gif",
+        "id": 253,
+        "name": "bodyweight kneeling triceps extension",
+        "target": "triceps"
+      },
+      {
+        "bodyPart": "upper arms",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_254.gif",
+        "id": 254,
+        "name": "bodyweight side lying biceps curl",
+        "target": "biceps"
+      }
+    ],
+    "upperLegs": [
+      {
+        "bodyPart": "upper legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_4.gif",
+        "id": 4,
+        "name": "all fours squad stretch",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_12.gif",
+        "id": 12,
+        "name": "arms apart circular toe touch (male)",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_18.gif",
+        "id": 18,
+        "name": "assisted lying glutes stretch",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_19.gif",
+        "id": 19,
+        "name": "assisted lying gluteus and piriformis stretch",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_24.gif",
+        "id": 24,
+        "name": "assisted prone hamstring",
+        "target": "hamstrings"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_25.gif",
+        "id": 25,
+        "name": "assisted prone lying quads stretch",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_29.gif",
+        "id": 29,
+        "name": "assisted side lying adductor stretch",
+        "target": "adductors"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_41.gif",
+        "id": 41,
+        "name": "backward jump",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_42.gif",
+        "id": 42,
+        "name": "balance board",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_48.gif",
+        "id": 48,
+        "name": "band bent-over hip extension",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_57.gif",
+        "id": 57,
+        "name": "band hip lift",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_62.gif",
+        "id": 62,
+        "name": "band lying hip internal rotation",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_65.gif",
+        "id": 65,
+        "name": "band one arm single leg split squat",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_69.gif",
+        "id": 69,
+        "name": "band pull through",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_73.gif",
+        "id": 73,
+        "name": "band seated hip internal rotation",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_80.gif",
+        "id": 80,
+        "name": "band single leg split squat",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_81.gif",
+        "id": 81,
+        "name": "band squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_82.gif",
+        "id": 82,
+        "name": "band squat row",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_86.gif",
+        "id": 86,
+        "name": "band step-up",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_87.gif",
+        "id": 87,
+        "name": "band stiff leg deadlift",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_88.gif",
+        "id": 88,
+        "name": "band straight back stiff leg deadlift",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_98.gif",
+        "id": 98,
+        "name": "barbell bench front squat",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_100.gif",
+        "id": 100,
+        "name": "barbell bench squat",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_104.gif",
+        "id": 104,
+        "name": "barbell clean and press",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_105.gif",
+        "id": 105,
+        "name": "barbell clean-grip front squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_108.gif",
+        "id": 108,
+        "name": "barbell deadlift",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_117.gif",
+        "id": 117,
+        "name": "barbell front chest squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_120.gif",
+        "id": 120,
+        "name": "barbell front squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_121.gif",
+        "id": 121,
+        "name": "barbell full squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_122.gif",
+        "id": 122,
+        "name": "barbell full squat (back pov)",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_123.gif",
+        "id": 123,
+        "name": "barbell full squat (side pov)",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_124.gif",
+        "id": 124,
+        "name": "barbell full zercher squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_125.gif",
+        "id": 125,
+        "name": "barbell glute bridge",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_126.gif",
+        "id": 126,
+        "name": "barbell glute bridge two legs on bench (male)",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_127.gif",
+        "id": 127,
+        "name": "barbell good morning",
+        "target": "hamstrings"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_129.gif",
+        "id": 129,
+        "name": "barbell hack squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_130.gif",
+        "id": 130,
+        "name": "barbell high bar squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_136.gif",
+        "id": 136,
+        "name": "barbell jefferson squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_138.gif",
+        "id": 138,
+        "name": "barbell jump squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_139.gif",
+        "id": 139,
+        "name": "barbell lateral lunge",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_140.gif",
+        "id": 140,
+        "name": "barbell low bar squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_141.gif",
+        "id": 141,
+        "name": "barbell lunge",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_146.gif",
+        "id": 146,
+        "name": "barbell lying lifting (on hip)",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_150.gif",
+        "id": 150,
+        "name": "barbell narrow stance squat",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_153.gif",
+        "id": 153,
+        "name": "barbell one arm side deadlift",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_155.gif",
+        "id": 155,
+        "name": "barbell one leg squat",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_156.gif",
+        "id": 156,
+        "name": "barbell overhead squat",
+        "target": "quads"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_166.gif",
+        "id": 166,
+        "name": "barbell rack pull",
+        "target": "glutes"
+      },
+      {
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_169.gif",
+        "id": 169,
+        "name": "barbell rear lunge",
+        "target": "glutes"
+      }
+    ],
+    "waist": [
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+        "id": 1,
+        "name": "3/4 sit-up",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+        "id": 2,
+        "name": "45° side bend",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_3.gif",
+        "id": 3,
+        "name": "air bike",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_5.gif",
+        "id": 5,
+        "name": "alternate heel touchers",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_10.gif",
+        "id": 10,
+        "name": "arm slingers hanging bent knee legs",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_11.gif",
+        "id": 11,
+        "name": "arm slingers hanging straight legs",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_13.gif",
+        "id": 13,
+        "name": "arms overhead full sit-up (male)",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_15.gif",
+        "id": 15,
+        "name": "assisted hanging knee raise",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_16.gif",
+        "id": 16,
+        "name": "assisted hanging knee raise with throw down",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_20.gif",
+        "id": 20,
+        "name": "assisted lying leg raise with lateral throw down",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_21.gif",
+        "id": 21,
+        "name": "assisted lying leg raise with throw down",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "medicine ball",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_22.gif",
+        "id": 22,
+        "name": "assisted motion russian twist",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_26.gif",
+        "id": 26,
+        "name": "assisted prone rectus femoris stretch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "assisted",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_30.gif",
+        "id": 30,
+        "name": "assisted sit-up",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_44.gif",
+        "id": 44,
+        "name": "band alternating v-up",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_46.gif",
+        "id": 46,
+        "name": "band assisted wheel rollerout",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_49.gif",
+        "id": 49,
+        "name": "band bicycle crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_58.gif",
+        "id": 58,
+        "name": "band horizontal pallof press",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_59.gif",
+        "id": 59,
+        "name": "band jack knife sit-up",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_61.gif",
+        "id": 61,
+        "name": "band kneeling twisting crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_63.gif",
+        "id": 63,
+        "name": "band lying straight leg raise",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_70.gif",
+        "id": 70,
+        "name": "band push sit-up",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_74.gif",
+        "id": 74,
+        "name": "band seated twist",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_83.gif",
+        "id": 83,
+        "name": "band standing crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_85.gif",
+        "id": 85,
+        "name": "band standing twisting crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_93.gif",
+        "id": 93,
+        "name": "band v-up",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_94.gif",
+        "id": 94,
+        "name": "band vertical pallof press",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_162.gif",
+        "id": 162,
+        "name": "barbell press sit-up",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_181.gif",
+        "id": 181,
+        "name": "barbell rollerout",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_182.gif",
+        "id": 182,
+        "name": "barbell rollerout from bench",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_193.gif",
+        "id": 193,
+        "name": "barbell seated twist",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_195.gif",
+        "id": 195,
+        "name": "barbell side bent v. 2",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_200.gif",
+        "id": 200,
+        "name": "barbell sitted alternate leg raise",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_201.gif",
+        "id": 201,
+        "name": "barbell sitted alternate leg raise (female)",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_207.gif",
+        "id": 207,
+        "name": "barbell standing ab rollerout",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_219.gif",
+        "id": 219,
+        "name": "barbell standing twist",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_252.gif",
+        "id": 252,
+        "name": "bodyweight incline side plank",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_264.gif",
+        "id": 264,
+        "name": "bottoms-up",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_266.gif",
+        "id": 266,
+        "name": "bridge - mountain climber (cross body)",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_268.gif",
+        "id": 268,
+        "name": "butt-ups",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_302.gif",
+        "id": 302,
+        "name": "cable judo flip",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_304.gif",
+        "id": 304,
+        "name": "cable kneeling crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_351.gif",
+        "id": 351,
+        "name": "cable reverse crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_368.gif",
+        "id": 368,
+        "name": "cable russian twists (on stability ball)",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_370.gif",
+        "id": 370,
+        "name": "cable seated crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_379.gif",
+        "id": 379,
+        "name": "cable seated twist",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_383.gif",
+        "id": 383,
+        "name": "cable side bend",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_384.gif",
+        "id": 384,
+        "name": "cable side bend crunch (bosu ball)",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_385.gif",
+        "id": 385,
+        "name": "cable side crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_391.gif",
+        "id": 391,
+        "name": "cable standing crunch",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_392.gif",
+        "id": 392,
+        "name": "cable standing crunch (with rope attachment)",
+        "target": "abs"
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_396.gif",
+        "id": 396,
+        "name": "cable standing lift",
+        "target": "abs"
       }
     ]
+  },
+  "users": {
+    "-NlEPZ2WnDwjFMXH2SAr": {
+      "age": "",
+      "bmi": "27.8",
+      "bmr": "",
+      "email": "saba1@gmail.com",
+      "id": "2IZdtxoA",
+      "likedPlans": [
+        {
+          "creatorId": -1,
+          "description": "placeholder",
+          "exercises": [
+            {
+              "bodyPart": "idk",
+              "equipment": "`idk",
+              "gifUrl": "idk",
+              "id": -1,
+              "name": "idk",
+              "target": "idk"
+            }
+          ],
+          "name": "placeholder",
+          "planId": "placeholder"
+        },
+        {
+          "creatorId": "Xt14LVOt",
+          "description": "vau",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "vau",
+          "planId": "p83Rs"
+        },
+        {
+          "creatorId": "Xt14LVOt",
+          "description": "anu",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "anuu",
+          "planId": "hMKgM"
+        },
+        {
+          "creatorId": "Xt14LVOt",
+          "description": "lkasd",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "midibijo",
+          "planId": "ZTF7f"
+        },
+        {
+          "creatorId": "sz3sVQQG",
+          "description": "recomended: each exercise 10x times ",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
+              "id": 1,
+              "name": "3/4 sit-up",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_3.gif",
+              "id": 3,
+              "name": "air bike",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_5.gif",
+              "id": 5,
+              "name": "alternate heel touchers",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_13.gif",
+              "id": 13,
+              "name": "arms overhead full sit-up (male)",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "assisted",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_30.gif",
+              "id": 30,
+              "name": "assisted sit-up",
+              "selected": false,
+              "target": "abs"
+            },
+            {
+              "bodyPart": "waist",
+              "equipment": "band",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_49.gif",
+              "id": 49,
+              "name": "band bicycle crunch",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "abs training",
+          "planId": "llcXe"
+        }
+      ],
+      "name": "saba1",
+      "nickName": "idkmate",
+      "orm": "",
+      "password": "123123123",
+      "profileImgUrl":"assets/profile-pictures/default.png",
+      "plans": [
+        {
+          "creatorId": -1,
+          "description": "placeholder",
+          "exercises": [
+            {
+              "bodyPart": "idk",
+              "equipment": "`idk",
+              "gifUrl": "idk",
+              "id": -1,
+              "name": "idk",
+              "target": "idk"
+            }
+          ],
+          "name": "placeholder",
+          "planId": "placeholder"
+        },
+        {
+          "creatorId": "2IZdtxoA",
+          "description": "mushaobs",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "name": "mushaobs",
+          "planId": "DYp4W"
+        }
+      ],
+      "requestedPlans": [
+        {
+          "coachId": -1,
+          "coachName": "placeholder",
+          "description": "placeholder",
+          "exercises": [
+            {
+              "bodyPart": "idk",
+              "equipment": "`idk",
+              "gifUrl": "idk",
+              "id": -1,
+              "name": "idk",
+              "target": "idk"
+            }
+          ],
+          "nickName": "placeholder",
+          "planId": "placeholder",
+          "planName": "placeholder"
+        },
+        {
+          "coachId": "Xt14LVOt",
+          "description": "10jer",
+          "exercises": [
+            {
+              "bodyPart": "waist",
+              "equipment": "body weight",
+              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
+              "id": 2,
+              "name": "45° side bend",
+              "selected": false,
+              "target": "abs"
+            }
+          ],
+          "planId": "Dct4Sb",
+          "planName": "dagendzreva axla"
+        }
+      ],
+      "status": "user"
+    }
   }
 }

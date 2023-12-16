@@ -146,27 +146,23 @@ export class ExercisesComponent implements OnInit {
   creatingPlanForCertainUser() {
     const selectedExercises: Exercise[] = this.getSelectedExercises();
     this.route.queryParams.subscribe((params) => {
-      const userId = Number(params['userId']);
-      const coachName = params['coachName'];
-      const coachLastname = params['coachLastName'];
-      const coachId = Number(params['coachId']);
+      const userId = String(params['userId']);
+      const coachId = String(params['coachId']);
       const nickName = params['nickName'];
       const requestId = params['requestId'];
       this.service.sendPlanToUser(
-        'userId',
-        'coachId',
-        coachName,
-        coachLastname,
+        userId,
+        coachId,
         nickName,
         this.planName,
         requestId,
         this.planDescription,
         selectedExercises
       );
-      //fix id
+      
       this.sharedService.setCreatingPlan(false);
       this.sharedService.makingplanForUser(false);
-      this.router.navigate(['/single-coach-info']);
+      this.router.navigate([`/single-coach-info/${this.service.firebaseId}`]);
     });
   }
 }

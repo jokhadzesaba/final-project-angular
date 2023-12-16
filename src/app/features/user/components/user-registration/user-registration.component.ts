@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   FormBuilder,
@@ -30,19 +30,12 @@ export const matchPassword: ValidatorFn = (
 export class UserRegistrationComponent {
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
     private service: RegistrationUpdateDeleteEditService,
     private sharedService:SharedService
   ) {}
   public form = this.fb.group(
     {
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9-]+$/)]],
-      lastname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: [
-        '',
-        [Validators.required, Validators.pattern(/^\+995\d{9}$/)],
-      ],
       password: [
         '',
         [
@@ -52,29 +45,21 @@ export class UserRegistrationComponent {
         ],
       ],
       confirmPassword: ['', [Validators.required]],
-      age: ['', [Validators.required]],
       nickName: ['', [Validators.required, Validators.minLength(4)]],
     },
     { validators: matchPassword }
   );
-  name = this.form.get('name') as FormControl;
-  age = this.form.get('age') as FormControl;
-  lastname = this.form.get('lastname') as FormControl;
-  phoneNumber = this.form.get('phoneNumber') as FormControl;
   password = this.form.get('password') as FormControl;
   email = this.form.get('email') as FormControl;
   nickName = this.form.get('nickName') as FormControl;
   
   public submit() {
     const employee: User = {
-      name: this.form.getRawValue().name!,
-      lastname: this.form.getRawValue().lastname!,
       nickName: this.form.getRawValue().nickName!,
       email: this.form.getRawValue().email!,
-      phoneNumber: this.form.getRawValue().phoneNumber!,
       password: this.form.getRawValue().password!,
-      age: this.form.getRawValue().age!,
       id: this.sharedService.generateUniqueId(8),
+      profileImgUrl:'assets/profile-pictures/default.png',
       bmi: '',
       orm: '',
       bmr: '',
@@ -83,7 +68,7 @@ export class UserRegistrationComponent {
           name: 'placeholder',
           description: 'placeholder',
           planId: 'placeholder',
-          creatorId: -1,
+          creatorId: "-1",
           exercises: [
             {
               bodyPart: 'idk',
@@ -101,7 +86,7 @@ export class UserRegistrationComponent {
           name: 'placeholder',
           description: 'placeholder',
           planId: 'placeholder',
-          creatorId: -1,
+          creatorId: "-1",
           exercises: [
             {
               bodyPart: 'idk',
@@ -117,9 +102,7 @@ export class UserRegistrationComponent {
       status: 'user',
       requestedPlans: [
         {
-          coachId: -1,
-          coachName: 'placeholder',
-          nickName: 'placeholder',
+          coachId: "-1",
           description: 'placeholder',
           planId: 'placeholder',
           planName: 'placeholder',

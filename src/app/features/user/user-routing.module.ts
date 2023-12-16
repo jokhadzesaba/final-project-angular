@@ -8,7 +8,7 @@ import { UserPageGuard } from './user-page.guard';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },  
-  { path: 'user-info', component: UserInfoPageComponent, canActivate:[UserPageGuard] },  
+  { path: 'user-info', component: UserInfoPageComponent, canActivate: [UserPageGuard] },  
 
 ];
 

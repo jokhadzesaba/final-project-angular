@@ -19,6 +19,8 @@
   </form>
   <div *ngIf="oneRepMax > 0">
     <p>Your One-Rep Max is: {{ oneRepMax | number: '1.0-0' }} kg</p>
-    <button (click)="addToUserData()" *ngIf="oneRepMax!== null && status!=='guest'">Add to Your Info</button>
+    <button (click)="addToUserData()" *ngIf="oneRepMax !== null && adding">
+      Add to Your Info
+    </button>
   </div>
 </div>

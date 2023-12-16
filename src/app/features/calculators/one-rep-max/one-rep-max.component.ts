@@ -16,6 +16,7 @@ export class OneRepMaxComponent implements OnInit{
   oneRepMax: number = 0;
   public id?: string;
   public status?: string;
+  public adding:boolean = false
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,13 +52,17 @@ export class OneRepMaxComponent implements OnInit{
       oneRepMax = weight * (1 + repetitions / 30);
     }
     this.oneRepMax = oneRepMax;
+    if (this.status === 'user' || 'coach') {
+      this.adding = true
+    }
   }
   addToUserData() {
     this.calculateService.addToUser(
       'orm',
       this.oneRepMax,
       this.status! as 'coaches' | 'users',
-      this.id!
     );
+    this.adding = false
   }
+
 }

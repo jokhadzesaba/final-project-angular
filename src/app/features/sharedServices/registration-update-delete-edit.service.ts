@@ -25,24 +25,23 @@ import { SharedService } from './shared.service';
   providedIn: 'root',
 })
 export class RegistrationUpdateDeleteEditService {
-  public url = 'https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app';
+  public url =
+    'https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app';
   public userAdded = new BehaviorSubject<User[]>([]);
   public coachAdded = new BehaviorSubject<Coach[]>([]);
   public firebaseId: string = '';
   public status: BehaviorSubject<string> = new BehaviorSubject('guest');
-  public logged: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public selectedPlan: Plan | null = null;
-  public loggedUser: BehaviorSubject<User> = new BehaviorSubject<User | Coach>({
-    name: '',
+  public loggedUser: BehaviorSubject<User | Coach> = new BehaviorSubject<
+    User | Coach
+  >({
     nickName: '',
-    lastname: '',
     email: '',
-    phoneNumber: '',
-    age: '',
-    id:'',
+    id: '',
     password: '',
     plans: [],
     status: 'guest',
+    profileImgUrl: '',
   });
 
   constructor(
@@ -108,32 +107,34 @@ export class RegistrationUpdateDeleteEditService {
     planId: string,
     toWho: 'users' | 'coaches'
   ) {
-    this.http.get<User>(`${this.url}/${toWho}/${this.firebaseId}.json`).subscribe({
-      next: (user: User | Coach) => {
-        const update = [
-          ...user.plans!,
-          {
-            name: planName,
-            description: planDescription,
-            creatorId: user.id,
-            exercises: data,
-            planId: planId,
-          },
-        ];
-        this.http
-          .patch(`${this.url}/${toWho}/${this.firebaseId}.json`, {
-            plans: update,
-          })
-          .subscribe();
-      },
-      error: (error) => {
-        return this.handleError(error);
-      },
-    });
+    this.http
+      .get<User>(`${this.url}/${toWho}/${this.firebaseId}.json`)
+      .subscribe({
+        next: (user: User | Coach) => {
+          const update = [
+            ...user.plans!,
+            {
+              name: planName,
+              description: planDescription,
+              creatorId: user.id,
+              exercises: data,
+              planId: planId,
+            },
+          ];
+          this.http
+            .patch(`${this.url}/${toWho}/${this.firebaseId}.json`, {
+              plans: update,
+            })
+            .subscribe();
+        },
+        error: (error) => {
+          return this.handleError(error);
+        },
+      });
   }
   getUserOrCoach(userId: string, who: 'users' | 'coaches'): Observable<User> {
     return this.http.get<User>(
-      `https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}.json`
+      `https://exercise-app-9b873-default-rtdb.europe-west1.firebasedatabase.app/${who}/${userId}.json`
     );
   }
 
@@ -150,16 +151,22 @@ export class RegistrationUpdateDeleteEditService {
             const updatedPlans = Object.values(userOrCoach.plans!).filter(
               (p) => p.planId !== plan.planId
             );
-              return this.http.patch(`${this.url}/${from}/${this.firebaseId}.json`, {
-              plans: updatedPlans,
-            });
-          } else {
-            const updatedPlans = Object.values((userOrCoach as User).likedPlans!).filter(
-              (p) => p.planId !== plan.planId
+            return this.http.patch(
+              `${this.url}/${from}/${this.firebaseId}.json`,
+              {
+                plans: updatedPlans,
+              }
             );
-            return this.http.patch(`${this.url}/${from}/${this.firebaseId}.json`, {
-              likedPlans: updatedPlans,
-            });
+          } else {
+            const updatedPlans = Object.values(
+              (userOrCoach as User).likedPlans!
+            ).filter((p) => p.planId !== plan.planId);
+            return this.http.patch(
+              `${this.url}/${from}/${this.firebaseId}.json`,
+              {
+                likedPlans: updatedPlans,
+              }
+            );
           }
         }),
         catchError((error) => {
@@ -195,13 +202,15 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
 
-  deleteUserRequest(coachId: string, id: string) {
-    return this.getUserOrCoach(coachId, 'coaches').pipe(
+  deleteUserRequest(id: string) {
+    return this.getUserOrCoach(this.firebaseId, 'coaches').pipe(
       take(1),
       tap((coach: Coach) => {
-        const updateRequest = coach.requests?.filter((req) => req.id !== id);
+        const updateRequest = coach.requests?.filter(
+          (req) => req.requestId !== id
+        );
         this.http
-          .patch(`http://localhost:3000/coaches/${coachId}`, {
+          .patch(`${this.url}/coaches/${this.firebaseId}.json`, {
             requests: updateRequest,
           })
           .subscribe();
@@ -213,7 +222,7 @@ export class RegistrationUpdateDeleteEditService {
   }
 
   deleteRequestedPlan(plan: RequestedPlan, userId: string, coachId: number) {
-    this.getUserOrCoach(userId, 'users').subscribe(
+    this.getUserOrCoach(this.firebaseId, 'users').subscribe(
       (user: User) => {
         const updatedPlans = user.requestedPlans?.filter(
           (p) => p.planId !== plan.planId
@@ -242,14 +251,12 @@ export class RegistrationUpdateDeleteEditService {
         if (foundUser) {
           const [userKey, userData] = foundUser;
           this.status.next('user');
-          this.logged.next(true);
           this.loggedUser.next(userData);
           this.firebaseId = userKey;
           return true;
         } else if (foundCoach) {
           const [coachKey, coachData] = foundCoach;
           this.status.next('coach');
-          this.logged.next(true);
           this.loggedUser.next(coachData);
           this.firebaseId = coachKey;
           return true;
@@ -304,21 +311,21 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
   // updateOrder(user: User): Observable<User> {
-  //   return this.http.put<User>(`http://localhost:3000/users/${user.id}`, user);
+  //   return this.http.put<User>(`http://localhost:3000/users/${user.id}`, user);  needs fix
   // }
   sendPlanRequest(
     userId: string,
     coachId: string,
     description: string,
-    id: string
+    requestId: string
   ) {
     this.getUserOrCoach(coachId, 'coaches').subscribe((res: Coach) => {
       const updatedRequests = [
         ...res.requests!,
-        { userId: userId, description: description, id: id },
+        { userId: userId, description: description, requestId: requestId },
       ];
       this.http
-        .patch(`http://localhost:3000/coaches/${coachId}`, {
+        .patch(`${this.url}/coaches/${coachId}.json`, {
           requests: updatedRequests,
         })
         .subscribe();
@@ -327,8 +334,6 @@ export class RegistrationUpdateDeleteEditService {
   sendPlanToUser(
     userId: string,
     coachId: string,
-    coachName: string,
-    coachLastName: string,
     nickName: string,
     planName: string,
     requestId: string,
@@ -340,8 +345,6 @@ export class RegistrationUpdateDeleteEditService {
         ...res.requestedPlans!,
         {
           coachId: coachId,
-          coachName: coachName,
-          coachLastName: coachLastName,
           exercises: exercises,
           nickName: nickName,
           planName: planName,
@@ -350,21 +353,15 @@ export class RegistrationUpdateDeleteEditService {
         },
       ];
       this.http
-        .patch(`http://localhost:3000/users/${userId}`, {
+        .patch(`${this.url}/users/${userId}.json`, {
           requestedPlans: updatedRequestedPlans,
         })
         .subscribe();
     });
   }
-  searchLikedPlan(plan: Plan, userId: string) {
-    return this.getUserOrCoach(userId, 'users').pipe(
-      map((user: User) => {
-        const ifLiked = user.likedPlans?.find((e) => e.planId === plan.planId);
-        if (ifLiked) {
-          return true;
-        }
-        return false;
-      })
-    );
+  changePrfileImg(url: string, whose: 'coaches' | 'users') {
+    return this.http.patch(`${this.url}/${whose}/${this.firebaseId}.json`, {
+      profileImgUrl:url,
+    });
   }
 }

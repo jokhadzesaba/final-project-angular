@@ -34,23 +34,34 @@ const routes: Routes = [
   {
     path: 'exercises',
     loadChildren: () =>
-      import('./features/exercises/exercises.module').then((m) => m.ExercisesModule),
+      import('./features/exercises/exercises.module').then(
+        (m) => m.ExercisesModule
+      ),
   },
   {
-    path:'plan/:id',
-    loadChildren:()=>import('./features/single-plan-page/single-plan.module').then((m)=>m.SinglePageModule)
-
+    path: 'plan/:id',
+    loadChildren: () =>
+      import('./features/single-plan-page/single-plan.module').then(
+        (m) => m.SinglePageModule
+      ),
   },
+  {
+    path: 'welcome',
+    loadChildren: () =>
+      import('./core/components/core.module').then(
+        (m) => m.CoreModule
+      ),
+  },
+
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/welcome',
     pathMatch: 'full',
   },
   {
     path: 'error',
-    component:ErrorPageComponent
+    component: ErrorPageComponent,
   },
-
 ];
 
 @NgModule({

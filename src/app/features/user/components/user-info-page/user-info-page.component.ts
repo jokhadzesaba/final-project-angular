@@ -24,12 +24,16 @@ export class UserInfoPageComponent implements OnInit {
   public userPlans!: Observable<User>;
   public user!: User;
   public selectedPlan!: Plan | null;
+  public changingImage?:Boolean = false
+  public selectedImage?:string = "";
+  public images?:string[] = []
   constructor(
     private service: RegistrationUpdateDeleteEditService,
     private sanitizer: DomSanitizer,
     private cd: ChangeDetectorRef,
     private router: Router,
     private sharedService: SharedService
+
   ) {}
 
   addExercise(plan: Plan) {
@@ -40,31 +44,10 @@ export class UserInfoPageComponent implements OnInit {
     this.getExercises();
   }
 
-  showPlan(plan: Plan) {
-    if (this.selectedPlan && this.selectedPlan.planId === plan.planId) {
-      this.selectedPlan = null;
-    } else {
-      this.selectedPlan = plan;
-    }
-  }
-  showRequestedPlan(requestedPlan: RequestedPlan) {
-    if (
-      this.selectedPlan &&
-      this.selectedPlan.planId === requestedPlan.planId
-    ) {
-      this.selectedPlan = null;
-    } else {
-      this.selectedPlan = {
-        name: requestedPlan.planName,
-        description: requestedPlan.description,
-        exercises: requestedPlan.exercises,
-        planId: requestedPlan.planId,
-      };
-    }
-  }
   ngOnInit(): void {
     this.service.loggedUser.subscribe((user) => {
       this.user = user;
+      this.images = this.sharedService.images
     });
     this.sharedService.wasChanged$.subscribe((value) => {
       if (value === true) {
@@ -143,12 +126,22 @@ export class UserInfoPageComponent implements OnInit {
     });
   }
   navigate(plan: Plan) {
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        coach: plan.creatorId,
-        plan: plan.planId,
-      },
-    };
-    this.router.navigate([`/plan/${plan.planId}`], navigationExtras);
+    this.sharedService.navigateToPlan(plan.planId)
+  }
+  selectImage(img: string) {
+    this.selectedImage = img;
+  }
+  change(){
+    this.changingImage = true
+  }
+  cancel(){
+    this.changingImage = false
+  }
+  changeProgilePhoto(url: string) {
+    this.service.changePrfileImg(url, 'users').subscribe(() => {
+      this.changingImage = false
+      this.getExercises()
+      this.cd.detectChanges()
+    });
   }
 }

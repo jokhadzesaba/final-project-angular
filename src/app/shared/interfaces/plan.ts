@@ -5,6 +5,6 @@ export interface Plan{
     name:string,
     description:string
     planId:string,
-    creatorId?:number,
+    creatorId?:string,
     exercises:Exercise[],
 }

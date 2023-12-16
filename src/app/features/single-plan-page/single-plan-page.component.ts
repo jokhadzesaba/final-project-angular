@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Plan } from 'src/app/shared/interfaces/plan';
 import { RegistrationUpdateDeleteEditService } from '../sharedServices/registration-update-delete-edit.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, timeout } from 'rxjs';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
@@ -14,9 +14,11 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SinglePlanPageComponent implements OnInit {
-  coach!: Coach;
-  showFullDescription = false;
-  plan!: Plan;
+  public coach!: Coach;
+  public showFullDescription = false;
+  public plan!: Plan;
+  public loadingError?:boolean = false
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -27,17 +29,16 @@ export class SinglePlanPageComponent implements OnInit {
 
   ngOnInit() {
     const planId = this.route.snapshot.queryParamMap.get('plan');
+    console.log(planId);
+    
     this.service.loadCoaches().subscribe((coch) => {
       const coaches = Object.values(coch);
-      console.log(coaches);
-      
+      this.loadingError = false
       for (let coach of coaches) {
         for (let id of coach.plans!) {
           if (planId === id.planId) {
             this.plan = id;
             this.coach = coach
-            console.log(id);
-            console.log(coach);
             this.cd.detectChanges()
             break
           }
