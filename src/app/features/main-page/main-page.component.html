@@ -1,16 +1,24 @@
-<div *ngIf="coaches$; else loading">
+<select [(ngModel)]="selectedSortOption" (change)="sortPlans()">
+  <option value="">SortBy</option>
+  <option value="popular">popular</option>
+  <option value="unpopular">unpopular</option>
+  <option value="recent">recent</option>
+  <option value="oldest">oldest</option>
+</select>
+<div class="centered" *ngIf="data; else loading">
   <div class="planContainer">
-    <ng-container *ngFor="let coach of coaches$">
-      <div class="card flex column" *ngFor="let plan of coach.plans | slice:1">
-        <div class="card-content">    
-          <p>Plan by: {{ coach.nickName }}</p>
-          <p>Name:{{ plan.name }}</p>
+    <ng-container *ngFor="let allCoach of data">
+      <div class="card flex column">
+        <div class="card-content"> 
+          <p>Plan by: {{ allCoach.coach.nickName }}</p>
+          <p>Name:{{ allCoach.plan.name }}</p>
+          <p>Likes:{{allCoach.plan.likes}}</p>
+          <p>Added: {{timeConvert(allCoach.plan.creationDate)}}</p>
         </div>
         <div class="flex">
-          <button class="unlike-btn" *ngIf="isPlanLiked(plan) && (status$ | async) === 'user'" (click)="unlikePlan(plan)">Unlike</button>
-          <button class="like-btn" *ngIf="!isPlanLiked(plan) && (status$ | async) === 'user'" (click)="likePlan(plan)">Like</button>
-          <button (click)="navigate(plan)">see more</button>
-          
+          <button class="unlike-btn" *ngIf="isPlanLiked(allCoach.plan) && (status$ | async) === 'user'" (click)="unlikePlan(allCoach.plan, allCoach.coach.id)">Unlike</button>
+          <button class="like-btn" *ngIf="!isPlanLiked(allCoach.plan) && (status$ | async) === 'user'" (click)="likePlan(allCoach.plan, allCoach.coach.id)">Like</button>
+          <button (click)="navigate(allCoach.plan)">see more</button>
         </div>
       </div>
     </ng-container>

@@ -3,7 +3,7 @@ import { Plan } from "./plan";
 
 export interface RequestedPlan{
     coachId:string;
-    planName:string,
+    name:string,
     description:string
     planId:string,
     exercises:Exercise[]

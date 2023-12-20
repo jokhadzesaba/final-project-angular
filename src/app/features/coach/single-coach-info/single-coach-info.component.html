@@ -17,8 +17,9 @@
       <button *ngIf="coach.id === loggedId" (click)="change()" >Change</button>
     </div>
     <div class="data flex column">
-      <h2>nickName:Saba</h2>
-      <p>Email: coach1@gmail.com</p>
+      <h2>nickName: {{coach.nickName}}</h2>
+      <p>Email: {{coach.email}}</p>
+      <p>Total Likes: {{coach.totalLikes}}</p>
       <p *ngIf="coach.bmi">bmi: {{ coach.bmi }}</p>
       <button routerLink="/calculate/bmi" *ngIf="coach.bmi === ''">
         calculate Your BMI
@@ -34,7 +35,7 @@
     </div>
   </div>
   <h2 *ngIf="coach.id === loggedId">Requested Plans:</h2>
-  <div *ngIf="coach.requests && coach.requests.length > 1 && coach.id === loggedId" class="plans">
+  <div *ngIf="coach.requests && coach.requests.length > 1 && coach.id === loggedId" class="plans flex column ">
     <div
       *ngFor="let request of coach.requests | slice : 1"
       class="plan-card centered"
@@ -45,7 +46,6 @@
           <button
             *ngIf="coach.id === loggedId"
             (click)="makePlan(request.userId, request.requestId)"
-            class="btn btn-primary"
           >
             Make Plan For This User
           </button>
@@ -53,7 +53,6 @@
           <button
             *ngIf="coach.id === loggedId"
             (click)="deleteRequest(request.requestId)"
-            class="btn btn-danger"
           >
             Delete Request
           </button>
@@ -64,33 +63,31 @@
   <h2>Plans:</h2>
   <div *ngIf="coach.plans && coach.plans.length > 1" class="plans">
     <div *ngFor="let plan of coach.plans | slice : 1" class="plan-card">
-      <div class="plan-actions">
+      <div class="plan-actions column flex h-centered">
         <div class="img-placeholder">
           <p>Des: {{ plan.description | slice : 1 : 100 }}</p>
           <img src="../../../../../assets/exer1.jpg" alt="img" />
         </div>
         <div>
-          <button (click)="showPlan(plan)" class="btn btn-primary">
+          <button (click)="showPlan(plan)">
             {{ plan.name }}
           </button>
           <button
             *ngIf="coach.id === loggedId"
             (click)="deletePlan(plan)"
-            class="btn btn-danger"
           >
             Delete Plan
           </button>
           <button
-            *ngIf="status === 'user'"
+            *ngIf="!isPlanLiked(plan) && status === 'user'"
             (click)="likePlan(plan)"
-            class="btn btn-danger"
           >
             Like Plan
           </button>
           <button
-            *ngIf="status === 'user'"
+            *ngIf="isPlanLiked(plan) && status === 'user'"
             (click)="unlikePlan(plan)"
-            class="btn btn-danger"
+            class="btn"
           >
             Unlike Plan
           </button>

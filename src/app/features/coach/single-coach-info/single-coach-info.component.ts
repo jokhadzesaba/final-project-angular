@@ -79,21 +79,25 @@ export class SingleCoachInfoComponent implements OnInit {
   }
   deleteRequest(id: string) {
     this.service.deleteUserRequest(id).subscribe(() => {
-      // id fix
       this.cd.detectChanges();
     });
   }
   likePlan(plan: Plan) {
-    this.service.likePlan(plan).subscribe(() => {
+    this.service.likePlan(plan, this.coach.id).subscribe(() => {
       this.sharedService.likedPlans.push(plan.planId);
+      this.cd.detectChanges()
     });
   }
   unlikePlan(plan: Plan) {
-    this.service.unlikePlan(plan).subscribe(() => {
+    this.service.unlikePlan(plan, this.coach.id).subscribe(() => {
       this.sharedService.likedPlans = this.sharedService.likedPlans.filter(
         (planid) => planid !== plan.planId
       );
+      this.cd.detectChanges()
     });
+  }
+  isPlanLiked(plan:Plan){
+    return this.sharedService.likedPlans.some((e) => e === plan.planId);
   }
   showPlan(plan: Plan) {
     this.sharedService.navigateToPlan(plan.planId);
@@ -107,6 +111,7 @@ export class SingleCoachInfoComponent implements OnInit {
   changeProgilePhoto(url: string) {
     this.service.changePrfileImg(url, 'coaches').subscribe(() => {
       this.changingImage = false
+      this.service.loggedUser.value.profileImgUrl = url
       this.getExercises()
     });
   }

@@ -14,4 +14,5 @@ export interface User {
   bmr?: string;
   requestedPlans?: RequestedPlan[];
   profileImgUrl:string
+  registrationDate:Date
 }

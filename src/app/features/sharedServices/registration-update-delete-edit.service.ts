@@ -42,6 +42,7 @@ export class RegistrationUpdateDeleteEditService {
     plans: [],
     status: 'guest',
     profileImgUrl: '',
+    registrationDate:new Date(),
   });
 
   constructor(
@@ -104,6 +105,7 @@ export class RegistrationUpdateDeleteEditService {
     data: Exercise[],
     planName: string,
     planDescription: string,
+    mainTarget:string,
     planId: string,
     toWho: 'users' | 'coaches'
   ) {
@@ -119,6 +121,8 @@ export class RegistrationUpdateDeleteEditService {
               creatorId: user.id,
               exercises: data,
               planId: planId,
+              planImg:`assets/targets/${mainTarget}.jpg`,
+              likes:0,
             },
           ];
           this.http
@@ -221,23 +225,22 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
 
-  deleteRequestedPlan(plan: RequestedPlan, userId: string, coachId: number) {
-    this.getUserOrCoach(this.firebaseId, 'users').subscribe(
-      (user: User) => {
+  deleteRequestedPlan(plan: RequestedPlan) {
+    return this.getUserOrCoach(this.firebaseId, 'users').pipe(
+      switchMap((user: User) => {
         const updatedPlans = user.requestedPlans?.filter(
           (p) => p.planId !== plan.planId
         );
-        this.http
-          .patch(`http://localhost:3000/users/${userId}`, {
-            requestedPlans: updatedPlans,
-          })
-          .subscribe();
-      },
-      (error) => {
+        return this.http.patch(`${this.url}/users/${this.firebaseId}.json`, {
+          requestedPlans: updatedPlans,
+        });
+      }),
+      catchError((error) => {
         return this.handleError(error);
-      }
+      })
     );
   }
+  
 
   getInfo(email: string, password: string): Observable<boolean> {
     return forkJoin([this.loadUsers(), this.loadCoaches()]).pipe(
@@ -269,7 +272,7 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
 
-  likePlan(plan: Plan) {
+  likePlan(plan: Plan, coachId:string) {
     return this.getUserOrCoach(this.firebaseId, 'users').pipe(
       take(1),
       tap((user: User) => {
@@ -279,7 +282,24 @@ export class RegistrationUpdateDeleteEditService {
             .patch(`${this.url}/users/${this.firebaseId}.json`, {
               likedPlans: updated,
             })
-            .subscribe();
+            .subscribe(()=>{
+              this.loadCoaches().subscribe((coaches:Coach[])=>{
+                const foundCoach = Object.entries(coaches).find(
+                  ([key, coach]) => coach.id === coachId
+                );                
+                if (foundCoach) {
+                  const [firebaseId, value] = foundCoach
+                  const updatedPlans = value.plans!.map((coachPlan) =>
+                    coachPlan.planId === plan.planId ? { ...coachPlan, likes: coachPlan.likes! + 1 } : coachPlan
+                  );
+                  this.http.patch(`${this.url}/coaches/${firebaseId}.json`, {
+                    plans: updatedPlans,
+                  }).subscribe(()=>{
+                    this.calculateTotalLikes(firebaseId)
+                  }); 
+                }
+              })
+            });     
         }
       }),
       catchError((error) => {
@@ -288,7 +308,7 @@ export class RegistrationUpdateDeleteEditService {
     );
   }
 
-  unlikePlan(plan: Plan) {
+  unlikePlan(plan: Plan,coachId:string) {
     return this.getUserOrCoach(this.firebaseId, 'users').pipe(
       take(1),
       tap((user: User) => {
@@ -302,13 +322,38 @@ export class RegistrationUpdateDeleteEditService {
             .patch(`${this.url}/users/${this.firebaseId}.json`, {
               likedPlans: updated,
             })
-            .subscribe();
+            .subscribe(()=>{
+              this.loadCoaches().subscribe((coaches:Coach[])=>{
+                const foundCoach = Object.entries(coaches).find(
+                  ([key, coach]) => coach.id === coachId
+                );                
+                if (foundCoach) {
+                  const [firebaseId, value] = foundCoach
+                  const updatedPlans = value.plans!.map((coachPlan) =>
+                    coachPlan.planId === plan.planId ? { ...coachPlan, likes: coachPlan.likes! - 1 } : coachPlan
+                  );
+                  this.http.patch(`${this.url}/coaches/${firebaseId}.json`, {
+                    plans: updatedPlans,
+                  }).subscribe(()=>{
+                    this.calculateTotalLikes(firebaseId)
+                  }); 
+                }
+              })
+            });
         }
       }),
       catchError((error) => {
         return this.handleError(error);
       })
     );
+  }
+  calculateTotalLikes(firebaseId:string){
+    this.getUserOrCoach(firebaseId, "coaches").subscribe((coach:Coach)=>{
+      const totalLikes = coach.plans?.reduce((accumulator,cur) =>{
+        return accumulator + cur.likes!;
+      }, 0)
+      this.http.patch(`${this.url}/coaches/${firebaseId}.json`, {totalLikes:totalLikes}).subscribe()
+    })
   }
   // updateOrder(user: User): Observable<User> {
   //   return this.http.put<User>(`http://localhost:3000/users/${user.id}`, user);  needs fix

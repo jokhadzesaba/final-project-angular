@@ -35,7 +35,8 @@ export class TopBarComponent implements OnInit {
       password: '',
       plans: [],
       status: 'guest',
-      profileImgUrl:''
+      profileImgUrl:'',
+      registrationDate:new Date(),
     });
     this.router.navigate(['/login']);
   }

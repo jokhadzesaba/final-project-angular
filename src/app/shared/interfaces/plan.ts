@@ -7,4 +7,7 @@ export interface Plan{
     planId:string,
     creatorId?:string,
     exercises:Exercise[],
+    likes?:number,
+    creationDate:Date,
+    planImg:string,
 }

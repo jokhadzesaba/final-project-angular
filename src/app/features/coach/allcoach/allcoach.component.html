@@ -1,31 +1,20 @@
-<div class="coach-card-container">
-  <ng-container *ngIf="allCoachValues">
-    <div class="coach-card" *ngFor="let coach of allCoachValues; let i=index">
-      <div>
-        <p><strong>Nickname:</strong> {{ coach.nickName }}</p>
-        <p><strong>Email:</strong> {{ coach.email }}</p>
-        <button (click)="navigateToCoach(allCoachKeys[i])">See Coach Info</button>
-        <p>{{allCoachKeys[i]}}</p>
-      </div>
-      <div class="card-buttons">
-        <div class="request-buttons">
-          <button (click)="navigateToCoach(coach.id!)">View Details</button>
-          <button>Request Plan</button>
-        </div>
-        <div class="plan-request-form">
-        <h2>Request Plan</h2>
-        <textarea
-          #planDescription
-          placeholder="Write your plan description here"
-        ></textarea>
-        <button (click)="requestPlan(allCoachKeys[i], planDescription.value)">
-          Confirm
-        </button>
-        <button class="cancel-button" (click)="cancelPlanRequest()">
-          Cancel
-        </button>
-      </div>
+<select [(ngModel)]="selectedSortOption" (change)="sortCoaches()">
+  <option value="">Sort by</option>
+  <option value="popular">popular</option>
+  <option value="recent">recent</option>
+  <option value="oldest">oldest</option>
+  <option value="unpopular">unpopular</option>
+</select>
+
+<div class="container flex">
+  <div class="all-coach flex" *ngFor="let coach of allCoachValues ; let i = index">
+    <div class="coach-card">
+      <img [src]="coach.profileImgUrl" alt="img">
+      <p>Nickname: {{coach.nickName}}</p>
+      <p>Email: {{coach.email}}</p>
+      <p>Total Likes:{{coach.totalLikes}}</p>
+      <p>joined {{convertTime(coach.registrationDate) }}</p>
+      <button (click)="navigateToCoach(allCoachKeys[i])">See Coach Info</button>
     </div>
-    </div>
-  </ng-container>
+  </div>
 </div>

@@ -3,7 +3,7 @@
     <div>
       <img
         (click)="showMenu()"
-        src="../../../../assets//menuicon.png"
+        src="../../../../assets/menuicon.png"
         alt="img"
       />
       <div *ngIf="menu | async" class="dropdown-content">
@@ -26,13 +26,13 @@
       <img
         *ngIf="loggedStatus === 'user'"
         routerLink="/user/user-info"
-        src="../../../../assets/download.png"
+        [src]="userOrCoach?.profileImgUrl"
         alt="img"
       />
       <img
         *ngIf="loggedStatus === 'coach'"
         onclick="navigate()"
-        src="../../../../assets/download.png"
+        [src]="userOrCoach?.profileImgUrl"
         alt="img"
       />
     </div>
@@ -67,19 +67,40 @@
       </div>
     </div>
     <div class="profile flex">
-      <div *ngIf="loggedStatus !== 'guest'" class="img-container flex h-centered">
-        <img routerLink="/user/user-info" *ngIf="loggedStatus==='user'" src="../../../../assets/download.png" alt="img" />
-        <img (click)="navigate()" *ngIf="loggedStatus==='coach'" src="../../../../assets/download.png" alt="img" />
+      <div
+        *ngIf="loggedStatus !== 'guest'"
+        class="img-container flex h-centered"
+      >
+        <img
+          routerLink="/user/user-info"
+          *ngIf="loggedStatus === 'user'"
+          [src]="userOrCoach?.profileImgUrl"
+          alt="img"
+        />
+        <img
+          (click)="navigate()"
+          *ngIf="loggedStatus === 'coach'"
+          [src]="userOrCoach?.profileImgUrl"
+          alt="img"
+        />
       </div>
       <div
         *ngIf="loggedStatus !== 'guest'"
         class="info-container flex column v-centered"
       >
-        <p (click)="navigate()" *ngIf="loggedStatus==='coach'">{{userOrCoach?.nickName}}</p>
-        <p (click)="navigate()" *ngIf="loggedStatus==='coach'">{{userOrCoach?.status}}</p>
-        <p routerLink="/user/user-info" *ngIf="loggedStatus==='user'">{{userOrCoach?.nickName}}</p>
-        <p routerLink="/user/user-info" *ngIf="loggedStatus==='user'">{{userOrCoach?.status}}</p>
-      
+        <p (click)="navigate()" *ngIf="loggedStatus === 'coach'">
+          {{ userOrCoach?.nickName }}
+        </p>
+        <p (click)="navigate()" *ngIf="loggedStatus === 'coach'">
+          {{ userOrCoach?.status }}
+        </p>
+        <p routerLink="/user/user-info" *ngIf="loggedStatus === 'user'">
+          {{ userOrCoach?.nickName }}
+        </p>
+        <p routerLink="/user/user-info" *ngIf="loggedStatus === 'user'">
+          {{ userOrCoach?.status }}
+        </p>
+
         <p (click)="logOut()" *ngIf="loggedStatus !== 'guest'">Log Out</p>
       </div>
     </div>

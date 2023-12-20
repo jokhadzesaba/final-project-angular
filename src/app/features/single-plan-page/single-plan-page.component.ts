@@ -4,8 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Plan } from 'src/app/shared/interfaces/plan';
 import { RegistrationUpdateDeleteEditService } from '../sharedServices/registration-update-delete-edit.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
-import { Observable, catchError, map, timeout } from 'rxjs';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { RequestedPlan } from 'src/app/shared/interfaces/requestedPlan';
+import { User } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-single-plan-page',
@@ -14,9 +15,9 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SinglePlanPageComponent implements OnInit {
-  public coach!: Coach;
+  public userOrCoach!: Coach | User;
   public showFullDescription = false;
-  public plan!: Plan;
+  public plan!: Plan | RequestedPlan;
   public loadingError?:boolean = false
   
 
@@ -29,8 +30,6 @@ export class SinglePlanPageComponent implements OnInit {
 
   ngOnInit() {
     const planId = this.route.snapshot.queryParamMap.get('plan');
-    console.log(planId);
-    
     this.service.loadCoaches().subscribe((coch) => {
       const coaches = Object.values(coch);
       this.loadingError = false
@@ -38,13 +37,27 @@ export class SinglePlanPageComponent implements OnInit {
         for (let id of coach.plans!) {
           if (planId === id.planId) {
             this.plan = id;
-            this.coach = coach
+            this.userOrCoach = coach
             this.cd.detectChanges()
             break
           }
         }
       }
     });
+    this.service.loadUsers().subscribe((user)=>{
+      const users = Object.values(user);
+      for (let user of users) {
+        const plansArray = [...user.requestedPlans!,...user.plans!];
+        for(let id of plansArray){
+          if (planId === id.planId) {
+            this.plan = id;
+            this.userOrCoach = user
+            this.cd.detectChanges()
+            break 
+          }
+        }
+      }
+    })
   }
   sanitizeUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);

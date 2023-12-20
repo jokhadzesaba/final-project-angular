@@ -109,14 +109,39 @@ export class ExercisesComponent implements OnInit {
     });
     return selectedExercises;
   }
+  countBodyParts(exercises: Exercise[]) {
+    const counts: { [key: string]: number } = {};
+    exercises.forEach(exercise => {
+      if (counts[exercise.bodyPart]) {
+        counts[exercise.bodyPart]++;
+      } else {
+        counts[exercise.bodyPart] = 1;
+      }
+    });
+    return this.findMaxCount(counts);
+  }
+
+  findMaxCount(counts: { [key: string]: number }): string {
+    let maxCount = 0;
+    let maxPart = '';
+    for (const [part, count] of Object.entries(counts)) {
+      if (count > maxCount) {
+        maxCount = count;
+        maxPart = part;
+      }
+    }
+    return maxPart;
+  }
   createPlan() {
     const selectedExercises = this.getSelectedExercises();
+    const counted = this.countBodyParts(selectedExercises)
     const planId = this.sharedService.generateUniqueId(5);
     if (this.status === 'user') {
       this.service.addPlan(
         selectedExercises,
         this.planName,
         this.planDescription,
+        counted,
         planId,
         'users'
       );
@@ -125,6 +150,7 @@ export class ExercisesComponent implements OnInit {
         selectedExercises,
         this.planName,
         this.planDescription,
+        counted,
         planId,
         'coaches'
       );

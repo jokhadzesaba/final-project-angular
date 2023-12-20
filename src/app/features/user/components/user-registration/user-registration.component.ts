@@ -60,6 +60,7 @@ export class UserRegistrationComponent {
       password: this.form.getRawValue().password!,
       id: this.sharedService.generateUniqueId(8),
       profileImgUrl:'assets/profile-pictures/default.png',
+      registrationDate:new Date(),
       bmi: '',
       orm: '',
       bmr: '',
@@ -69,6 +70,8 @@ export class UserRegistrationComponent {
           description: 'placeholder',
           planId: 'placeholder',
           creatorId: "-1",
+          planImg:"",
+          creationDate:new Date(),
           exercises: [
             {
               bodyPart: 'idk',
@@ -87,6 +90,8 @@ export class UserRegistrationComponent {
           description: 'placeholder',
           planId: 'placeholder',
           creatorId: "-1",
+          planImg:"",
+          creationDate:new Date(),
           exercises: [
             {
               bodyPart: 'idk',
@@ -105,7 +110,7 @@ export class UserRegistrationComponent {
           coachId: "-1",
           description: 'placeholder',
           planId: 'placeholder',
-          planName: 'placeholder',
+          name: 'placeholder',
           exercises: [
             {
               bodyPart: 'idk',

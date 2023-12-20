@@ -79,6 +79,7 @@
         }
       }
       .plan-actions {
+        gap: 10px;
         > .img-placeholder {
           position: relative;
           > p {
@@ -92,7 +93,12 @@
           display: flex;
           justify-content: center;
           gap: 5px;
+          
+          >.btn{
+            background-color: rgb(194, 45, 194);
+          }
         }
+      
       }
       img {
         width: 220px;

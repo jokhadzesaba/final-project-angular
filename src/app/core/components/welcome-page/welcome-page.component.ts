@@ -27,12 +27,9 @@ export class WelcomePageComponent implements OnInit {
   displayItems() {
     let index = 0;
     const itemsInterval = interval(2500);
-
     itemsInterval.subscribe(() => {
       this.currentItem = this.urls[index];
       index = (index + 1) % this.urls.length;
-      console.log(this.urls[index]);
-
       this.cd.detectChanges();
     });
   }

@@ -5,6 +5,7 @@ import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { RegistrationUpdateDeleteEditService } from '../../sharedServices/registration-update-delete-edit.service';
 import { matchPassword } from '../../user/components/user-registration/user-registration.component';
 import { SharedService } from '../../sharedServices/shared.service';
+import { Coach } from 'src/app/shared/interfaces/coach';
 
 @Component({
   selector: 'app-coach-registration',
@@ -40,7 +41,7 @@ export class CoachRegistrationComponent {
   nickName = this.form.get('nickName') as FormControl;
 
   public submit() {
-    const coach = {
+    const coach:Coach = {
       nickName: this.form.getRawValue().nickName!,
       email: this.form.getRawValue().email!,
       password: this.form.getRawValue().password!,
@@ -50,12 +51,16 @@ export class CoachRegistrationComponent {
       orm: '',
       bmr: '',
       status: 'coach',
+      registrationDate:new Date(),
+      totalLikes: 0,
       plans: [
         {
+          creationDate:new Date(),
           name: 'placeholder',
           description: 'placeholder',
           planId: 'placeholder',
           creatorId: "-1",
+          planImg:"",
           exercises: [
             {
               bodyPart: 'idk',
@@ -69,7 +74,7 @@ export class CoachRegistrationComponent {
           ],
         },
       ],
-      requests: [{ description: 'placeholder', userId: -1, id: 'placeholder' }],
+      requests: [{ description: 'placeholder', userId: "-1", requestId: 'placeholder' }],
     };
     this.service.addUserOrCoaches(coach, 'coaches');
   }

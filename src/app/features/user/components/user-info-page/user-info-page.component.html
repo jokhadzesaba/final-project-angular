@@ -45,12 +45,12 @@
     >
       <div class="plan-actions">
         <div class="img-placeholder">
-          <p>Name: {{ requestedPlan.planName }}</p>
+          <p>Name: {{ requestedPlan.name }}</p>
           <img src="../../../../../assets/exer1.jpg" alt="img" />
         </div>
         <div>
-          <button>See more</button>
-          <button>Delete</button>
+          <button (click)="navigate(requestedPlan)">See more</button>
+          <button (click)="deleteRequestedPlan(requestedPlan)">Delete</button>
         </div>
       </div>
     </div>

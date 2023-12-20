@@ -19,6 +19,19 @@ export class AllcoachComponent implements OnInit {
   public allCoachValues!: Coach[];
   public allCoachKeys!: string[];
   public showPlanRequestForm: boolean = false;
+  public selectedSortOption: string = '';
+
+  sortCoaches() {
+    if (this.selectedSortOption === 'popular') {
+      this.sortBy('ascending');
+    } else if (this.selectedSortOption === 'unpopular') {
+      this.sortBy('descending');
+    } else if (this.selectedSortOption === 'newest') {
+      this.sortBy('recent');
+    } else if (this.selectedSortOption === 'oldest') {
+      this.sortBy('oldest');
+    }
+  }
   constructor(
     private service: RegistrationUpdateDeleteEditService,
     private router: Router,
@@ -44,8 +57,34 @@ export class AllcoachComponent implements OnInit {
       this.allCoachKeys = Object.keys(coaches);
       this.cd.detectChanges();
     });
-    this.service.loadCoaches().subscribe((coach) => {
-
+  }
+  sortBy(order: 'ascending' | 'descending' | 'recent' | 'oldest') {
+    this.service.loadCoaches().subscribe((coaches: Coach[]) => {
+      let sortedCoaches: [string, Coach][];
+      if (order === 'ascending') {
+        sortedCoaches = Object.entries(coaches).sort(
+          ([, coachA], [, coachB]) => coachB.totalLikes! - coachA.totalLikes!
+        );
+      } else if (order === 'descending') {
+        sortedCoaches = Object.entries(coaches).sort(
+          ([, coachA], [, coachB]) => coachA.totalLikes! - coachB.totalLikes!
+        );
+      } else if (order === 'recent') {
+        sortedCoaches = Object.entries(coaches).sort(
+          ([, coachA], [, coachB]) =>
+            new Date(coachA.registrationDate).getTime() -
+            new Date(coachB.registrationDate).getTime()
+        );
+      } else {
+        sortedCoaches = Object.entries(coaches).sort(
+          ([, coachA], [, coachB]) =>
+            new Date(coachB.registrationDate).getTime() -
+            new Date(coachA.registrationDate).getTime()
+        );
+      }
+      this.allCoachKeys = sortedCoaches.map(([key]) => key);
+      this.allCoachValues = sortedCoaches.map(([, value]) => value);
+      this.cd.detectChanges();
     });
   }
   navigateToCoach(coachId: string) {
@@ -60,5 +99,8 @@ export class AllcoachComponent implements OnInit {
       requestId
     );
     this.showPlanRequestForm = false;
+  }
+  convertTime(date: Date): String {
+    return this.sharedService.convertTime(date);
   }
 }

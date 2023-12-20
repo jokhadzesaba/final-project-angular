@@ -9,11 +9,11 @@
       "nickName": "idkmate",
       "orm": "",
       "password": "123123123",
-      "profileImgUrl":"assets/profile-pictures/default.png",
       "plans": [
         {
           "creatorId": -1,
           "description": "placeholder",
+          "creationDate": "2023-08-19T18:20:17.287Z",
           "exercises": [
             {
               "bodyPart": "idk",
@@ -25,28 +25,13 @@
               "target": "idk"
             }
           ],
+          "likes": 0,
           "name": "placeholder",
           "planId": "placeholder"
         },
         {
           "creatorId": "Xt14LVOt",
-          "description": "dudepls",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "selected": false,
-              "target": "abs"
-            }
-          ],
-          "name": "dude",
-          "planId": "BH5l0"
-        },
-        {
-          "creatorId": "Xt14LVOt",
+          "creationDate": "2023-06-19T18:20:17.287Z",
           "description": "lkasd",
           "exercises": [
             {
@@ -68,12 +53,14 @@
               "target": "abs"
             }
           ],
+          "likes": 6,
           "name": "midibijo",
           "planId": "ZTF7f"
         },
         {
           "creatorId": "Xt14LVOt",
           "description": "slice",
+          "creationDate": "2023-04-19T18:20:17.287Z",
           "exercises": [
             {
               "bodyPart": "waist",
@@ -85,11 +72,13 @@
               "target": "abs"
             }
           ],
+          "likes": 4,
           "name": "slice",
           "planId": "4ziF0"
         },
         {
           "creatorId": "Xt14LVOt",
+          "creationDate": "2023-05-19T18:20:17.287Z",
           "description": "do not you dare to fuck this up",
           "exercises": [
             {
@@ -111,10 +100,13 @@
               "target": "abs"
             }
           ],
+          "likes": 3,
           "name": "it is working mate",
           "planId": "pRong"
         }
       ],
+      "profileImgUrl": "assets/profile-pictures/panda.png",
+      "registrationDate": "2023-08-19T18:20:17.287Z",
       "requests": [
         {
           "description": "placeholder",
@@ -125,10 +117,16 @@
           "description": "chest exercises",
           "requestId": "Dct4Sb",
           "userId": "-NlEPZ2WnDwjFMXH2SAr"
+        },
+        {
+          "description": "idkmate",
+          "requestId": "wEQfMH",
+          "userId": "-NlEPZ2WnDwjFMXH2SAr"
         }
       ],
       "salary": "",
-      "status": "coach"
+      "status": "coach",
+      "totalLikes": 13
     },
     "-NlFR2LPB0KuxvEjQooi": {
       "age": "",
@@ -139,11 +137,11 @@
       "nickName": "coach2",
       "orm": "",
       "password": "123123123",
-      "profileImgUrl":"assets/profile-pictures/default.png",
       "plans": [
         {
           "creatorId": -1,
           "description": "placeholder",
+          "creationDate": "2023-10-19T18:20:17.287Z",
           "exercises": [
             {
               "bodyPart": "idk",
@@ -155,12 +153,14 @@
               "target": "idk"
             }
           ],
+          "likes": 8,
           "name": "placeholder",
           "planId": "placeholder"
         },
         {
           "creatorId": "sz3sVQQG",
           "description": "recomended: each exercise 10x times ",
+          "creationDate": "2023-11-19T18:20:17.287Z",
           "exercises": [
             {
               "bodyPart": "waist",
@@ -217,12 +217,14 @@
               "target": "abs"
             }
           ],
+          "likes": 0,
           "name": "abs training",
           "planId": "llcXe"
         },
         {
           "creatorId": "sz3sVQQG",
           "description": "10x each exercise",
+          "creationDate": "2023-01-19T18:20:17.287Z",
           "exercises": [
             {
               "bodyPart": "chest",
@@ -270,10 +272,13 @@
               "target": "pectorals"
             }
           ],
+          "likes": 7,
           "name": "chest training",
           "planId": "CeLdb"
         }
       ],
+      "profileImgUrl": "assets/profile-pictures/default.png",
+      "registrationDate": "2023-10-19T18:20:17.287Z",
       "requests": [
         {
           "description": "placeholder",
@@ -282,7 +287,8 @@
         }
       ],
       "salary": "",
-      "status": "coach"
+      "status": "coach",
+      "totalLikes": 15
     },
     "-NlFRbH4DJwkjnl84uuE": {
       "age": "",
@@ -293,11 +299,11 @@
       "nickName": "coach3",
       "orm": "",
       "password": "123123123",
-      "profileImgUrl":"assets/profile-pictures/default.png",
       "plans": [
         {
           "creatorId": -1,
           "description": "placeholder",
+          "creationDate": "2023-08-19T18:20:17.287Z",
           "exercises": [
             {
               "bodyPart": "idk",
@@ -309,12 +315,14 @@
               "target": "idk"
             }
           ],
+          "likes": 4,
           "name": "placeholder",
           "planId": "placeholder"
         },
         {
           "creatorId": "SutkXiaH",
           "description": "do no skip leg days dude",
+          "creationDate": "2023-07-19T18:20:17.287Z",
           "exercises": [
             {
               "bodyPart": "upper legs",
@@ -362,11 +370,13 @@
               "target": "glutes"
             }
           ],
+          "likes": 1,
           "name": "upperlegs training",
           "planId": "vLfBS"
         },
         {
           "creatorId": "SutkXiaH",
+          "creationDate": "2023-03-19T18:20:17.287Z",
           "description": "necktraining",
           "exercises": [
             {
@@ -388,10 +398,13 @@
               "target": "levator scapulae"
             }
           ],
+          "likes": 16,
           "name": "neck",
           "planId": "UGNiq"
         }
       ],
+      "profileImgUrl": "assets/profile-pictures/default.png",
+      "registrationDate": "2023-09-19T18:20:17.287Z",
       "requests": [
         {
           "description": "placeholder",
@@ -400,43 +413,8 @@
         }
       ],
       "salary": "",
-      "status": "coach"
-    },
-    "-NlYRReue8mxhl9AsEfb": {
-      "bmi": "",
-      "bmr": "",
-      "email": "",
-      "id": "W5MNsWvP",
-      "nickName": "",
-      "orm": "",
-      "password": "",
-      "plans": [
-        {
-          "creatorId": -1,
-          "description": "placeholder",
-          "exercises": [
-            {
-              "bodyPart": "idk",
-              "equipment": "`idk",
-              "gifUrl": "idk",
-              "id": -1,
-              "name": "idk",
-              "selected": false,
-              "target": "idk"
-            }
-          ],
-          "name": "placeholder",
-          "planId": "placeholder"
-        }
-      ],
-      "requests": [
-        {
-          "description": "placeholder",
-          "id": "placeholder",
-          "userId": -1
-        }
-      ],
-      "status": "coach"
+      "status": "coach",
+      "totalLikes": 21
     }
   },
   "exercises": {
@@ -3782,15 +3760,15 @@
     ]
   },
   "users": {
-    "-NlEPZ2WnDwjFMXH2SAr": {
-      "age": "",
-      "bmi": "27.8",
+    "-Nm31rrCTIIyt8SKYysO": {
+      "bmi": "",
       "bmr": "",
       "email": "saba1@gmail.com",
-      "id": "2IZdtxoA",
+      "id": "9uODT1ac",
       "likedPlans": [
         {
-          "creatorId": -1,
+          "creationDate": "2023-12-19T21:46:37.341Z",
+          "creatorId": "-1",
           "description": "placeholder",
           "exercises": [
             {
@@ -3804,138 +3782,15 @@
           ],
           "name": "placeholder",
           "planId": "placeholder"
-        },
-        {
-          "creatorId": "Xt14LVOt",
-          "description": "vau",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "selected": false,
-              "target": "abs"
-            }
-          ],
-          "name": "vau",
-          "planId": "p83Rs"
-        },
-        {
-          "creatorId": "Xt14LVOt",
-          "description": "anu",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "selected": false,
-              "target": "abs"
-            }
-          ],
-          "name": "anuu",
-          "planId": "hMKgM"
-        },
-        {
-          "creatorId": "Xt14LVOt",
-          "description": "lkasd",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
-              "selected": false,
-              "target": "abs"
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "selected": false,
-              "target": "abs"
-            }
-          ],
-          "name": "midibijo",
-          "planId": "ZTF7f"
-        },
-        {
-          "creatorId": "sz3sVQQG",
-          "description": "recomended: each exercise 10x times ",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_1.gif",
-              "id": 1,
-              "name": "3/4 sit-up",
-              "selected": false,
-              "target": "abs"
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_3.gif",
-              "id": 3,
-              "name": "air bike",
-              "selected": false,
-              "target": "abs"
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_5.gif",
-              "id": 5,
-              "name": "alternate heel touchers",
-              "selected": false,
-              "target": "abs"
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_13.gif",
-              "id": 13,
-              "name": "arms overhead full sit-up (male)",
-              "selected": false,
-              "target": "abs"
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "assisted",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_30.gif",
-              "id": 30,
-              "name": "assisted sit-up",
-              "selected": false,
-              "target": "abs"
-            },
-            {
-              "bodyPart": "waist",
-              "equipment": "band",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_49.gif",
-              "id": 49,
-              "name": "band bicycle crunch",
-              "selected": false,
-              "target": "abs"
-            }
-          ],
-          "name": "abs training",
-          "planId": "llcXe"
         }
       ],
-      "name": "saba1",
-      "nickName": "idkmate",
+      "nickName": "sogeking",
       "orm": "",
       "password": "123123123",
-      "profileImgUrl":"assets/profile-pictures/default.png",
       "plans": [
         {
-          "creatorId": -1,
+          "creationDate": "2023-12-19T21:46:37.341Z",
+          "creatorId": "-1",
           "description": "placeholder",
           "exercises": [
             {
@@ -3949,29 +3804,13 @@
           ],
           "name": "placeholder",
           "planId": "placeholder"
-        },
-        {
-          "creatorId": "2IZdtxoA",
-          "description": "mushaobs",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "selected": false,
-              "target": "abs"
-            }
-          ],
-          "name": "mushaobs",
-          "planId": "DYp4W"
         }
       ],
+      "profileImgUrl": "assets/profile-pictures/default.png",
+      "registrationDate": "2023-12-19T21:46:37.341Z",
       "requestedPlans": [
         {
-          "coachId": -1,
-          "coachName": "placeholder",
+          "coachId": "-1",
           "description": "placeholder",
           "exercises": [
             {
@@ -3983,26 +3822,8 @@
               "target": "idk"
             }
           ],
-          "nickName": "placeholder",
-          "planId": "placeholder",
-          "planName": "placeholder"
-        },
-        {
-          "coachId": "Xt14LVOt",
-          "description": "10jer",
-          "exercises": [
-            {
-              "bodyPart": "waist",
-              "equipment": "body weight",
-              "gifUrl": "https://zyla-marketplace.s3.amazonaws.com/api-exercise/exercise_2.gif",
-              "id": 2,
-              "name": "45° side bend",
-              "selected": false,
-              "target": "abs"
-            }
-          ],
-          "planId": "Dct4Sb",
-          "planName": "dagendzreva axla"
+          "name": "placeholder",
+          "planId": "placeholder"
         }
       ],
       "status": "user"
