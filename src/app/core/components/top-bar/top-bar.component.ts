@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject} from 'rxjs';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
+import { SharedService } from 'src/app/features/sharedServices/shared.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
 import { User } from 'src/app/shared/interfaces/user';
 
@@ -13,8 +14,10 @@ import { User } from 'src/app/shared/interfaces/user';
 export class TopBarComponent implements OnInit {
   public loggedStatus? = '';
   public userOrCoach?: User | Coach;
+  public images: string[] = []
   public menu = new BehaviorSubject<boolean>(false);
   constructor(
+    private sharedService:SharedService,
     private service: RegistrationUpdateDeleteEditService,
     private router: Router
   ) {}
@@ -22,6 +25,7 @@ export class TopBarComponent implements OnInit {
     this.service.loggedUser.subscribe((res) => {
       this.loggedStatus = res.status;
       this.userOrCoach = res;
+      this.images = this.sharedService.topBarFooterImg
     });
   }
   showMenu() {

@@ -25,7 +25,12 @@ select{
       display: flex;
       flex-direction: column;
       text-align: center;
+      background-image: url(../../../assets/exer3.jpg);
+      background-size:contain;
       gap: 20px;
+      border-radius: 4px;
+      height: 300px;
+      margin-bottom: 20px;
       >p:first-child{
         margin-top: 30px;
       }

@@ -3,7 +3,7 @@
     <div>
       <img
         (click)="showMenu()"
-        src="../../../../assets/menuicon.png"
+        [src]="images[4]"
         alt="img"
       />
       <div *ngIf="menu | async" class="dropdown-content">
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div>
-      <img src="../../../../assets/logo.jpg" alt="img" />
+      <img [src]="images[3]" alt="img" />
     </div>
     <div class="flex h-centered">
       <button *ngIf="loggedStatus === 'guest'" routerLink="/login/login">
@@ -39,7 +39,7 @@
   </div>
   <div class="navigation-profile flex">
     <div class="navigation flex">
-      <img routerLink="/welcome" src="../../../../assets/logo.jpg" alt="img" />
+      <img routerLink="/welcome" [src]="images[3]" alt="img" />
       <div>
         <button routerLink="/home">Home</button>
       </div>

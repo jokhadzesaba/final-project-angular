@@ -29,6 +29,13 @@ export class SharedService {
     'assets/profile-pictures/woman1.png',
     'assets/profile-pictures/woman2.png',
   ]
+  public topBarFooterImg:string[] = [
+    'assets/fbLogo.jpg',
+    'assets/instaLogo.avif',
+    'assets/linkedinLogo.png',
+    'assets/logo.jpg',
+    'assets/menuicon.png'
+  ]
   makingplanForUser(value: boolean): void {
     this.makingPlanForUser.next(value);
   }
