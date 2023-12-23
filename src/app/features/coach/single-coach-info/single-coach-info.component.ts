@@ -27,6 +27,7 @@ export class SingleCoachInfoComponent implements OnInit {
   public images?: string[];
   public selectedImage?: string = '';
   public changingImage:boolean = false
+  public img:string = 'assets/exer3.jpg'
   constructor(
     private service: RegistrationUpdateDeleteEditService,
     private sanitizer: DomSanitizer,

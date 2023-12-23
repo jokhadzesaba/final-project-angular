@@ -1,27 +1,71 @@
-  <div class="container">
-    <div class="registration form">
-      <header>Signup</header>
-      <form [formGroup]="form">
+<div class="container">
+  <div class="registration form">
+    <header>Signup</header>
+    <form [formGroup]="form">
+      <div class="inputs flex column">
         <input formControlName="nickName" placeholder="Enter your nickName " />
+        <div
+          *ngIf="form.get('nickName')?.invalid && form.get('nickName')?.touched"
+        >
+          <div class="message" *ngIf="form.get('nickName')?.hasError('required')">
+            {{ validationMessages.nickName.required }}
+          </div>
+        </div>
+      </div>
+      <div class="inputs flex column">
         <input formControlName="email" placeholder="Enter your email " />
+        <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+          <div class="message" *ngIf="form.get('email')?.hasError('required')">
+            {{ validationMessages.nickName.required }}
+          </div>
+          <div class="message" *ngIf="form.get('email')?.hasError('EmailRepetition')">
+            {{ validationMessages.email.EmailRepetition }}
+          </div>
+          <div class="message" *ngIf="form.get('email')?.hasError('email')">
+            {{ validationMessages.email.email }}
+          </div>
+        </div>
+      </div>
+      <div class="inputs flex column">
         <input
           type="password"
           formControlName="password"
           placeholder="Enter your password"
         />
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+          <div class="message" *ngIf="form.get('password')?.hasError('required')">
+            {{ validationMessages.password.required }}
+          </div>
+        </div>
+      </div>
+      <div class="inputs flex column">
         <input
           type="password"
           formControlName="confirmPassword"
           placeholder="Enter your confirmPassword"
         />
-        <button [disabled]="form.invalid" (click)="submit()" routerLink="/login/login">Registrate As Coach</button>
-      </form>
-      <div class="signup">
-        <span class="signup"
-          >Already have an account?
-          <label routerLink="/login" for="check">Login</label>
-        </span>
+        <div *ngIf="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched">
+          <div class="message" *ngIf="form.get('confirmPassword')?.hasError('required')">
+            {{ validationMessages.confirmPassword.required }}
+          </div>
+          <div class="message" *ngIf="form.get('confirmPassword')?.hasError('passwordMatch')">
+            {{ validationMessages.confirmPassword.passwordMatch }}
+          </div>
+        </div>
       </div>
+      <button
+        [disabled]="form.invalid"
+        (click)="submit()"
+        routerLink="/login/login"
+      >
+        Registrate As Coach
+      </button>
+    </form>
+    <div class="signup">
+      <span class="signup"
+        >Already have an account?
+        <label routerLink="/login" for="check">Login</label>
+      </span>
     </div>
   </div>
-  
+</div>

@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { RegistrationUpdateDeleteEditService } from '../../sharedServices/registration-update-delete-edit.service';
-import { matchPassword } from '../../user/components/user-registration/user-registration.component';
+import { CostumValidators} from 'src/app/shared/validators';
 import { SharedService } from '../../sharedServices/shared.service';
 import { Coach } from 'src/app/shared/interfaces/coach';
 
@@ -14,15 +14,34 @@ import { Coach } from 'src/app/shared/interfaces/coach';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoachRegistrationComponent {
+  validationMessages = {
+    nickName: {
+      required: 'Nickname is required.'
+    },
+    email: {
+      required: 'Email is required.',
+      email: 'Please enter a valid email address.',
+      EmailRepetition: 'This email is already in use.'
+    },
+    password: {
+      required: 'Password is required.'
+    },
+    confirmPassword: {
+      required: 'Confirm Password is required.',
+      passwordMatch: 'Passwords do not match.'
+    }
+  };
   constructor(
     private fb: FormBuilder,
     private service: RegistrationUpdateDeleteEditService,
-    private sharedService:SharedService
+    private sharedService:SharedService,
+    private costumValidators:CostumValidators
 
   ) {}
+
   public form = this.fb.group(
     {
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email],[this.costumValidators.EmailRepetition()]],
       password: [
         '',
         [
@@ -34,7 +53,7 @@ export class CoachRegistrationComponent {
       confirmPassword: ['', [Validators.required]],
       nickName: ['', [Validators.required]],
     },
-    { validators: matchPassword }
+    { validators: this.costumValidators.matchPassword() },
   );
   password = this.form.get('password') as FormControl;
   email = this.form.get('email') as FormControl;

@@ -35,7 +35,7 @@
     </div>
   </div>
   <h2 *ngIf="coach.id === loggedId">Requested Plans:</h2>
-  <div *ngIf="coach.requests && coach.requests.length > 1 && coach.id === loggedId" class="plans flex column ">
+  <div *ngIf="coach.requests && coach.requests.length > 1" class="requested plans flex column ">
     <div
       *ngFor="let request of coach.requests | slice : 1"
       class="plan-card centered"
@@ -44,14 +44,14 @@
         <p>Description: {{ request.description }}</p>
         <div class="flex">
           <button
-            *ngIf="coach.id === loggedId"
+            
             (click)="makePlan(request.userId, request.requestId)"
           >
             Make Plan For This User
           </button>
           <button>Delete</button>
           <button
-            *ngIf="coach.id === loggedId"
+            
             (click)="deleteRequest(request.requestId)"
           >
             Delete Request
@@ -66,7 +66,7 @@
       <div class="plan-actions column flex h-centered">
         <div class="img-placeholder">
           <p>Des: {{ plan.description | slice : 1 : 100 }}</p>
-          <img src="../../../../../assets/exer1.jpg" alt="img" />
+          <img [src]="img" alt="img" />
         </div>
         <div>
           <button (click)="showPlan(plan)">

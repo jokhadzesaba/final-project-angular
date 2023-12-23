@@ -1,26 +1,14 @@
 
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   Validators,
   FormControl,
-  ValidatorFn,
-  AbstractControl,
-  ValidationErrors,
 } from '@angular/forms';
 import { RegistrationUpdateDeleteEditService } from 'src/app/features/sharedServices/registration-update-delete-edit.service';
 import { SharedService } from 'src/app/features/sharedServices/shared.service';
 import { User } from 'src/app/shared/interfaces/user';
-export const matchPassword: ValidatorFn = (
-  control: AbstractControl
-): ValidationErrors | null => {
-  const password = control.get('password');
-  const confirmPassword = control.get('confirmPassword');
-  if (password?.value !== confirmPassword?.value) {
-    return { passwordMatch: true };
-  }
-  return null;
-};
+import { CostumValidators } from 'src/app/shared/validators';
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
@@ -28,14 +16,32 @@ export const matchPassword: ValidatorFn = (
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserRegistrationComponent {
+  validationMessages = {
+    nickName: {
+      required: 'Nickname is required.'
+    },
+    email: {
+      required: 'Email is required.',
+      email: 'Please enter a valid email address.',
+      EmailRepetition: 'This email is already in use.'
+    },
+    password: {
+      required: 'Password is required.'
+    },
+    confirmPassword: {
+      required: 'Confirm Password is required.',
+      passwordMatch: 'Passwords do not match.'
+    }
+  };
   constructor(
     private fb: FormBuilder,
     private service: RegistrationUpdateDeleteEditService,
-    private sharedService:SharedService
+    private sharedService:SharedService,
+    private costumValidators: CostumValidators
   ) {}
   public form = this.fb.group(
     {
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email],[this.costumValidators.EmailRepetition()]],
       password: [
         '',
         [
@@ -47,7 +53,8 @@ export class UserRegistrationComponent {
       confirmPassword: ['', [Validators.required]],
       nickName: ['', [Validators.required, Validators.minLength(4)]],
     },
-    { validators: matchPassword }
+    { validators: this.costumValidators.matchPassword() },
+    
   );
   password = this.form.get('password') as FormControl;
   email = this.form.get('email') as FormControl;

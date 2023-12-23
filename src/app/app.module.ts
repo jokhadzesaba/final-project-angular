@@ -15,6 +15,7 @@ import { MainModule } from './features/main-page/main.module';
 import { ErrorPageComponent } from './shared/sharedComponent/error-page/error-page.component';
 import { SharedService } from './features/sharedServices/shared.service';
 import { SinglePageModule } from './features/single-plan-page/single-plan.module';
+import { CostumValidators } from './shared/validators';
 
 
 
@@ -43,7 +44,7 @@ import { SinglePageModule } from './features/single-plan-page/single-plan.module
     SinglePageModule,
     
   ],
-  providers: [SharedService],
+  providers: [SharedService,CostumValidators],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
