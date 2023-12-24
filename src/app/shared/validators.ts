@@ -1,35 +1,45 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RegistrationUpdateDeleteEditService } from '../features/sharedServices/registration-update-delete-edit.service';
-import { forkJoin, map } from 'rxjs';
+import { Observable, forkJoin, map } from 'rxjs';
 import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class CostumValidators {
+  validationMessages = {
+    nickName: {
+      required: 'Nickname is required.',
+    },
+    email: {
+      required: 'Email is required.',
+      email: 'Please enter a valid email address.',
+      EmailRepetition: 'This email is already in use.',
+    },
+    password: {
+      required: 'Password is required.',
+    },
+    confirmPassword: {
+      required: 'Confirm Password is required.',
+      passwordMatch: 'Passwords do not match.',
+    },
+  };
   constructor(private service: RegistrationUpdateDeleteEditService) {}
-  matchPassword(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const password = control.get('password');
-      const confirmPassword = control.get('confirmPassword');
-      if (password?.value !== confirmPassword?.value) {
-        return { passwordMatch: true };
-      }
-      return null;
-    };
-  } 
-  EmailRepetition(): ValidatorFn {
-    return (control: AbstractControl) => {
-      return forkJoin([
-        this.service.loadUsers(),
-        this.service.loadCoaches()
-      ]).pipe(
-        map(([users, coaches]) => {
-          const userEmail = control.value;
-          const isEmailRepetitive = users.some(user => user.email === userEmail) ||
-                                    coaches.some(coach => coach.email === userEmail);
-          return isEmailRepetitive ? { EmailRepetition: true } : null;
-        })
-      );
-    };
+  EmailRepetition(email: string) {
+    return forkJoin([
+      this.service.loadUsers(),
+      this.service.loadCoaches(),
+    ]).pipe(
+      map(([users, coaches]) => {
+        const usersData = Object.values(users);
+        const coachData = Object.values(coaches);
+        const isEmailRepetitive =
+          usersData.some((user) => user.email === email) ||
+          coachData.some((coach) => coach.email === email);
+        if (isEmailRepetitive) {
+          alert('this email is already registered');
+          return false;
+        } else {
+          return true;
+        }
+      })
+    );
   }
 }
-

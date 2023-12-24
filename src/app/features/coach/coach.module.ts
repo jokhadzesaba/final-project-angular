@@ -6,12 +6,13 @@ import { AllcoachComponent } from './allcoach/allcoach.component';
 import { SingleCoachInfoComponent } from './single-coach-info/single-coach-info.component';
 import { CoachRegistrationComponent } from './coach-registration/coach-registration.component';
 import { CoachPageGuard } from './coach-page.guard';
+import { Router, RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [AllcoachComponent,SingleCoachInfoComponent, CoachRegistrationComponent],
-  imports: [ReactiveFormsModule, CommonModule, CoachRoutingModule,FormsModule],
+  imports: [ReactiveFormsModule, CommonModule, CoachRoutingModule,FormsModule,RouterModule],
   providers: [CoachPageGuard],
   exports: [],
 })

@@ -2,29 +2,74 @@
   <div class="registration form">
     <header>Signup</header>
     <form [formGroup]="form">
-      <input
-        formControlName="email"
-        placeholder="Enter your email(required) "
-      />
-
-      <input
-        formControlName="nickName"
-        placeholder="Enter your nickName(required) "
-      />
-      <input
-        type="password"
-        formControlName="password"
-        placeholder="Enter your password(required)"
-      />
-      <input
-        type="password"
-        formControlName="confirmPassword"
-        placeholder="Enter your confirmPassword(required)"
-      />
-
-      <button  (click)="submit()" routerLink="/login">
-        Registrate As User
-      </button>
+      <div class="inputs flex column">
+        <input formControlName="nickName" placeholder="nickName " />
+        <div
+          *ngIf="form.get('nickName')?.invalid && form.get('nickName')?.touched"
+        >
+          <div
+            class="message"
+            *ngIf="form.get('nickName')?.hasError('required')"
+          >
+            {{ costumValidators.validationMessages.nickName.required }}
+          </div>
+        </div>
+      </div>
+      <div class="inputs flex column">
+        <input formControlName="email" placeholder="email " />
+        <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+          <div class="message" *ngIf="form.get('email')?.hasError('required')">
+            {{ costumValidators.validationMessages.email.required }}
+          </div>
+          <div
+            class="message"
+            *ngIf="form.get('email')?.hasError('EmailRepetition')"
+          >
+            {{ costumValidators.validationMessages.email.EmailRepetition }}
+          </div>
+          <div class="message" *ngIf="form.get('email')?.hasError('email')">
+            {{ costumValidators.validationMessages.email.email }}
+          </div>
+        </div>
+      </div>
+      <div class="inputs flex column">
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="password"
+        />
+        <div
+          *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+        >
+          <div
+            class="message"
+            *ngIf="form.get('password')?.hasError('required')"
+          >
+            {{ costumValidators.validationMessages.password.required }}
+          </div>
+        </div>
+      </div>
+      <div class="inputs flex column">
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="confirmPassword"
+        />
+        <div
+          *ngIf="
+            form.get('confirmPassword')?.invalid &&
+            form.get('confirmPassword')?.touched
+          "
+        >
+          <div
+            class="message"
+            *ngIf="form.get('confirmPassword')?.hasError('required')"
+          >
+            {{ costumValidators.validationMessages.confirmPassword.required }}
+          </div>
+        </div>
+      </div>
+      <button (click)="submit()" routerLink="/login">Registrate As User</button>
     </form>
     <div class="signup">
       <span class="signup"

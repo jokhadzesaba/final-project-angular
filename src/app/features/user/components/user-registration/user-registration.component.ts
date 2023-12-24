@@ -16,32 +16,15 @@ import { CostumValidators } from 'src/app/shared/validators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserRegistrationComponent {
-  validationMessages = {
-    nickName: {
-      required: 'Nickname is required.'
-    },
-    email: {
-      required: 'Email is required.',
-      email: 'Please enter a valid email address.',
-      EmailRepetition: 'This email is already in use.'
-    },
-    password: {
-      required: 'Password is required.'
-    },
-    confirmPassword: {
-      required: 'Confirm Password is required.',
-      passwordMatch: 'Passwords do not match.'
-    }
-  };
   constructor(
     private fb: FormBuilder,
     private service: RegistrationUpdateDeleteEditService,
     private sharedService:SharedService,
-    private costumValidators: CostumValidators
+    public costumValidators: CostumValidators
   ) {}
   public form = this.fb.group(
     {
-      email: ['', [Validators.required, Validators.email],[this.costumValidators.EmailRepetition()]],
+      email: ['', [Validators.required, Validators.email]],
       password: [
         '',
         [
@@ -53,7 +36,7 @@ export class UserRegistrationComponent {
       confirmPassword: ['', [Validators.required]],
       nickName: ['', [Validators.required, Validators.minLength(4)]],
     },
-    { validators: this.costumValidators.matchPassword() },
+    {  },
     
   );
   password = this.form.get('password') as FormControl;
