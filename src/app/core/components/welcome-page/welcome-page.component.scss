@@ -1,42 +1,56 @@
 @use "src/styles.scss" as m;
-.container{
-
-    width: 100%;
-    height: 500px;
-    background-color: rgb(0, 0, 0);
-    position: relative;
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  > div {
     z-index: 1;
-    img{
-        z-index: -1;
+    background-color: black;
+    img {
+      z-index: -1;
+      width: 500px;
+      height: 500px;
     }
-    button{
-        position: absolute;
-        @include m.myButton(100px, 40px, rgb(32, 32, 168), white, 16px, 5px);
-        top: 300px;
-        left: 25%;
-        z-index: -1;
+    button {
+      position: absolute;
+      @include m.myButton(100px, 40px, rgb(32, 32, 168), white, 16px, 5px);
+      top: 300px;
+      left: 25%;
+      z-index: 1;
     }
-    p{
-        position: absolute;
-        color: white;
+    p {
+      position: absolute;
+      color: white;
     }
-    >p:first-of-type{
-        top: 10px;
-        left: 25%;
-        font-size: 25px;
-        
+    > p:first-of-type {
+      top: 10px;
+      left: 25%;
+      font-size: 25px;
     }
-    >p:last-of-type{
-        width: 200px;
-        font-size: 18px;
-        line-height: 25px;
-        left: 25%;
-        top:60px
+    > p:last-of-type {
+      width: 200px;
+      font-size: 18px;
+      line-height: 25px;
+      left: 25%;
+      top: 60px;
     }
+  }
 }
 @media screen and (min-width: 320px) and (max-width: 605px) {
-    img{
-        width: 300px;
-        height: 300px;
+  img {
+    width: 300px;
+    height: 300px;
+  }
+}
+@media screen and (min-height: 880px) {
+  .container {
+    > div {
+      height: 800px;
+      img {
+        width: 600px;
+        height: 600px;
+      }
     }
+  }
 }

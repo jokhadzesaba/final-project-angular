@@ -43,6 +43,7 @@ import { CostumValidators } from './shared/validators';
     MainModule,
     SinglePageModule,
     
+    
   ],
   providers: [SharedService,CostumValidators],
   bootstrap: [AppComponent]

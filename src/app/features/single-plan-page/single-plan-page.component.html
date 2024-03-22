@@ -2,7 +2,7 @@
   <ng-container *ngIf="userOrCoach; else loading">
     <div class="card">
       <h4>Plan by: {{ userOrCoach.nickName }}</h4>
-      <p>userOrCoach Email: {{ userOrCoach.email }}</p>
+      <p>Email: {{ userOrCoach.email }}</p>
     </div>
 
     <div *ngIf="plan" class="card">
@@ -17,9 +17,12 @@
     </div>
   </ng-container>
 
-  <ng-template  #loading>
+  <ng-template #loading>
     <div *ngIf="loadingError === true">
-      <h1>if you cannot see info of this plan it might be deleted by userOrCoach itself.</h1>
+      <h1>
+        if you cannot see info of this plan it might be deleted by userOrCoach
+        itself.
+      </h1>
     </div>
   </ng-template>
 </div>
