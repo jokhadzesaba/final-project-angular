@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExercisesComponent } from './features/exercises/exercises.component';
 import { TopBarComponent } from './core/components/top-bar/top-bar.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CoreModule } from './core/components/core.module';
 import { CalculatorModule } from './features/calculators/calculate.module';
 import { CoachModule } from './features/coach/coach.module';
@@ -45,7 +45,7 @@ import { CostumValidators } from './shared/validators';
     
     
   ],
-  providers: [SharedService,CostumValidators],
+  providers: [SharedService,CostumValidators,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
