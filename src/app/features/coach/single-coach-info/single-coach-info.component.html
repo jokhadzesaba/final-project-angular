@@ -32,10 +32,15 @@
       <button routerLink="/calculate/one-rep-max" *ngIf="coach.orm === ''">
         calculate Your One-Rep-Max
       </button>
+      <button (click)="requesting()">Send Plan Request</button>
+      <div *ngIf="requestingPlan">
+        <textarea  [(ngModel)] = 'desc'></textarea>
+        <button (click)="sendRequest()">Send</button>
+      </div>
     </div>
   </div>
   <h2 *ngIf="coach.id === loggedId">Requested Plans:</h2>
-  <div *ngIf="coach.requests && coach.requests.length > 1" class="requested plans flex column ">
+  <div *ngIf="coach.requests && coach.requests.length > 1 && coach.id === loggedId" class="requested plans flex column ">
     <div
       *ngFor="let request of coach.requests | slice : 1"
       class="plan-card centered"

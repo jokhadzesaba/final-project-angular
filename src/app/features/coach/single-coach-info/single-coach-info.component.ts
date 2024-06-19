@@ -26,8 +26,10 @@ export class SingleCoachInfoComponent implements OnInit {
   public selectedPlan!: Plan | null;
   public images?: string[];
   public selectedImage?: string = '';
-  public changingImage:boolean = false
-  public img:string = 'assets/exer3.jpg'
+  public desc = '';
+  public requestingPlan = false;
+  public changingImage: boolean = false;
+  public img: string = 'assets/exer3.jpg';
   constructor(
     private service: RegistrationUpdateDeleteEditService,
     private sanitizer: DomSanitizer,
@@ -86,7 +88,7 @@ export class SingleCoachInfoComponent implements OnInit {
   likePlan(plan: Plan) {
     this.service.likePlan(plan, this.coach.id).subscribe(() => {
       this.sharedService.likedPlans.push(plan.planId);
-      this.cd.detectChanges()
+      this.cd.detectChanges();
     });
   }
   unlikePlan(plan: Plan) {
@@ -94,26 +96,36 @@ export class SingleCoachInfoComponent implements OnInit {
       this.sharedService.likedPlans = this.sharedService.likedPlans.filter(
         (planid) => planid !== plan.planId
       );
-      this.cd.detectChanges()
+      this.cd.detectChanges();
     });
   }
-  isPlanLiked(plan:Plan){
+  isPlanLiked(plan: Plan) {
     return this.sharedService.likedPlans.some((e) => e === plan.planId);
   }
   showPlan(plan: Plan) {
     this.sharedService.navigateToPlan(plan.planId);
   }
-  change(){
-    this.changingImage = true
+  change() {
+    this.changingImage = true;
   }
-  cancel(){
-    this.changingImage = false
+  cancel() {
+    this.changingImage = false;
   }
   changeProgilePhoto(url: string) {
     this.service.changePrfileImg(url, 'coaches').subscribe(() => {
-      this.changingImage = false
-      this.service.loggedUser.value.profileImgUrl = url
-      this.getExercises()
+      this.changingImage = false;
+      this.service.loggedUser.value.profileImgUrl = url;
+      this.getExercises();
     });
+  }
+  sendRequest() {
+    const id = this.route.snapshot.paramMap.get('id');
+    const requestId = this.sharedService.generateUniqueId(5);
+    this.service.sendPlanRequest(this.coach.id, id!, this.desc, requestId);
+    this.desc = '';
+    this.requestingPlan = false;
+  }
+  requesting() {
+    this.requestingPlan = !this.requestingPlan;
   }
 }

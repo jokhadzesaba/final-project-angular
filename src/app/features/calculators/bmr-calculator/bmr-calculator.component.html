@@ -47,7 +47,7 @@
   </form>
   <div *ngIf="bmr > 0">
     <p>Your BMR is: {{ bmr | number: '1.0-0' }} calories/day</p>
-    <button (click)="addToUserData()" *ngIf="bmr !== null && adding">
+    <button (click)="addToUserData()" *ngIf="bmr !== null && adding && status !== 'guest'">
       Add to Your Info
     </button>
   </div>
