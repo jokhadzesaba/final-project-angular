@@ -1,7 +1,7 @@
 @use "src/styles.scss" as m;
 .container {
   width: 100%;
-  height: 100%;
+  height: 700px;
   background-color: rgb(0, 0, 0);
   position: relative;
   > div {
@@ -18,6 +18,9 @@
       top: 300px;
       left: 25%;
       z-index: 1;
+      &:hover{
+        background-color: rgb(10, 10, 143);
+      }
     }
     p {
       position: absolute;

@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 250px;
+  height: 280px;
   background-color: rgb(29, 28, 28);
   > div:first-child {
     width: 150px;
@@ -35,5 +35,10 @@
         color: white;
       }
     }
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 605px) {
+  .container {
+    height: 320px;
   }
 }
